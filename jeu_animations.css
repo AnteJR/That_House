@@ -1,0 +1,89 @@
+@keyframes upDown {
+    0%      {transform: translateY(0px)}
+    25%     {transform: translateY(-2px)}
+    75%     {transform: translateY(2px)}
+    100%    {transform: translateY(0px)}
+}
+
+@keyframes angryWobble {
+    0%      {transform: translateX(0px) translateY(0px)}
+    25%     {transform: translateX(1px) translateY(1px)}
+    75%     {transform: translateX(-1px) translateY(-1px)}
+    100%    {transform: translateX(0px) translateY(0px)}
+}
+
+@keyframes barWobble {
+    0%      {transform: translateY(0px)}
+    25%     {transform: translateY(-3px)}
+    75%     {transform: translateY(3px)}
+    100%    {transform: translateY(0px)}
+}
+
+@keyframes sWobble {
+    0%      {transform: rotate(0deg) translateY(0px)}
+    25%     {transform: rotate(2deg) translateY(2px)}
+    75%     {transform: rotate(-2deg) translateY(-2px)}
+    100%    {transform: rotate(0deg) translateY(0px)}
+}
+
+@keyframes acceptWobble {
+    0%      {transform: translateX(2px) translateY(0px)}
+    25%     {transform: translateX(0px) translateY(2px)}
+    50%     {transform: translateX(-2px) translateY(0px)}
+    75%     {transform: translateX(0px) translateY(-2px)}
+    100%    {transform: translateX(2px) translateY(0px)}
+}
+
+.wobblyTitle span {
+    animation-name: upDown;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    display: inline-block;
+    transform: translateY(0px);
+}
+
+.wobblyTxt span {
+    animation-name: upDown;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 0.5s;
+    display: inline-block;
+    transform: translateY(0px);
+}
+
+.angerWobble span {
+    animation-name: angryWobble;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 0.2s;
+    display: inline-block;
+    transform: translateY(0px);
+}
+
+.bargainWobble span {
+    animation-name: barWobble;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 1s;
+    display: inline-block;
+    transform: translateY(0px);
+}
+
+.sadWobble span {
+    animation-name: sWobble;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 5s;
+    display: inline-block;
+    transform: translateY(0px);
+}
+
+.acceptanceWobble {
+    animation-name: acceptWobble;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    display: inline-block;
+    transform: translateY(0px);
+}

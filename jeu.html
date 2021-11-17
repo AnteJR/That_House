@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="jeu.css">
+    <link rel="stylesheet" href="jeu_animations.css">
+    <title>That House</title>
+</head>
+<body>
+    <div class="gameContainer">
+        <div class="topScreen">
+            <div class="wobblyTitle titleDiv" id="titleGame">THAT HOUSE</div>
+            <div class="gameScreen" id="gameScreen"></div>
+        </div>
+        <div class="bottomScreen">
+            <div class="enterTxt">
+                <input type="text" placeholder="~ enter command here ~" class="inputCommand"/>
+            </div>
+            <div class="commandsList">
+                <div class="menuDiv" align="center">~~~ COMMAND LIST ~~~</div>
+                <div class="baseCommands">
+                    <div class="command lookC" id="lookC"><span>LOOK</span></div>
+                    <div class="command useC" id="useC"><span>USE</span></div>
+                    <div class="command goC" id="goC"><span>GO</span></div>
+                    <div class="command leaveC" id="leaveC"><span>LEAVE</span></div>
+                </div>
+                <div class="baseCommands bonusCommands" id="bonusCommands">
+                    <div class="command hitC" id="hitC"><span class="iAmAnger">HIT</span></div>
+                    <div class="command inspectC" id="inspectC"><span class="iAmBargain">INSPECT</span></div>
+                    <div class="command waitC" id="waitC"><span class="iAmDepression">WAIT</span></div>
+                    <div class="command acceptC" id="acceptC"><span class="iAmAcceptance">ACCEPT</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./jeu.js"></script>
+</body>
+</html>
