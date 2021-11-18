@@ -1,10 +1,10 @@
 @font-face {
     font-family: "dogica";
-    src: url("polices/dogica.otf");
+    src: url("./polices/dogica.otf");
 }
 @font-face {
     font-family: "retroGame";
-    src: url("polices/RetroGaming.ttf");
+    src: url("./polices/RetroGaming.ttf");
 }
 html, body{
     width:100%;
