@@ -1,3 +1,5 @@
+var currentAct;
+
 /* UN OBSERVATEUR QUI REGARDE SI DU CONTENU A ÉTÉ AJOUTÉ À LA DIV DE JEU */
 let gameDiv = document.getElementById("gameScreen");
 const observer = new MutationObserver(function() {

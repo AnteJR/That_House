@@ -65,4 +65,11 @@ var act1 = {
 		}
 	],
 	complete: false,
+    currentScene:1,
 };
+
+/* MISE EN PLACE DES TEXTES POUR l'ACTE 1 */
+function actOne(){
+    currentAct = act1;
+    gameDiv.innerHTML = `<div class="textDiv">Game will be here</div>`
+}

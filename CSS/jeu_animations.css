@@ -87,3 +87,12 @@
     display: inline-block;
     transform: translateY(0px);
 }
+
+.bigTextDiv {
+    animation-name: upDown;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-duration: 3s;
+    display: inline-block;
+    transform: translateY(0px);
+}

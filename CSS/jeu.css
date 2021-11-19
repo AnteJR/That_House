@@ -99,6 +99,10 @@ span{
 .textDiv{
     display:inline;
 }
+.bigTextDiv {
+    font-size: 1.25em;
+    cursor: pointer;
+}
 .interactiveText{
     cursor: pointer;
 }
@@ -182,4 +186,12 @@ span{
     background: none;
     background-color: rgb(3, 15, 26);
     color:white;
+}
+.decorationTxt{
+    display:inline-block;
+}
+@media only screen and (max-width: 786px) {
+    .decorationTxt{
+        display:none;
+    }
 }

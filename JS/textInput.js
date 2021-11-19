@@ -79,9 +79,15 @@ mesCommandes.forEach((element) => {
     });
 });
 
-//ESSAI DE TEXTE POUR TESTER
-setTimeout(()=>{
+/* ON LANCE LE MENU */
+function gameLaunch(){
+    setTimeout(()=>{
+        gameDiv.style.textAlign = "center";
+        gameDiv.style.marginTop = "10%";
+        document.getElementsByClassName("bottomScreen")[0].style.display = "none";
+        gameDiv.innerHTML = `<div class="textDiv decorationTxt" style="animation-delay: 0s">~~~ </div><div class="startButton textDiv bigTextDiv" style="animation-delay: 0s">New Game</div><div class="textDiv decorationTxt" style="animation-delay: 0s"> ~~~</div><br/><br/><div class="textDiv decorationTxt" style="animation-delay: 1s">~~~ </div><div class="continueButton textDiv bigTextDiv" style="animation-delay: 1s">Continue Game</div><div class="textDiv decorationTxt" style="animation-delay: 1s"> ~~~</div><br/><br/><div class="textDiv decorationTxt" style="animation-delay: 2s">~~~ </div><div class="aboutButton textDiv bigTextDiv" style="animation-delay: 2s">About</div><div class="textDiv decorationTxt" style="animation-delay: 2s"> ~~~</div>`
+        startUpSetUp();
+    },10);
+}
 
-    gameDiv.innerHTML = `<div class="textDiv">This is not my house.</div> <div class="textDiv">I wandered in the streets for some times.</div> <div class="textDiv">Here I stand, at the gate.</div> <div class="textDiv">There is a</div> <div class="wobblyTxt textDiv interactiveText">road</div> <div class="textDiv">that leads to the</div> <div class="wobblyTxt textDiv interactiveText">door.</div> <div class="textDiv">I may be too far away from home now.</div>`
-
-},10);
+gameLaunch();
