@@ -16,7 +16,7 @@
         </div>
         <div class="bottomScreen">
             <div class="enterTxt">
-                <input type="text" placeholder="~ enter command here ~" class="inputCommand"/>
+                <input type="text" placeholder="~ enter command here ~" class="inputCommand" id="commandInput"/>
             </div>
             <div class="commandsList">
                 <div class="menuDiv" align="center">~~~ COMMAND LIST ~~~</div>
@@ -35,6 +35,13 @@
             </div>
         </div>
     </div>
-    <script src="./JS/jeu.js"></script>
+    <div class="alertBox" id="boxAlert" style="display:none">
+        <div class="txtAlert" id="alertTxt"></div>
+        <input type="button" value="next" class="buttonAlert" id="alertButton"/>
+    </div>
+    <script type="text/javascript" src="JS/alertDisplay.js"></script>
+    <script type="text/javascript" src="JS/textDisplay.js"></script>
+    <script type="text/javascript" src="JS/act1.js"></script>
+    <script type="text/javascript" src="JS/textInput.js"></script>
 </body>
 </html>

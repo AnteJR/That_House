@@ -131,3 +131,52 @@ span{
 /*.bonusCommands {
     display:none;
 }*/
+.alertBox{
+    width: 60%;
+    height: 40%;
+    top: 30%;
+    margin-left: 20%;
+    border-width:5px 0px 5px 0px;
+    border-style:solid;
+    border-image: 
+      linear-gradient(
+          to left,
+        rgb(3, 15, 26),
+        white,
+        rgb(3, 15, 26)) 5;
+    position: absolute;
+    background-color: rgb(3, 15, 26);
+    z-index:1;
+}
+.txtAlert{
+    width:80%;
+    height:60%;
+    margin-top:25px;
+    margin-left:10%;
+}
+.buttonAlert{
+    width:50%;
+    height:20%;
+    margin-left:25%;
+    text-transform:uppercase;
+    font-family: "retroGame";
+    font-size:1em;
+    border:none;
+    background-color: rgb(3, 15, 26);
+    color:white;
+    transition: width 0.2s;
+    transition: margin-left 0.2s;
+    transition: width 0.2s;
+}
+.buttonAlert:hover {
+    cursor: pointer;
+    background: linear-gradient(90deg, rgb(3, 15, 26) 0%, white 50%, rgb(3, 15, 26) 100%);
+    color: rgb(3, 15, 26);
+    width:54%;
+    margin-left: 23%;
+}
+.buttonAlert:active {
+    background: none;
+    background-color: rgb(3, 15, 26);
+    color:white;
+}
