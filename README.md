@@ -20,7 +20,7 @@ Publication Numériques - Dir. Isaac Pante
 ### Jeudi 18.11 - 2h
 1. Commentaire du `readme.md`
 2. Reprise du système de fichiers
-### Vendredi 19.11 - 6h
+### Vendredi 19.11 - 8h
 1. Système d'alert customisées
 2. Création d'un objet JSON pour stocker les infos de chaque acte
 3. Interraction clavier avec l'input, que ce soit en focus ou en tapant sur son clavier dans le DOM
