@@ -25,3 +25,4 @@ Publication Numériques - Dir. Isaac Pante
 2. Création d'un objet JSON pour stocker les infos de chaque acte
 3. Interraction clavier avec l'input, que ce soit en focus ou en tapant sur son clavier dans le DOM
 4. On peut désormais cliquer sur les mots (commandes ET mots dans le texte) pour remplir l'input
+5. Ajout d'une page de menu et une page d'info
