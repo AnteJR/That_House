@@ -2,6 +2,31 @@
 let gameDiv = document.getElementById("gameScreen");
 const observer = new MutationObserver(function() {
     displayGameText();
+    /* REMPLIR L'INPUT AVEC DES MOTS FLOTTANTS DU TEXTE DE JEU */
+    let mesObjets = document.querySelectorAll(".interactiveText");
+    mesObjets.forEach((element) => {
+        element.addEventListener("click", function(){
+            let monObjet = this.innerHTML.split(">");
+            monObjet.forEach((e, i) => {
+                if(i%2 == 0){
+                    monObjet[i] = ""
+                }
+                else{
+                    let obj = monObjet[i].split("")[0];
+                    if(obj == "." || obj == ","){
+                        monObjet[i] = ""
+                    }
+                    else{
+                        monObjet[i] = obj;
+                    }
+                }
+            });
+            let monMot = monObjet.join("");
+            if(document.getElementById("commandInput").value != ""){
+                document.getElementById("commandInput").value += monMot;
+            }
+        });
+    });
 });
 observer.observe(gameDiv, {characterData: false, childList: true, attributes: false});
 

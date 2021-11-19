@@ -99,6 +99,9 @@ span{
 .textDiv{
     display:inline;
 }
+.interactiveText{
+    cursor: pointer;
+}
 .menuDiv{
     width:100%;
 }

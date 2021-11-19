@@ -12,7 +12,7 @@ function displayAlert(text){
     let txtFrag = text.split("");
     let i = txtFrag.length;
     let j = 0;
-    let interval = Math.round(Math.random()*150)+100;
+    let interval = Math.round(Math.random()*50)+50;
 
     txtDisplay();
 
@@ -23,7 +23,6 @@ function displayAlert(text){
                 j++;
                 i--;
                 txtDisplay();
-                interval = Math.round(Math.random()*150)+100;
             }
         },interval);
     }
