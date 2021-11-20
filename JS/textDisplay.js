@@ -96,3 +96,50 @@ function displayGameText(){
         },interval1);
     }
 }
+
+/* FONCTION POUR L'AFFICHAGE DES COMMANDES */
+function inspectColor(){
+    if(myGameTxt.currentAct == 0 ){
+        document.querySelectorAll(".bonusC").forEach((e) => {
+            e.style.opacity = 0.2;
+        });
+    }
+    if(myGameTxt.currentAct >= 1 ){
+        document.querySelectorAll(".bonusC").forEach((e) => {
+            if(e.className.split(" ")[1] == "hitC"){
+                e.style.opacity = 1;
+            }
+            else{
+                e.style.opacity = 0.2;
+            }
+        });
+    }
+    if(myGameTxt.currentAct >= 2 ){
+        document.querySelectorAll(".bonusC").forEach((e) => {
+            if(e.className.split(" ")[1] == "hitC"){
+                e.style.opacity = 1;
+            }
+            else if(e.className.split(" ")[1] == "inspectC"){
+                e.style.opacity = 1;
+            }
+            else{
+                e.style.opacity = 0.2;
+            }
+        });
+    }
+    if(myGameTxt.currentAct >= 3 ){
+        document.querySelectorAll(".bonusC").forEach((e) => {
+            if(e.className.split(" ")[1] == "acceptC"){
+                e.style.opacity = 0.2;
+            }
+            else{
+                e.style.opacity = 1;
+            }
+        });
+    }
+    if(myGameTxt.currentAct >= 4 ){
+        document.querySelectorAll(".bonusC").forEach((e) => {
+            e.style.opacity = 1;
+        });
+    }
+}

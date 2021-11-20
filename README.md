@@ -26,3 +26,7 @@ Publication Numériques - Dir. Isaac Pante
 3. Interraction clavier avec l'input, que ce soit en focus ou en tapant sur son clavier dans le DOM
 4. On peut désormais cliquer sur les mots (commandes ET mots dans le texte) pour remplir l'input
 5. Ajout d'une page de menu et une page d'info
+### Samedi 20.11 - 2h
+1. Système d'alert au point avec les textes dans l'objet JSON
+2. TODO : il faut que je commence à travailler les conditions de progression
+3. TODO : gérer les sauvegardes avec le `localStorage`
