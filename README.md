@@ -30,3 +30,10 @@ Publication Numériques - Dir. Isaac Pante
 1. Système d'alert au point avec les textes dans l'objet JSON
 2. TODO : il faut que je commence à travailler les conditions de progression
 3. TODO : gérer les sauvegardes avec le `localStorage`
+### Dimanche 21.11 - 2h
+1. Conditions basiques de progression
+2. TODO : faire des conditions plus complexes
+3. TODO : progresser dans l'écriture
+4. TODO : ajouter un bouton ou un raccourci clavier pour skipper l'affichage du texte
+5. TODO : gérer les sauvegardes savec le `localStorage`
+6. TODO : Muuuuuuuuusique ! (et sound design)

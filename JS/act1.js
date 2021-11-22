@@ -23,6 +23,15 @@ function actOne(){
             }
             monTxt += mesTxt[i][0]+`</div>`;
         }
+        if(mesTxt[i][1] == "sad" && thisAct >= 3){
+            if(mesTxt[i][2] == true){
+                monTxt += `<div class = "sadWobble textDiv iAmDepression interactiveText">`;
+            }
+            else{
+                monTxt += `<div class = "textDiv iAmDepression">`;
+            }
+            monTxt += mesTxt[i][0]+`</div>`;
+        }
     }
     gameDiv.innerHTML = monTxt;
 }

@@ -43,20 +43,19 @@ function displayGameText(){
         el.innerHTML = "";
         let text = textOriginal.split("");
         let nbrChar = text.length;
-        let inter = Math.round(Math.random()*50)+50;
         let charPos = 0;
 
-        txtDisplay(nbrChar, charPos, inter, el, text, idx);
+        txtDisplay(nbrChar, charPos, el, text, idx);
     });
 
-    function txtDisplay(i, j, interval2, element, txtFrag, index){
+    function txtDisplay(i, j, element, txtFrag, index){
         let interval1 = 0;
         if(index > 0){
             let previousTexts = 0;
             for(let k = 0; k<texts.length-1; k++){
                 previousTexts += texts[k].length;
             }
-            interval1 = (100*previousTexts)-100;
+            interval1 = 100*previousTexts;
         }
         setTimeout(function(){
             setTimeout(()=> {
@@ -89,9 +88,9 @@ function displayGameText(){
                     }
                     j++;
                     i--;
-                    txtDisplay(i, j, interval2, element, txtFrag);
+                    txtDisplay(i, j, element, txtFrag);
                 }
-            },interval2);
+            },95);
 
         },interval1);
     }

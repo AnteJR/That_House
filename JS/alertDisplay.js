@@ -16,7 +16,7 @@ function displayAlert(text){
     let txtFrag = textToDisplay.split("");
     let i = txtFrag.length;
     let j = 0;
-    let interval = Math.round(Math.random()*50)+50;
+    let interval = Math.round(Math.random()*25)+35;
 
     txtDisplay();
 
@@ -35,30 +35,63 @@ function displayAlert(text){
 function findText(commandItem){
     let textAlert = "";
     let monItem = myGameTxt.scenes[myGameTxt.currentScene].items;
+    let maCommande = commandItem[0].toLowerCase();
     monItem.forEach((e) => {
         if(e.name == commandItem[1].toLowerCase()){
-            if(commandItem[0].toLowerCase() == "look"){
+            if(maCommande == "look"){
                 textAlert = e.lookTxt;
+                if(e.lookWin == true){
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
             }
-            else if(commandItem[0].toLowerCase() == "use"){
+            else if(maCommande == "use"){
                 textAlert = e.useTxt;
+                if(e.useWin == true){
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
+                if(e.useOpens){
+                    e.isOpened = true;
+                }
             }
-            else if(commandItem[0].toLowerCase() == "go"){
-                textAlert = e.goTxt;
+            else if(maCommande == "go"){
+                if(!e.isOpened){
+                    textAlert = e.goTxt;
+                }
+                else if(e.isOpened){
+                    textAlert = e.goTxtOpen;
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
             }
-            else if(commandItem[0].toLowerCase() == "hit" && myGameTxt.currentAct >= 1){
+            else if(maCommande == "hit" && myGameTxt.currentAct >= 1){
                 textAlert = e.hitTxt;
+                if(e.hitWin == true){
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
             }
-            else if(commandItem[0].toLowerCase() == "inspect" && myGameTxt.currentAct >= 2){
+            else if(maCommande == "inspect" && myGameTxt.currentAct >= 2){
                 textAlert = e.inspectTxt;
+                if(e.inspectWin == true){
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
             }
-            else if(commandItem[0].toLowerCase() == "wait" && myGameTxt.currentAct >= 3){
+            else if(maCommande == "wait" && myGameTxt.currentAct >= 3){
                 textAlert = e.waitTxt;
+                if(e.waitWin == true){
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
             }
-            else if(commandItem[0].toLowerCase() == "accept" && myGameTxt.currentAct >= 4){
+            else if(maCommande == "accept" && myGameTxt.currentAct >= 4){
                 textAlert = e.acceptTxt;
-                myGameTxt.currentScene = myGameTxt.currentScene+1;
-                actOne();
+                if(e.acceptWin == true){
+                    myGameTxt.currentScene = myGameTxt.currentScene+1;
+                    actOne();
+                }
             }
             else{
                 textAlert = "Command not recognized or unavailable.";
