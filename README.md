@@ -37,3 +37,11 @@ Publication Numériques - Dir. Isaac Pante
 4. TODO : ajouter un bouton ou un raccourci clavier pour skipper l'affichage du texte
 5. TODO : gérer les sauvegardes savec le `localStorage`
 6. TODO : Muuuuuuuuusique ! (et sound design)
+### Lundi 22.11 - 4h
+1. Conditions plus complexes scènes 1/2/3
+2. Progressé dans l'écriture scènes 1/2/3
+3. TODO : conditions plus complexes scènes 4/5/6
+4. TODO : progresser dans l'écriture scènes 4/5/6
+5. TODO : ajouter un bouton ou un raccourci clavier pour skipper l'affichage du texte
+6. TODO : gérer les sauvegardes savec le `localStorage`
+7. TODO : Muuuuuuuuusique ! (et sound design)

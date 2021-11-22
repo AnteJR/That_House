@@ -23,12 +23,30 @@ function actOne(){
             }
             monTxt += mesTxt[i][0]+`</div>`;
         }
+        if(mesTxt[i][1] == "bargain" && thisAct >= 2){
+            if(mesTxt[i][2] == true){
+                monTxt += `<div class = "bargainWobble textDiv iAmBargain interactiveText">`;
+            }
+            else{
+                monTxt += `<div class = "textDiv iAmBargain">`;
+            }
+            monTxt += mesTxt[i][0]+`</div>`;
+        }
         if(mesTxt[i][1] == "sad" && thisAct >= 3){
             if(mesTxt[i][2] == true){
                 monTxt += `<div class = "sadWobble textDiv iAmDepression interactiveText">`;
             }
             else{
                 monTxt += `<div class = "textDiv iAmDepression">`;
+            }
+            monTxt += mesTxt[i][0]+`</div>`;
+        }
+        if(mesTxt[i][1] == "accept" && thisAct >= 3){
+            if(mesTxt[i][2] == true){
+                monTxt += `<div class = "acceptanceWobble textDiv iAmAcceptance interactiveText">`;
+            }
+            else{
+                monTxt += `<div class = "textDiv iAmAcceptance">`;
             }
             monTxt += mesTxt[i][0]+`</div>`;
         }

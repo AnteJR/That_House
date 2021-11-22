@@ -1,9 +1,12 @@
 function displayAlert(text){
     let maDiv = document.getElementById("alertTxt");
     let monAlert = document.getElementById("boxAlert");
+
+    /* ADDEVENTLISTENER POUR FERMER LA BOITE DE DIALOGUE */
     let monBtn = document.getElementById("alertButton");
     monBtn.addEventListener("click", () => {
         document.getElementById("boxAlert").style.display = "none";
+        maDiv.innerHTML = "";
     })
 
     maDiv.innerHTML = "";
@@ -32,60 +35,114 @@ function displayAlert(text){
     }
 }
 
+/* */
 function findText(commandItem){
     let textAlert = "";
     let monItem = myGameTxt.scenes[myGameTxt.currentScene].items;
     let maCommande = commandItem[0].toLowerCase();
+    /* PARCOURS LA LISTE DES ITEMS POUR TROUVER CELUI SELECTIONNE PAR LA COMMANDE */
     monItem.forEach((e) => {
+        /* UNE FOIS TROUVÉ, ON REGARDE QUELLE COMMANDE A ÉTÉ ENTRÉE, AVEC DES CONDITIONS GÉNÉRIQUES ET SPÉCIFIQUES */
         if(e.name == commandItem[1].toLowerCase()){
+            // SI ON LOOK
             if(maCommande == "look"){
-                textAlert = e.lookTxt;
-                if(e.lookWin == true){
-                    myGameTxt.currentScene = myGameTxt.currentScene+1;
-                    actOne();
+                if(!e.isOpened){
+                    textAlert = e.lookTxt;
+                }
+                else if(e.isOpened){
+                    textAlert = e.lookTxtOpen;
+                    /* CONDITIONS SPECIALES */
+                    if(myGameTxt.currentScene == 2 && e.name == "postcard"){
+                        monItem[e.useCanPressBtn].canPressBtn = true;
+                    }
+                }
+                if(e.lookOpens >= 0){
+                    monItem[e.lookOpens].isOpened = true;
                 }
             }
+            // SI ON USE
             else if(maCommande == "use"){
-                textAlert = e.useTxt;
-                if(e.useWin == true){
-                    myGameTxt.currentScene = myGameTxt.currentScene+1;
-                    actOne();
+                if(!e.isOpened){
+                    textAlert = e.useTxt;
                 }
-                if(e.useOpens){
-                    e.isOpened = true;
+                else if(e.isOpened){
+                    textAlert = e.useTxtOpen;
+                    if(e.useWin == true){
+                        myGameTxt.currentScene = myGameTxt.currentScene+1;
+                        actOne();
+                    }
+                    /* CONDITIONS SPECIALES */
+                    if(myGameTxt.currentScene == 2 && e.name == "desk" && e.canPressBtn == true && e.gotKey == true){
+                        textAlert = e.useTxtBtn;
+                        monItem[e.btnOpens].isOpened = true;
+                    }
+                    if(myGameTxt.currentScene == 2 && e.name == "desk" && e.gotKey == false){
+                        e.gotKey = true;
+                    }
+                }
+                if(e.useOpens >= 0){
+                    monItem[e.useOpens].isOpened = true;
                 }
             }
+            // SI ON GO
             else if(maCommande == "go"){
                 if(!e.isOpened){
                     textAlert = e.goTxt;
                 }
                 else if(e.isOpened){
                     textAlert = e.goTxtOpen;
-                    myGameTxt.currentScene = myGameTxt.currentScene+1;
-                    actOne();
+                    if(e.goWin == true){
+                        myGameTxt.currentScene = myGameTxt.currentScene+1;
+                        actOne();
+                    }
+                    /* CONDITION SPECIALE */
+                    if(myGameTxt.currentScene == 2 && e.name == "bookshelf" && isOpened == true && e.isDoorOpen == true){
+                        myGameTxt.currentScene = myGameTxt.currentScene+2;
+                        actOne();
+                    }
                 }
             }
+            // SI ON HIT
             else if(maCommande == "hit" && myGameTxt.currentAct >= 1){
                 textAlert = e.hitTxt;
                 if(e.hitWin == true){
                     myGameTxt.currentScene = myGameTxt.currentScene+1;
                     actOne();
                 }
+                if(e.hitOpens >= 0){
+                    monItem[e.hitOpens].isOpened = true;
+                    /* CONDITIONS SPECIFIC */
+                    if(myGameTxt.currentScene == 2 && e.name == "desk"){
+                        e.useOpens = 0;
+                    }
+                }
             }
+            // SI ON INSPECT
             else if(maCommande == "inspect" && myGameTxt.currentAct >= 2){
                 textAlert = e.inspectTxt;
                 if(e.inspectWin == true){
                     myGameTxt.currentScene = myGameTxt.currentScene+1;
                     actOne();
                 }
+                if(e.inspectOpens >= 0){
+                    monItem[e.inspectOpens].isOpened = true;
+                }
             }
+            // SI ON WAIT
             else if(maCommande == "wait" && myGameTxt.currentAct >= 3){
                 textAlert = e.waitTxt;
+                if(myGameTxt.currentScene == 2 && e.name == "bookshelf" && e.isDoorOpen == false){
+                    isDoorOpen = true;
+                }
                 if(e.waitWin == true){
                     myGameTxt.currentScene = myGameTxt.currentScene+1;
                     actOne();
                 }
+                if(e.waitOpens >= 0){
+                    monItem[e.waitOpens].isOpened = true;
+                }
             }
+            // SI ON ACCEPT
             else if(maCommande == "accept" && myGameTxt.currentAct >= 4){
                 textAlert = e.acceptTxt;
                 if(e.acceptWin == true){
@@ -93,11 +150,13 @@ function findText(commandItem){
                     actOne();
                 }
             }
+            // SI LA COMMANDE N'EST PAS RECONNUE
             else{
                 textAlert = "Command not recognized or unavailable.";
             }
         }
     });
+    //SI L'ITEM N'EST PAS RECONNU
     if(textAlert == ""){
         textAlert = "Object not recognized";
     }
