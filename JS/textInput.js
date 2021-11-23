@@ -18,18 +18,36 @@ function titleTxt (text){
 /* CODE POUR QUE PRENDRE NOTE QUAND ON ECRIT DANS L'INPUT */
 let monInput = document.getElementById('commandInput');
 monInput.addEventListener("keydown", (e) => {
-    if(document.getElementById("commandInput").value!=""){
-        if(e.key == "Enter"){
-            if(document.getElementById("boxAlert").style.display == "none"){
-                displayAlert(monInput.value);
-                monInput.value = "";
-            }
+    if(e.key == "Enter"){
+        if(myGameTxt.currentScene == 6){
+            myGameTxt.currentScene = 0;
+            actOne();
         }
-    }
-    else{
-        if(e.key == "Enter"){
-            if(document.getElementById("boxAlert").style.display == "block"){
-                document.getElementById("boxAlert").style.display = "none"
+        else{
+            if(document.getElementById("commandInput").value!=""){
+                if(e.key == "Enter"){
+                    if(document.getElementById("boxAlert").style.display == "none"){
+                        if(myGameTxt.currentScene == 6){
+                            myGameTxt.currentScene = 0;
+                            actOne();
+                            monInput.value = "";
+                        }
+                        else{
+                            if(monInput.value == "leave"){
+                                monInput.value = "leave "
+                            }
+                            displayAlert(monInput.value);
+                            monInput.value = "";
+                        }
+                    }
+                }
+            }
+            else{
+                if(e.key == "Enter"){
+                    if(document.getElementById("boxAlert").style.display == "block"){
+                        document.getElementById("boxAlert").style.display = "none"
+                    }
+                }
             }
         }
     }
@@ -50,17 +68,35 @@ window.addEventListener('keydown', (e) => {
             monInput.value = valueInput.join("");
         }
         else if(e.key == "Enter"){
-            if(document.getElementById("commandInput").value!=""){
-                if(document.getElementById("commandInput").value.split(" ").length == 2){
-                    if(document.getElementById("boxAlert").style.display == "none"){
-                        displayAlert(monInput.value);
-                        monInput.value = "";
-                    }
-                }
+            if(myGameTxt.currentScene == 6){
+                myGameTxt.currentScene = 0;
+                actOne();
+                monInput.value = "";
             }
             else{
-                if(document.getElementById("boxAlert").style.display == "block"){
-                    document.getElementById("boxAlert").style.display = "none"
+                if(document.getElementById("commandInput").value!=""){
+                    if(e.key == "Enter"){
+                        if(document.getElementById("boxAlert").style.display == "none"){
+                            if(myGameTxt.currentScene == 6){
+                                myGameTxt.currentScene = 0;
+                                actOne();
+                            }
+                            else{
+                                if(monInput.value == "leave"){
+                                    monInput.value = "leave "
+                                }
+                                displayAlert(monInput.value);
+                                monInput.value = "";
+                            }
+                        }
+                    }
+                }
+                else{
+                    if(e.key == "Enter"){
+                        if(document.getElementById("boxAlert").style.display == "block"){
+                            document.getElementById("boxAlert").style.display = "none"
+                        }
+                    }
                 }
             }
         }

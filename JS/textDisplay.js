@@ -55,7 +55,7 @@ function displayGameText(){
             for(let k = 0; k<texts.length-1; k++){
                 previousTexts += texts[k].length;
             }
-            interval1 = 100*previousTexts;
+            interval1 = 50*previousTexts;
         }
         setTimeout(function(){
             setTimeout(()=> {
@@ -90,8 +90,7 @@ function displayGameText(){
                     i--;
                     txtDisplay(i, j, element, txtFrag);
                 }
-            },95);
-
+            },45);
         },interval1);
     }
 }
