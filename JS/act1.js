@@ -1,4 +1,4 @@
-/* MISE EN PLACE DES TEXTES POUR l'ACTE 1 */
+/* MISE EN PLACE DES TEXTES */
 function actOne(){
     inspectColor();
     let thisAct = myGameTxt.currentAct;
@@ -61,7 +61,7 @@ function actOne(){
                 }
                 monTxt += mesTxt[i][0]+`</div>`;
             }
-            if(mesTxt[i][1] == "accept" && thisAct >= 3){
+            if(mesTxt[i][1] == "accept" && thisAct >= 4){
                 if(mesTxt[i][2] == true){
                     monTxt += `<div class = "acceptanceWobble textDiv iAmAcceptance interactiveText">`;
                 }

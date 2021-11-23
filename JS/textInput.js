@@ -19,7 +19,7 @@ function titleTxt (text){
 let monInput = document.getElementById('commandInput');
 monInput.addEventListener("keydown", (e) => {
     if(e.key == "Enter"){
-        if(myGameTxt.currentScene == 6){
+        if(myGameTxt.currentScene == 6 && document.getElementById("boxAlert").style.display == "none"){
             myGameTxt.currentScene = 0;
             actOne();
         }
@@ -68,7 +68,7 @@ window.addEventListener('keydown', (e) => {
             monInput.value = valueInput.join("");
         }
         else if(e.key == "Enter"){
-            if(myGameTxt.currentScene == 6){
+            if(myGameTxt.currentScene == 6 && document.getElementById("boxAlert").style.display == "none"){
                 myGameTxt.currentScene = 0;
                 actOne();
                 monInput.value = "";

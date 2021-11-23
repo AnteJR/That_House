@@ -340,13 +340,13 @@ var myGameTxt = {
                     goWin: false,
                     goTxtOpen: "I was at the bed already, not like there was much to see.",
                     hitWin: false,
-                    hitTxtOpen: "Kicking the bed proved useless. Some insects crawled from under. I got goosebumps.",
+                    hitTxt: "Kicking the bed proved useless. Some insects crawled from under. I got goosebumps.",
                     inspectWin: false,
-                    inspectTxtOpen: "Carved in the bed's framed laid a small copper key. I took it, just in case.",
+                    inspectTxt: "Carved in the bed's framed laid a small copper key. I took it, just in case.",
                     waitWin: false,
-                    waitTxtOpen: "The stench made me feel sick. And somewhat nostalgic.",
+                    waitTxt: "The stench made me feel sick. And somewhat nostalgic.",
                     acceptWin: false,
-                    acceptTxtOpen: "It was my bed as a child. I knew I hid a key in it. It opened a compartment in the teddybear."
+                    acceptTxt: "It was my bed as a child. I knew I hid a key in it. It opened a compartment in the teddybear."
 				},
                 {
                     name: "bedlamp",
@@ -611,13 +611,13 @@ var myGameTxt = {
                     goWin: false,
                     goTxtOpen: "I was at the bed already, not like there was much to see.",
                     hitWin: false,
-                    hitTxtOpen: "Kicking the bed proved useless. Some insects crawled from under. I got goosebumps.",
+                    hitTxt: "Kicking the bed proved useless. Some insects crawled from under. I got goosebumps.",
                     inspectWin: false,
-                    inspectTxtOpen: "Carved in the bed's framed laid a small copper key. I took it, just in case.",
+                    inspectTxt: "Carved in the bed's framed laid a small copper key. I took it, just in case.",
                     waitWin: false,
-                    waitTxtOpen: "The stench made me feel sick. And somewhat nostalgic.",
+                    waitTxt: "The stench made me feel sick. And somewhat nostalgic.",
                     acceptWin: false,
-                    acceptTxtOpen: "It was my bed as a child. I knew I hid a key in it. It opened a compartment in the teddybear."
+                    acceptTxt: "It was my bed as a child. I knew I hid a key in it. It opened a compartment in the teddybear."
 				},
                 {
                     name: "bedlamp",
@@ -738,14 +738,14 @@ var myGameTxt = {
                     id: 1,
                     text: [
                         ["Act 2", true],
-                        ["That house again", false]
+                        ["Up we go", false]
                     ]
                 },
                 {
                     id: 2,
                     text: [
                         ["Act 3", true],
-                        ["Up we go", false]
+                        ["More secrets", false]
                     ]
                 },
                 {

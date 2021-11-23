@@ -57,6 +57,18 @@ function findText(commandItem){
         if(maScene != 0 && (maScene == 1 || maScene == 2 || maScene == 3)){
             myGameTxt.currentScene = maScene-1;
             actOne();
+            if(maScene == 3 && myGameTxt.currentAct == 1){
+                myGameTxt.scenes[0].items[2].canLeave = false;
+                myGameTxt.currentAct = myGameTxt.currentAct+1;
+                myGameTxt.currentScene = 6;
+                actOne();
+            }
+            else if(maScene == 2 && myGameTxt.currentAct == 2){
+                myGameTxt.scenes[0].items[2].canLeave = false;
+                myGameTxt.currentAct = myGameTxt.currentAct+1;
+                myGameTxt.currentScene = 6;
+                actOne();
+            }
         }
         else if(maScene == 4){
             myGameTxt.currentScene = maScene-2;
@@ -106,7 +118,14 @@ function findText(commandItem){
                             monItem[4].isOpened = true;
                         }
                         if(maScene == 3 && e.name == "glass"){
-                            myGameTxt.scenes[e.useGlassOpens].itmes[e.useGlassOpens].isOpened = true;
+                            myGameTxt.scenes[e.useGlassOpens[0]].itmes[e.useGlassOpens[1]].isOpened = true;
+                        }
+                        if(maScene == 4 && e.name == "altar"){
+                            e.bledOut = true;
+                        }
+                        if(maScene == 4 && e.name == "book"){
+                            //prendre le livre débloque un panneau supplémentaire dans le générique de fin
+                            e.tookTheBook = 0;
                         }
                     }
                     if(e.useOpens >= 0){
@@ -137,7 +156,9 @@ function findText(commandItem){
                 }
                 // SI ON HIT
                 else if(maCommande == "hit" && myGameTxt.currentAct >= 1){
+                    alert("Nice hit !")
                     textAlert = e.hitTxt;
+                    alert(e.hitTxt)
                     if(e.hitWin == true){
                         myGameTxt.currentScene = maScene+1;
                         actOne();
@@ -148,13 +169,8 @@ function findText(commandItem){
                         if(maScene == 2 && e.name == "desk"){
                             e.useOpens = 0;
                         }
-                        if(maScene == 4 && e.name == "altar"){
-                            //prendre le livre débloque un panneau supplémentaire dans le générique de fin
-                            e.bledOut = true;
-                        }
-                        if(maScene == 4 && e.name == "book"){
-                            //prendre le livre débloque un panneau supplémentaire dans le générique de fin
-                            e.tookTheBook = 0;
+                        if(maScene == 3 && e.name == "bedlamp"){
+                            monItem[4].isOpened = true;
                         }
                     }
                 }
