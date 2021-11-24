@@ -22,6 +22,7 @@ monInput.addEventListener("keydown", (e) => {
         if(myGameTxt.currentScene == 6 && document.getElementById("boxAlert").style.display == "none"){
             myGameTxt.currentScene = 0;
             actOne();
+            monInput.value = "";
         }
         else{
             if(document.getElementById("commandInput").value!=""){
@@ -43,11 +44,7 @@ monInput.addEventListener("keydown", (e) => {
                 }
             }
             else{
-                if(e.key == "Enter"){
-                    if(document.getElementById("boxAlert").style.display == "block"){
-                        document.getElementById("boxAlert").style.display = "none"
-                    }
-                }
+                document.getElementById("boxAlert").style.display = "none"
             }
         }
     }
@@ -59,27 +56,29 @@ window.addEventListener('keydown', (e) => {
         if (e.key === "Spacebar" || e.key === " " || e.key != "ArrowLeft" || e.key != "ArrowRight" || e.key != "ArrowDown" || e.key != "ArrowUp") {
           e.preventDefault();
         }
-        if(e.key != "Backspace" && e.key != "Enter" && e.key != "Meta" && e.key != "Shift" && e.key != "CapsLock" && e.key != "Control" && e.key != "Alt" && e.key != "ArrowLeft" && e.key != "ArrowRight" && e.key != "ArrowDown" && e.key != "ArrowUp"){
-            monInput.value += e.key;
-        }
-        else if(e.key == "Backspace"){
-            let valueInput = monInput.value.split("");
-            valueInput.pop();
-            monInput.value = valueInput.join("");
-        }
-        else if(e.key == "Enter"){
-            if(myGameTxt.currentScene == 6 && document.getElementById("boxAlert").style.display == "none"){
-                myGameTxt.currentScene = 0;
-                actOne();
-                monInput.value = "";
+        if(myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter == true){}
+        else{
+            if(e.key != "Backspace" && e.key != "Enter" && e.key != "Meta" && e.key != "Shift" && e.key != "CapsLock" && e.key != "Control" && e.key != "Alt" && e.key != "ArrowLeft" && e.key != "ArrowRight" && e.key != "ArrowDown" && e.key != "ArrowUp"){
+                monInput.value += e.key;
             }
-            else{
-                if(document.getElementById("commandInput").value!=""){
-                    if(e.key == "Enter"){
+            else if(e.key == "Backspace"){
+                let valueInput = monInput.value.split("");
+                valueInput.pop();
+                monInput.value = valueInput.join("");
+            }
+            else if(e.key == "Enter"){
+                if(myGameTxt.currentScene == 6 && document.getElementById("boxAlert").style.display == "none"){
+                    myGameTxt.currentScene = 0;
+                    actOne();
+                    monInput.value = "";
+                }
+                else{
+                    if(document.getElementById("commandInput").value!=""){
                         if(document.getElementById("boxAlert").style.display == "none"){
                             if(myGameTxt.currentScene == 6){
                                 myGameTxt.currentScene = 0;
                                 actOne();
+                                monInput.value = "";
                             }
                             else{
                                 if(monInput.value == "leave"){
@@ -90,9 +89,7 @@ window.addEventListener('keydown', (e) => {
                             }
                         }
                     }
-                }
-                else{
-                    if(e.key == "Enter"){
+                    else{
                         if(document.getElementById("boxAlert").style.display == "block"){
                             document.getElementById("boxAlert").style.display = "none"
                         }

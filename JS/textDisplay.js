@@ -1,5 +1,3 @@
-var currentAct;
-
 /* UN OBSERVATEUR QUI REGARDE SI DU CONTENU A ÉTÉ AJOUTÉ À LA DIV DE JEU */
 let gameDiv = document.getElementById("gameScreen");
 const observer = new MutationObserver(function() {
@@ -8,22 +6,17 @@ const observer = new MutationObserver(function() {
     let mesObjets = document.querySelectorAll(".interactiveText");
     mesObjets.forEach((element) => {
         element.addEventListener("click", function(){
-            let monObjet = this.innerHTML.split(">");
-            monObjet.forEach((e, i) => {
-                if(i%2 == 0){
-                    monObjet[i] = ""
+            let monObjet = this.textContent;
+            let obj = monObjet.split("");
+            obj.forEach((e, i) => {
+                if(e == "." || e == ","){
+                    obj[i] = ""
                 }
                 else{
-                    let obj = monObjet[i].split("")[0];
-                    if(obj == "." || obj == ","){
-                        monObjet[i] = ""
-                    }
-                    else{
-                        monObjet[i] = obj;
-                    }
+                    obj[i] = e;
                 }
             });
-            let monMot = monObjet.join("");
+            let monMot = obj.join("");
             if(document.getElementById("commandInput").value != ""){
                 document.getElementById("commandInput").value += monMot;
             }
@@ -80,6 +73,10 @@ function displayGameText(){
                         delay = j*500;
                         element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
                     }
+                    else if(element.getAttribute("class").split(" ")[0] == "acceptanceWobble"){
+                        delay = 0;
+                        element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
+                    }
                     else{
                         if(txtFrag[j] == "&nbsp;"){
                             txtFrag[j] = " "
@@ -90,7 +87,7 @@ function displayGameText(){
                     i--;
                     txtDisplay(i, j, element, txtFrag);
                 }
-            },45);
+            },43);
         },interval1);
     }
 }

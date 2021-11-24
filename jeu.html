@@ -9,12 +9,13 @@
     <title>That House</title>
 </head>
 <body>
+    <div class="flicker" id="flickerDiv"></div>
     <div class="gameContainer">
         <div class="topScreen">
             <div class="wobblyTitle titleDiv" id="titleGame">THAT HOUSE</div>
             <div class="gameScreen" id="gameScreen"></div>
         </div>
-        <div class="bottomScreen">
+        <div class="bottomScreen" id="screenBottom">
             <div class="enterTxt">
                 <input type="text" placeholder="~ enter command here ~" class="inputCommand" id="commandInput"/>
             </div>
@@ -40,8 +41,10 @@
         <input type="button" value="next" class="buttonAlert" id="alertButton"/>
     </div>
     <script type="text/javascript" src="JS/gameVar.js"></script>
-    <script type="text/javascript" src="JS/alertDisplay.js"></script>
     <script type="text/javascript" src="JS/textDisplay.js"></script>
+    <script type="text/javascript" src="JS/openLetter.js"></script>
+    <script type="text/javascript" src="JS/endScreen.js"></script>
+    <script type="text/javascript" src="JS/alertDisplay.js"></script>
     <script type="text/javascript" src="JS/act1.js"></script>
     <script type="text/javascript" src="JS/startupPage.js"></script>
     <script type="text/javascript" src="JS/textInput.js"></script>

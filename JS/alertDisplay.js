@@ -12,9 +12,23 @@ function displayAlert(text){
     maDiv.innerHTML = "";
     monAlert.style.display = "block";
 
-    /* TROUVER LE TEXTE A AFFICHER */
     let command = text.split(" ");
-    let textToDisplay = findText(command);
+    let textToDisplay = "";
+
+    /* TROUVER LE TEXTE A AFFICHER */
+    if(myGameTxt.currentAct < 4 && myGameTxt.currentScene < 5){
+        let command = text.split(" ");
+        textToDisplay = findText(command);
+    }
+    else{
+        if(text == "use letter"){
+            myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter = true;
+            myGameTxt.scenes[myGameTxt.currentScene].items[0].letterRead = true;
+            openLetter();
+        }
+        let command = text.split(" ");
+        textToDisplay = findText(command);
+    }
     
     let txtFrag = textToDisplay.split("");
     let i = txtFrag.length;
@@ -156,9 +170,7 @@ function findText(commandItem){
                 }
                 // SI ON HIT
                 else if(maCommande == "hit" && myGameTxt.currentAct >= 1){
-                    alert("Nice hit !")
                     textAlert = e.hitTxt;
-                    alert(e.hitTxt)
                     if(e.hitWin == true){
                         myGameTxt.currentScene = maScene+1;
                         actOne();
@@ -232,6 +244,9 @@ function findText(commandItem){
                             myGameTxt.currentScene = myGameTxt.currentScene+1;
                             actOne();
                         }
+                    }
+                    if(maScene == 5 && e.name == "screen" && monItem[0].letterRead == true){
+                        endScreen(0);
                     }
                 }
                 // SI LA COMMANDE N'EST PAS RECONNUE
