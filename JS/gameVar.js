@@ -1,3 +1,55 @@
+/*
+    CETTE VARIABLE CONTIENT L'ENSEMBLE DES TEXTES ET DES VARIABLES UTILES AU FONCTIONNEMENT DU JEU
+    SA STRUCTURE GÉNÉRALE (SAUF EXCEPTIONS) EST LA SUIVANTE :
+    myGameTxt = {
+        name : string,
+        scenes : [
+            {
+                name : string,
+                texts : [
+                    [string, string, boolean]
+                    .
+                    .
+                    .
+                ],
+                items : [
+                    {
+                        name : string,
+                        lookOpens : int,
+                        useOpens : int,
+                        hitOpens : int,
+                        inspectOpens : int,
+                        waitOpens : int,
+                        acceptOpens : int,
+                        isOpened: boolean,
+                        lookTxt : string,
+                        lookTxtOpen : string,
+                        useTxt : string,
+                        useTxtOpen : string,
+                        goTxt : string,
+                        goTxtOpen : string,
+                        hitTxt : string,
+                        inspectTxt : string,
+                        waitTxt : string,
+                        acceptTxt : string,
+                    }
+                    .
+                    .
+                    .
+                    {
+                        name : string,
+                        leftTrue: string,
+                    }
+                ]
+            }
+            .
+            .
+            .
+        ]
+    }
+    
+    LES EXCEPTIONS SONT DES CONDITIONS SPÉCIFIQUES À LA PROGRESSION
+*/
 var myGameTxt = {
     name: "Act 1",
     actNumber: 1,
@@ -28,11 +80,8 @@ var myGameTxt = {
                     useTxtOpen: "I might as well.",
                     goWin: true,
                     goTxtOpen: "I might as well.",
-                    hitWin: false,
                     hitTxt: "Why would I hit dirt?",
-                    inspectWin: false,
                     inspectTxt: "It was dirt, what do you want me to say?",
-                    waitWin: false,
                     waitTxt: "I waited for a bit. A bird flew by. Time to move",
                     acceptWin: true,
                     acceptTxt: "This was the last time I had to go in that house. I could feel it."
@@ -47,17 +96,12 @@ var myGameTxt = {
                     acceptOpens: -1,
                     isOpened: true,
                     lookTxtOpen: "The door looked closed from up here. I could try to open it. Needed to go to it though.",
-                    useWin: false,
                     useTxtOpen: "I needed to get closer to it.",
                     goWin: true,
                     goTxtOpen: "I might as well.",
-                    hitWin: false,
                     hitTxt: "I mean, I could. Needed to get closer though.",
-                    inspectWin: false,
                     inspectTxt: "I was too far away to see anything.",
-                    waitWin: false,
                     waitTxt: "I waited for a bit. The door kept shut. Time to move.",
-                    acceptWin: false,
                     acceptTxt: "What do you mean?"
                 },
                 {
@@ -94,17 +138,12 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "The curtains were drawn. Hard to say if anyone was here.",
                     lookTxtOpen: "The window was now broken. Wouldn't try and touch it.",
-                    useWin: false,
                     useTxt: "It was closed shut. Couldn't open it from this side.",
                     useTxtOpen: "I cut my finger on the glass. Stung a bit.",
-                    goWin: false,
                     goTxt: "Yeaaah. No. It was closed, and I could not see the other side.",
                     goTxtOpen: "Sure, it was open... and broken glass. No way I was going through there.",
-                    hitWin: false,
                     hitTxt: "The glash shattered. It was sharp. I wouldn't want to go in from here.",
-                    inspectWin: false,
                     inspectTxt: "The curtains reminded me of my parents'. Weird.",
-                    waitWin: false,
                     waitTxt: "I stood in the reflection. Pale as a ghost. I looked tired.",
                     acceptWin: true,
                     acceptTxt: "I pushed the window, and it opened? Might as well go through it."
@@ -120,17 +159,14 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "A bit too frail if you ask me. I didn't know if it was unlocked or not.",
                     lookTxtOpen: "It was unlocked after all.",
-                    useWin: false,
                     useTxt: "Huh. It was unlocked. Who the Hell would leave it like that?",
                     useTxtOpen: "It was open now. What was there left to do?",
                     goWin: true,
                     goTxt: "I didn't even know if it was opened.",
-                    goTxtOpen: "Here goes nothing.",
+                    goTxtOpen: "Here went nothing.",
                     hitWin: true,
                     hitTxt: "I smashed the door. Fuck that door. I was glad it broke.",
-                    inspectWin: false,
                     inspectTxt: "The handle was heavy, probably lead. The door must've been decades old.",
-                    waitWin: false,
                     waitTxt: "As if the door would magically disappear. Time to move.",
                     acceptWin: true,
                     acceptTxt: "I had to accept going into that house again. One last time."
@@ -145,22 +181,15 @@ var myGameTxt = {
                     acceptOpens: -1,
                     isOpened: false,
                     lookTxt: "It looked broken. I’d been surprised if it rang.",
-                    useWin: false,
                     useTxt: "Not a sound. Didn’t know what I was expecting.",
-                    goWin: false,
                     goTxt: "The doorbell is right there.",
-                    hitWin: false,
                     hitTxt: "The bell rang after being hit. Not a sound came from inside.",
-                    inspectWin: false,
                     inspectTxt: "The name on it was scratched off. The first letter was the same as mine.",
-                    waitWin: false,
                     waitTxt: "Didn't konw what I was waiting for. It was broken.",
-                    acceptWin: false,
                     acceptTxt: "The name, though scratched, was my father's. He was gone, wasn't he?"
 				},
                 {
                     name: "leave",
-                    leftWin: false,
                     leftTrue: "I backed off. The air around me was cold.",
                 }
 			],
@@ -196,19 +225,14 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "It lead somewhere upstairs. There was a door at the top.",
                     lookTxtOpen: "It was open now. Might as well go through.",
-                    useWin: false,
                     useTxt: "The door upstairs was locked. Not my lucky day.",
                     useTxtOpen: "The door was opened now. I could just go.",
                     goWin: true,
                     goTxt: "I had to get it open. Otherwise I was stuck down here.",
                     goTxtOpen: "The door was now open! The door creaked when it opened. I entered the next floor.",
-                    hitWin: false,
                     hitTxt: "My hand hurt after hitting the door upstairs. It didn't even budge.",
-                    inspectWin: false,
                     inspectTxt: "The keyhole to the door upstairs was ancient, and rusty.",
-                    waitWin: false,
                     waitTxt: "After a while, suddenly, a clic. And the door creaked open.",
-                    acceptWin: false,
                     acceptTxt: "This door was the one to my childhood's bedroom. Suddenly the door came open."
 				},
                 {
@@ -225,20 +249,14 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "It was a big oak desk. Dusty though. Looked sturdy enough.",
                     lookTxtOpen: "It was a big oak desk. Dusty though. Looked sturdy enough.",
-                    useWin: false,
                     useTxt: "There was a drawer, that was closed shut.",
                     useTxtOpen: "The drawer could now open. Inside, there was a key. I took it.",
                     useTxtBtn: "I entered the code 120896. I heard a click by the bookshelf.",
-                    goWin: false,
                     goTxt: "I'm at the desk, though nothing is of note.",
                     goTxtOpen: "I'm at the desk, though nothing is of note.",
-                    hitWin: false,
                     hitTxt: "I banged the drawer. With a sharp sound, it actually opened.",
-                    inspectWin: false,
                     inspectTxt: "Under the desk was hidden a pad with numbers. What was the combination?",
-                    waitWin: false,
                     waitTxt: "Nothing happened. Why am I wasting my time?",
-                    acceptWin: false,
                     acceptTxt: "This desk was mine. I had it at my parent's house. The drawer just needed to be hit."
 				},
                 {
@@ -253,19 +271,13 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: `It was a postcard from some touristic island. Said "A piece of Paradise" on the front.`,
                     lookTxtOpen: `It read: "August 12, 1996". The day of my birth.`,
-                    useWin: false,
                     useTxt: "I flipped the card to see what was on the back.",
                     useTxtOpen: "What could I do more than flip it?",
-                    goWin: false,
                     goTxt: "I wish I could go to wherever the postcard depicts.",
                     goTxtOpen: "I wish I could go to wherever the postcard depicts.",
-                    hitWin: false,
                     hitTxt: "I crumbled the postcard. Not sure why...",
-                    inspectWin: false,
                     inspectTxt: "There was a signature on the front. I couldn't remember whose it was.",
-                    waitWin: false,
                     waitTxt: "Nothing happened.",
-                    acceptWin: false,
                     acceptTxt: "It was my dad's. The signature. Why was it his?"
 				},
                 {
@@ -280,25 +292,18 @@ var myGameTxt = {
                     isDoorOpen: false,
                     lookTxt: "The bookshelf was mostly old and dusty. The books did not look interesting.",
                     lookTxtOpen: "The shelf had moved to its left. Now there was a door behind.",
-                    useWin: false,
                     useTxt: "I opened a book at random. It was some encyclopedia. Nothing of notice.",
                     useTxtOpen: "Of course the door was locked. There was a ticking sound, though.",
-                    goWin: false,
                     goTxt: "Go where? The bookshelf wouldn't just run away.",
                     goTxtOpen: "Wow. It actually moved. I was impressed.",
                     goTxtDoorOpen: "I went through the door.",
-                    hitWin: false,
                     hitTxt: "With a swift hit, some of the books fell.",
-                    inspectWin: false,
                     inspectTxt: `A book caught my eyes. "The Haze". It felt familiar, but I couldn't tell why.`,
-                    waitWin: false,
                     waitTxt: "The ticking sounds faded, then a loud crack. Sounded like the door behind opened.",
-                    acceptWin: true,
                     acceptTxt: "This bookshelf belonged to my parents. Long ago. The shelf sled and the door behind was open."
 				},
                 {
                     name: "leave",
-                    leftWin: false,
                     leftTrue: "I left the house. The air outside bit me with cold.",
                 }
 			],
@@ -335,17 +340,11 @@ var myGameTxt = {
                     acceptOpens: 2,
                     isOpened: true,
                     lookTxtOpen: "It was... moldy. Must've been here for ages. Pretty gross.",
-                    useWin: false,
                     useTxtOpen: "I wouldn't dare touch that. It smelled.",
-                    goWin: false,
                     goTxtOpen: "I was at the bed already, not like there was much to see.",
-                    hitWin: false,
                     hitTxt: "Kicking the bed proved useless. Some insects crawled from under. I got goosebumps.",
-                    inspectWin: false,
                     inspectTxt: "Carved in the bed's framed laid a small copper key. I took it, just in case.",
-                    waitWin: false,
                     waitTxt: "The stench made me feel sick. And somewhat nostalgic.",
-                    acceptWin: false,
                     acceptTxt: "It was my bed as a child. I knew I hid a key in it. It opened a compartment in the teddybear."
 				},
                 {
@@ -359,19 +358,13 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "The lamp casted a dim yellow-ish light on the bed.",
                     lookTxtOpen: "Now it was turned off, and the room went dark. The wall, though, was now glowing.",
-                    useWin: false,
                     useTxt: "I pulled on the little chain dangling from the lamp. Now it was off.",
                     useTxtOpen: "I already turned it off. I could still see my way out of here.",
-                    goWin: false,
                     goTxt: "The lamp was right there.",
                     goTxtOpen: "The lamp was right there.",
-                    hitWin: false,
                     hitTxt: "I smashed the lightbulb. The lamp couldn't shine anymore.",
-                    inspectWin: false,
                     inspectTxt: "The end of the chain had a little engraving, with my name on it.",
-                    waitWin: false,
                     waitTxt: "Nothing happened.",
-                    acceptWin: false,
                     acceptTxt: "I remembered this lamp. It stood in my parent's room when I was little."
 				},
                 {
@@ -385,19 +378,13 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: `The bear was damp, which made it look gross and malformed.`,
                     lookTxtOpen: `There was a compartment at the back of its head.`,
-                    useWin: false,
                     useTxt: "It was heavier than expected. Not sure of its use, though.",
                     useTxtOpen: `Inside there was a note. It said: "Here's to you. Find the final letter".`,
-                    goWin: false,
                     goTxt: "The bear's right there.",
                     goTxtOpen: "The bear's right there.",
-                    hitWin: false,
                     hitTxt: "I kicked the bear. It made squishy sound.",
-                    inspectWin: false,
                     inspectTxt: "The bear had a tag. On it were my initials.",
-                    waitWin: false,
                     waitTxt: "I looked like it would crumble right in front of my eyes, but it didn't.",
-                    acceptWin: false,
                     acceptTxt: "It was given by my father long ago. Must've been 2 or 3. Loved that bear"
 				},
                 {
@@ -405,17 +392,11 @@ var myGameTxt = {
                     useGlassOpens: [4, 1],
                     isOpened: true,
                     lookTxtOpen: "The glass was a bit foggy.",
-                    useWin: false,
                     useTxtOpen: "I took a piece of glass and kept it in my coat.",
-                    goWin: false,
                     goTxtOpen: "The glass laid at my feet. How many years had this house been in such a state?",
-                    hitWin: false,
                     hitTxt: "Stomping on the shards, I created smaller shards.",
-                    inspectWin: false,
                     inspectTxt: `Nothing of notice here.`,
-                    waitWin: false,
                     waitTxt: "Was the glass supposed to magically fix itself? Surprise, it didn't.",
-                    acceptWin: false,
                     acceptTxt: "What was the meaning? That everything would be destroyed in time?"
 				},
                 {
@@ -429,24 +410,17 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "The walls is littered with newspaper clips from the 1990s.",
                     lookTxtOpen: `Some words were underlined with glowing ink. "We always loved you".`,
-                    useWin: false,
                     useTxt: "I tore a newspaper clip, to find the exact same one underneath.",
                     useTxtOpen: "The ink was somehow fresh. Touching it smeared it further.",
-                    goWin: false,
                     goTxt: "I was in front of the wall now.",
                     goTxtOpen: "I was in front of the wall now.",
-                    hitWin: false,
                     hitTxt: "The wall was study. Wouldn't want to break a bone hitting that...",
-                    inspectWin: false,
                     inspectTxt: `One article stood out. It was from this year, about a car accident.`,
-                    waitWin: false,
                     waitTxt: "I read the papers in silence. It was pretty ominous.",
-                    acceptWin: false,
                     acceptTxt: "The articles were from the time I was born, and grew up. And the day I supposedly died..."
 				},
                 {
                     name: "leave",
-                    leftWin: false,
                     leftTrue: "I came down to the room. I still had chills from before.",
                 }
 			],
@@ -464,7 +438,7 @@ var myGameTxt = {
                 [" It was very ominous. ", "sad", false],
                 ["Scary, even. It made my blood crawl. ", "anger", false],
                 ["That car was a replica of mine. ", "accept", false],
-                ["There was a . ", "sad", false],
+                ["There was a ", "sad", false],
                 ["book", "sad", true],
                 [" next to the figurine.", "sad", false],
 			],
@@ -479,17 +453,11 @@ var myGameTxt = {
                     acceptOpens: -1,
                     isOpened: true,
                     lookTxtOpen: "The candles were already burning. How is this possible?",
-                    useWin: false,
                     useTxtOpen: "I wouldn't dare touch that. I didn't to burn myself.",
-                    goWin: false,
                     goTxtOpen: "I was already neat the candles. The room was small enough.",
-                    hitWin: false,
                     hitTxtOpen: "One of the candles fell after I kicked the stand. Pretty sure it didn't help.",
-                    inspectWin: false,
                     inspectTxtOpen: "The candles' wax was dripping and forming cascading shapes towards the ground.",
-                    waitWin: false,
                     waitTxtOpen: "I waited for about an hour. The candles didn't diminish in size. That was... weird.",
-                    acceptWin: false,
                     acceptTxtOpen: "These candles were otherworldly. That was the only sound explaination."
 				},
                 {
@@ -504,20 +472,14 @@ var myGameTxt = {
                     isOpened: false,
                     lookTxt: "The altar stood proudly in the middle of this tiny chamber. Looked like marble.",
                     lookTxtOpen: "The altar looked scary in the middle of this tiny chamber.",
-                    useWin: false,
-                    useTxt: "Nothing to do with an altar, I guessed.",
+                    useTxt: "There was a receptacle, probably for some fluid. I shivered.",
                     useTxtOpen: "I wondered... I took the glass shard and made my hand bleed, let it drip on the altar.",
-                    goWin: false,
                     goTxt: "The room was too small for me to move anywhere.",
                     goTxtOpen: "The room was too small for me to move anywhere.",
-                    hitWin: false,
                     hitTxt: "Why would I do that?",
-                    inspectWin: false,
                     inspectTxt: "It was marble indeed. A black-ish stone with white-grey irregular stripes.",
-                    waitWin: false,
                     waitTxt: "Nothing to wait for.",
                     waitTxtBledOut: "I waited for it to have a result. Suddenly, a light, and I was transported elsewhere.",
-                    acceptWin: false,
                     acceptTxt: "Where was I? Why were all these items and texts about me? I was again transported elsewhere."
 				},
                 {
@@ -530,17 +492,11 @@ var myGameTxt = {
                     acceptOpens: -1,
                     isOpened: true,
                     lookTxtOpen: `This was a family car, similar to the one I bought years ago, when I got my first job.`,
-                    useWin: false,
                     useTxtOpen: `I took it in my hands, trembling. Why was I trembling? I put it back.`,
-                    goWin: false,
                     goTxtOpen: "The altar was right there. And the car is on it.",
-                    hitWin: false,
                     hitTxt: "I threw the car to the ground. Picked it up and placed it back after.",
-                    inspectWin: false,
                     inspectTxt: "The car looked hand-painted. There were a few imperfections here and there.",
-                    waitWin: false,
                     waitTxt: "I waited, but it didn't do much.",
-                    acceptWin: false,
                     acceptTxt: "I bought that exact same car years ago. Last I knew I was driving it. Why am I here then?"
 				},
                 {
@@ -554,22 +510,15 @@ var myGameTxt = {
                     tookTheBook: false,
                     isOpened: true,
                     lookTxtOpen: `It was a copy of "The Haze", a poetry book my mom used to read me when I was little.`,
-                    useWin: false,
                     useTxtOpen: "I took the book, maybe to read it later.",
-                    goWin: false,
                     goTxtOpen: "I was already at the altar upon which the book sat.",
-                    hitWin: false,
                     hitTxt: "Why would I do such a thing? This had sentimental value.",
-                    inspectWin: false,
                     inspectTxt: `I read an extract: "Let it flow, like clear water, and be. Be with the ones you love."`,
-                    waitWin: false,
                     waitTxt: "Waiting didn't do much. At all.",
-                    acceptWin: false,
                     acceptTxt: "It was a book about life after death. Weird to have been read that as a kid."
 				},
                 {
                     name: "leave",
-                    leftWin: false,
                     leftTrue: "I rush up the stairs, I did not wait to stay down there for too long.",
                 }
 			],
@@ -592,34 +541,22 @@ var myGameTxt = {
                     letterRead: false,
                     isOpened: true,
                     lookTxtOpen: "The letter was folded. It was white, neat. It had a pleasant smell to it.",
-                    useWin: false,
                     useTxtOpen: `<div class="textDiv">Dear me,</div><br/><br/><div class="textDiv">I've been meaning to tell you so, so much. About how I love you. And how I have been happy being you all this time. You must have many questions. Let me get to some.</div><br/><br/><div class="textDiv">First and foremost, that house you've been seeing is indeed yours. Ours. The one we grew up in. It's been decayed this way because of we never thought about it in our adult life. We've been living our life, we didn't have the need to remember, we were busy with work, love, friends... It's unfortunate, but that's behind us now.</div><br/><br/><div class="textDiv">Now the important part. Yes. You died. I mean, we died. Together. At the same time. You had a bad car accident. You've been badly injured, and fought for your life, in a coma, for 4 months. You caved in, you had to, but you never stopped fighting.</div><br/><br/><div class="textDiv">But you do not have to worry anymore. The electrons of our body mingle and dance with the electrons of the ground below us and the air. We are no longer breathing. And we have to remember that there is no point where any of that ends and we begin. We now are energy. Not memory. Not self. Our choice, name, personality, all came after us. We were before them, and we will be after.</div><br/><br/><div class="textDiv">There is no time. There is no death. Life is a dream. It's a wish. Made again, and again, and again, and again, and on into eternity. We are all of it. We are everything. We are all. </div><br/><br/><div class="textDiv">So there is nothing to fear. You are loved. We are everywhere. We are dead, yet, in a sense, we are more alive. We joined the stars, and the rest of the universe.</div><br/><br/><div class="textDiv">With you always,</div><br/><div class="textDiv">#USERNAME</div>`,
-                    goWin: false,
                     goTxtOpen: "It was at my feet already.",
-                    hitWin: false,
                     hitTxt: "Was I out of your mind? No way would I've done that!",
-                    inspectWin: false,
                     inspectTxt: "The letter was rather small in my hands. It felt... fragile.",
-                    waitWin: false,
                     waitTxt: "I took in the moment. I felt so... so peaceful.",
-                    acceptWin: false,
                     acceptTxt: "The letter was signed by myself. It was touching. I felt a tear running down my cheek."
 				},
                 {
                     name: "screen",
                     isOpened: true,
                     lookTxtOpen: "The screen flashed pictures of places. Seemed familiar, somehow.",
-                    useWin: false,
                     useTxtOpen: "There wasn't any buttons to use. It was just a sceen.",
-                    goWin: false,
                     goTxtOpen: "The screen was in front of me.",
-                    hitWin: false,
                     hitTxt: "I wasn't going to.",
-                    inspectWin: false,
                     inspectTxt: "These were scenes from my life. Memories, flashing, incendescent.",
-                    waitWin: false,
                     waitTxt: "I watched for a few minutes, no picture was the same as the other.",
-                    acceptWin: false,
                     acceptTxt: "I felt like there was something missing. What was that letter saying?",
                     acceptTxtLetterOpen: [
                         [
@@ -642,7 +579,6 @@ var myGameTxt = {
 				},
                 {
                     name: "leave",
-                    leftWin: false,
                     leftTrue: "Why would I leave? I wouldn't even know how to.",
                 }
 			],
@@ -689,7 +625,17 @@ var myGameTxt = {
 			],
 		},
 	],
-	complete: false,
     currentScene:6,
     currentAct:0
 };
+
+/*
+    Ce code gère le localStorage pour les actes
+*/
+if(storageAvailable('localStorage')) {
+    if(localStorage.act) myGameTxt.currentAct = localStorage.act;
+    else myGameTxt.currentAct = 0;
+  }
+  else {
+      alert("No local storage detected")
+  }

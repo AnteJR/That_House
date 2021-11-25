@@ -1,35 +1,44 @@
+/* CE DOCUMENT CONTIENT 4 FONCTIONS, DONT 2 IMBRIQUÉE DANS UNE AUTRE */
+
+/*
+    LA PREMIÈRE FONCTION EST APPELÉE QUAND ON VALIDE UN INPUT
+    AVEC UNE COMMANDE. SON BUT EST DE RÉCUPÉRER LE CONTENU DE
+    L'INPUT, L'INTERPRÉTER ET L'AFFICHER DANS UNE ALERT CUSTOM.
+ */
 function displayAlert(text){
-    let maDiv = document.getElementById("alertTxt");
     let monAlert = document.getElementById("boxAlert");
-
-    /* ADDEVENTLISTENER POUR FERMER LA BOITE DE DIALOGUE */
-    let monBtn = document.getElementById("alertButton");
-    monBtn.addEventListener("click", () => {
-        document.getElementById("boxAlert").style.display = "none";
-        maDiv.innerHTML = "";
-    })
-
-    maDiv.innerHTML = "";
-    monAlert.style.display = "block";
-
+    let maDiv = document.getElementById("alertTxt");
     let command = text.split(" ");
     let textToDisplay = "";
 
-    /* TROUVER LE TEXTE A AFFICHER */
-    if(myGameTxt.currentAct < 4 && myGameTxt.currentScene < 5){
-        let command = text.split(" ");
-        textToDisplay = findText(command);
+    // on affiche la div qui compose l'alert
+    monAlert.style.display = "block";
+
+    // on vide le contenu de l'alert si elle en avait
+    maDiv.innerHTML = "";
+
+    // on ajoute un addEventListener au bouton qui apparaît dans la div
+    document.getElementById("alertButton").addEventListener("click", () => {
+        // on désaffiche la div qui compose l'alert
+        document.getElementById("boxAlert").style.display = "none";
+
+        // on vide le contenu innerHTML de la div
+        maDiv.innerHTML = "";
+    });
+
+    // CONDITION SPÉCIALE : si on entre la commande "use letter" à la scène 6 de l'acte 5 (en partant de 0)
+    if (myGameTxt.currentAct >= 4 && myGameTxt.currentScene >= 5 && text == "use letter"){
+        // on lance la fonction openLetter(), qui a un affichage spécial
+        myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter = true;
+        myGameTxt.scenes[myGameTxt.currentScene].items[0].letterRead = true;
+        openLetter();
     }
-    else{
-        if(text == "use letter"){
-            myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter = true;
-            myGameTxt.scenes[myGameTxt.currentScene].items[0].letterRead = true;
-            openLetter();
-        }
-        let command = text.split(" ");
+    // CONDITION SPÉCIALE : sinon on définit textToDisplay en appelant la fonction findText() avec comme argument la variable command
+    else {
         textToDisplay = findText(command);
     }
     
+    // set de variables utiles pour la fonction txtDisplay()
     let txtFrag = textToDisplay.split("");
     let i = txtFrag.length;
     let j = 0;
@@ -37,9 +46,15 @@ function displayAlert(text){
 
     txtDisplay();
 
+    /*
+        LA FONCTION TXTTODISPLAY AFFICHE CARACTÈRE PAR CARACTÈRE
+        LE TEXTE FRAGMENTÉ DE TXTFRAG, QUI A ÉTÉ GÉNÉRÉ PAR FINDTEXT().
+    */
     function txtDisplay(){
+        // on configure un timeout pour qu'il y a du temps entre l'affichage de chaque caractère
         setTimeout(function(){
-            if(i>0){
+            if (i>0){
+                // on insère dans la maDiv le caractère, allant du premier au dernier
                 maDiv.innerHTML += txtFrag[j];
                 j++;
                 i--;
@@ -49,216 +64,266 @@ function displayAlert(text){
     }
 }
 
-/* */
+/* 
+    LA DEUXIÈME FONCTIONS SERT À GÉNÉRER LE TEXTE QUI DEVRA
+    ÊTRE AFFICHÉ DANS L'ALERT. LA FONCTION PREND COMME ARGUMENT
+    COMMANDITEM, QUI EST L'ARRAY COMPOSÉ PAR LE SPLIT À L'ESPACEMENT
+    DU CONTENU DE L'INPUT.
+*/
 function findText(commandItem){
     let textAlert = "";
     let maScene = myGameTxt.currentScene;
     let monItem = myGameTxt.scenes[maScene].items;
     let maCommande = commandItem[0].toLowerCase();
-    /* SI ON LEAVE, ON A UN SET DE CONDITIONS */
-    if(maCommande == "leave"){
+
+    // CONDITION PRINCIPALE : si maCommade est "leave"
+    if (maCommande == "leave"){
+        // on récupère le dernier objet de l'array d'objet monItem
         let leaveItem = monItem[(monItem.length-1)];
+
+        // le texte à afficher dans l'alert est récupéré dans l'objet JSON myGameTxt
         textAlert = leaveItem.leftTrue;
-        if(maScene == 0 && !leaveItem.canLeave){
+
+        // CONDITION SECONDAIRE : si la scène vaut 0 et que l'on ne peut pas leave, on indique qu'on ne peut pas
+        if (maScene == 0 && !leaveItem.canLeave){
             textAlert = leaveItem.leftFalse;
         }
-        else if(maScene == 0 && leaveItem.canLeave && myGameTxt.currentAct <= 1){
-            myGameTxt.scenes[0].items[2].canLeave = false;
-            myGameTxt.currentAct = myGameTxt.currentAct+1;
-            myGameTxt.currentScene = 6;
-            actOne();
+
+        // CONDITION SECONDAIRE : si la scène vaut 0 ET que l'on peut leave ET que l'acte actuel est l'acte 1 ou 2 (en partant de 0)
+        else if (maScene == 0 && leaveItem.canLeave && myGameTxt.currentAct <= 1){
+            nextActPlease();
         }
-        if(maScene != 0 && (maScene == 1 || maScene == 2 || maScene == 3)){
+
+        // CONDITION SECONDAIRE : si la scène vaut entre 1 et 3 (entre 2 et 4 en partant de 0)
+        else if (maScene == 1 || maScene == 2 || maScene == 3){
+            // on indique que la scène actuelle diminue d'1 ; on revient en arrière dans les scènes
             myGameTxt.currentScene = maScene-1;
             actOne();
-            if(maScene == 3 && myGameTxt.currentAct == 1){
-                myGameTxt.scenes[0].items[2].canLeave = false;
-                myGameTxt.currentAct = myGameTxt.currentAct+1;
-                myGameTxt.currentScene = 6;
-                actOne();
+
+            // CONDITION TERTIAIRE : si la scène vaut 3 et l'acte 1 (acte 2, scène 4 en partant de 0)
+            if (maScene == 3 && myGameTxt.currentAct == 1){
+                nextActPlease();
             }
-            else if(maScene == 2 && myGameTxt.currentAct == 2){
-                myGameTxt.scenes[0].items[2].canLeave = false;
-                myGameTxt.currentAct = myGameTxt.currentAct+1;
-                myGameTxt.currentScene = 6;
-                actOne();
+            // CONDITION TERTIAIRE : si la scène vaut 2 et l'acte 2 (acte 3, scène 3 en partant de 0)
+            else if (maScene == 2 && myGameTxt.currentAct == 2){
+                nextActPlease();
             }
         }
-        else if(maScene == 4){
+
+        // CONDITION SECONDAIRE : si la scène vaut 0 et que l'on ne peut pas leave
+        else if (maScene == 4){
+            // on indique que la scène actuelle diminue de 2 ; on revient en arrière dans les scènes
             myGameTxt.currentScene = maScene-2;
+            actOne();
+        }
+
+        /*
+            LA FONCTION NEXTACTPLEASE() PARAMÈTRE LE PASSAGE À UN NOUVEL ACTE.
+        */
+        function nextActPlease(){
+            myGameTxt.scenes[0].items[2].canLeave = false;
+
+            // on incrémente le numéro de l'acte et set la scène à 6
+            myGameTxt.currentAct = myGameTxt.currentAct+1;
+            myGameTxt.currentScene = 6;
+
+            // on désaffiche l'alert et on insère le texte normalement prévu à l'alert dans la div gameDiv, qui est centrée
+            document.getElementById("boxAlert").style.display = "none";
+            textAlert = `<br/><div class="textDiv">`+leaveItem.leftTrue
+            textAlert += `</div><br/><br/><input type="button" value="save and continue" class="buttonGoForward" id="buttonNewAct"/>`
+            gameDiv.innerHTML = textAlert;
+            gameDiv.style.textAlign = "center";
+
+            // on paramètre un eventListener pour le bouton, pour passer à l'acte suivant et sauvegarder dans le localStorage
+            document.getElementById("buttonNewAct").addEventListener("click", function(){
+                localStorage.act = myGameTxt.currentAct;
+                actOne();
+            });
         }
     }
-    else{
-        /* PARCOURS LA LISTE DES ITEMS POUR TROUVER CELUI SELECTIONNE PAR LA COMMANDE */
+
+    // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
+    else {
+        // on parcours la liste des items pour trouver le bon. Une fois trouver, on a un set de conditions principales et secondaires
         monItem.forEach((e) => {
-            /* UNE FOIS TROUVÉ, ON REGARDE QUELLE COMMANDE A ÉTÉ ENTRÉE, AVEC DES CONDITIONS GÉNÉRIQUES ET SPÉCIFIQUES */
-            if(e.name == commandItem[1].toLowerCase()){
-                // SI ON LOOK
-                if(maCommande == "look"){
-                    if(!e.isOpened){
-                        textAlert = e.lookTxt;
-                    }
-                    else if(e.isOpened){
+            if (e.name == commandItem[1].toLowerCase()){
+                
+                // si maCommande est "look"
+                if (maCommande == "look"){
+
+                    // si l'attribut isOpened est false, on affiche le texte standard
+                    if (!e.isOpened) textAlert = e.lookTxt;
+
+                    // si l'attribut isOpened est true, on affiche le texte spécial
+                    else if (e.isOpened){
                         textAlert = e.lookTxtOpen;
-                        /* CONDITIONS SPECIALES */
-                        if(maScene == 2 && e.name == "postcard"){
-                            monItem[e.useCanPressBtn].canPressBtn = true;
-                        }
+
+                        // en plus, ma scène vaut 2 et qu'on "look postcard", on change le paramètre canPressBtn au bon endroit
+                        if (maScene == 2 && e.name == "postcard") monItem[e.useCanPressBtn].canPressBtn = true;
                     }
-                    if(e.lookOpens >= 0){
-                        monItem[e.lookOpens].isOpened = true;
-                    }
+
+                    // si utiliser "look" débloque quelque chose, débloquer l'objet correspondant
+                    if (e.lookOpens >= 0) monItem[e.lookOpens].isOpened = true;
                 }
-                // SI ON USE
-                else if(maCommande == "use"){
-                    if(!e.isOpened){
-                        textAlert = e.useTxt;
-                    }
-                    else if(e.isOpened){
+                
+                // si maCommande est "use"
+                else if (maCommande == "use"){
+
+                    // si l'attribut isOpened est false, on affiche le texte standard
+                    if (!e.isOpened) textAlert = e.useTxt;
+
+                    // si l'attribut isOpened est true, on affiche le texte spécial
+                    else if (e.isOpened){
                         textAlert = e.useTxtOpen;
-                        if(e.useWin == true){
-                            myGameTxt.currentScene = maScene+1;
+
+                        // si useWin est true (si utiliser "use" fait passer à la scène suivante), passer à la scène suivante
+                        if (e.useWin) {
+                            myGameTxt.currentScene = maScene+1; 
                             actOne();
                         }
-                        /* CONDITIONS SPECIALES */
-                        if(maScene == 2 && e.name == "desk" && e.canPressBtn == true && e.gotKey == true){
-                            textAlert = e.useTxtBtn;
+
+                        // set de condition speciales
+                        if (maScene == 2 && e.name == "desk" && e.canPressBtn == true && e.gotKey == true){
+                            textAlert = e.useTxtBtn; 
                             monItem[e.btnOpens].isOpened = true;
                         }
-                        if(maScene == 2 && e.name == "desk" && e.gotKey == false){
-                            e.gotKey = true;
-                        }
-                        if(maScene == 3 && e.name == "bedlamp"){
-                            monItem[4].isOpened = true;
-                        }
-                        if(maScene == 3 && e.name == "glass"){
-                            myGameTxt.scenes[e.useGlassOpens[0]].itmes[e.useGlassOpens[1]].isOpened = true;
-                        }
-                        if(maScene == 4 && e.name == "altar"){
-                            e.bledOut = true;
-                        }
-                        if(maScene == 4 && e.name == "book"){
-                            //prendre le livre débloque un panneau supplémentaire dans le générique de fin
-                            e.tookTheBook = 0;
-                        }
+                        if (maScene == 2 && e.name == "desk" && e.gotKey == false) e.gotKey = true;
+                        if (maScene == 3 && e.name == "bedlamp") monItem[4].isOpened = true;
+                        if (maScene == 3 && e.name == "glass") myGameTxt.scenes[e.useGlassOpens[0]].items[e.useGlassOpens[1]].isOpened = true;
+                        if (maScene == 4 && e.name == "altar") e.bledOut = true;
+                        if (maScene == 4 && e.name == "book") e.tookTheBook = 0;
                     }
-                    if(e.useOpens >= 0){
-                        monItem[e.useOpens].isOpened = true;
-                    }
+
+                    // si utiliser "look" débloque quelque chose, débloquer l'objet correspondant
+                    if (e.useOpens >= 0) monItem[e.useOpens].isOpened = true;
                 }
-                // SI ON GO
-                else if(maCommande == "go"){
-                    if(!e.isOpened){
-                        textAlert = e.goTxt;
-                    }
-                    else if(e.isOpened){
+                
+                // si maCommande est "go"
+                else if (maCommande == "go"){
+
+                    // si l'attribut isOpened est false, on affiche le texte standard
+                    if (!e.isOpened) textAlert = e.goTxt;
+
+                    // si l'attribut isOpened est true, on affiche le texte spécial
+                    else if (e.isOpened){
                         textAlert = e.goTxtOpen;
-                        if(e.goWin == true){
+
+                        // si goWin est true (si utiliser "go" fait passer à la scène suivante), passer à la scène suivante
+                        if (e.goWin){
                             myGameTxt.currentScene = maScene+1;
                             actOne();
                         }
-                        /* CONDITION SPECIALE */
-                        if(maScene == 1){
-                            myGameTxt.scenes[0].items[2].canLeave = true;
-                        }
-                        if(maScene == 2 && e.name == "bookshelf" && isOpened == true && e.isDoorOpen == true){
+
+                        // set de condition speciales
+                        if (maScene == 1) myGameTxt.scenes[0].items[2].canLeave = true;
+                        if (maScene == 2 && e.name == "bookshelf" && e.isOpened == true && e.isDoorOpen == true){
                             textAlert = e.goTxtDoorOpen
                             myGameTxt.currentScene = maScene+2;
                             actOne();
                         }
                     }
                 }
-                // SI ON HIT
-                else if(maCommande == "hit" && myGameTxt.currentAct >= 1){
+                
+                // si maCommande est "hit", on affiche son texte
+                else if (maCommande == "hit" && myGameTxt.currentAct >= 1){
                     textAlert = e.hitTxt;
-                    if(e.hitWin == true){
+
+                    // si hitWin est true (si utiliser "hit" fait passer à la scène suivante), passer à la scène suivante
+                    if (e.hitWin){
                         myGameTxt.currentScene = maScene+1;
                         actOne();
                     }
-                    if(e.hitOpens >= 0){
-                        monItem[e.hitOpens].isOpened = true;
-                        /* CONDITIONS SPECIFIQUES */
-                        if(maScene == 2 && e.name == "desk"){
-                            e.useOpens = 0;
-                        }
-                        if(maScene == 3 && e.name == "bedlamp"){
-                            monItem[4].isOpened = true;
-                        }
-                    }
+
+                    // set de condition speciales
+                    if (maScene == 2 && e.name == "desk") e.useOpens = 0;
+                    if (maScene == 3 && e.name == "bedlamp") monItem[4].isOpened = true;
+
+                    // si utiliser "hit" débloque quelque chose, débloquer l'objet correspondant
+                    if (e.hitOpens >= 0) monItem[e.hitOpens].isOpened = true;
                 }
-                // SI ON INSPECT
-                else if(maCommande == "inspect" && myGameTxt.currentAct >= 2){
+                
+                // si maCommande est "inspect", on affiche son texte
+                else if (maCommande == "inspect" && myGameTxt.currentAct >= 2){
                     textAlert = e.inspectTxt;
-                    if(e.inspectWin == true){
-                        myGameTxt.currentScene = maScene+1;
-                        actOne();
-                    }
-                    if(e.inspectOpens >= 0){
+
+                    // si utiliser "inspect" débloque quelque chose, débloquer l'objet correspondant
+                    if (e.inspectOpens >= 0){
                         monItem[e.inspectOpens].isOpened = true;
                     }
                 }
-                // SI ON WAIT
-                else if(maCommande == "wait" && myGameTxt.currentAct >= 3){
+                
+                // si maCommande est "wait", on affiche son texte
+                else if (maCommande == "wait" && myGameTxt.currentAct >= 3){
                     textAlert = e.waitTxt;
-                    if(maScene == 2 && e.name == "bookshelf" && e.isDoorOpen == false){
-                        isDoorOpen = true;
-                    }
-                    if(e.waitWin == true){
-                        myGameTxt.currentScene = maScene+1;
-                        actOne();
-                    }
-                    if(e.waitOpens >= 0){
-                        monItem[e.waitOpens].isOpened = true;
-                    }
-                    /* CONDITIONS SPECIFIQUES */
-                    if(maScene == 2 && e.name == "bookshelf"){
-                        e.isDoorOpen = true;
-                    }
-                    if(maScene == 4 && e.name == "altar" && e.bledOut == true){
-                        textAlert = e.waitTxtBledOut;
-                        if(myGameTxt.currentAct == 3){
+
+                    // set de condition speciales
+                    if (maScene == 2 && e.name == "bookshelf") e.isDoorOpen = true;
+                    if (maScene == 4 && e.name == "altar" && e.bledOut == true){
+                        if (myGameTxt.currentAct == 3){
                             myGameTxt.scenes[0].items[2].canLeave = false;
+                
+                            // on incrémente le numéro de l'acte et set la scène à 6
                             myGameTxt.currentAct = myGameTxt.currentAct+1;
                             myGameTxt.currentScene = 6;
-                            actOne();
+                
+                            // on désaffiche l'alert et on insère le texte normalement prévu à l'alert dans la div gameDiv, qui est centrée
+                            document.getElementById("boxAlert").style.display = "none";
+                            textAlert = `<br/><div class="textDiv">` + e.waitTxtBledOut;
+                            textAlert += `</div><br/><br/><input type="button" value="save and continue" class="buttonGoForward" id="buttonNewAct"/>`
+                            gameDiv.innerHTML = textAlert;
+                            gameDiv.style.textAlign = "center";
+                
+                            // on paramètre un eventListener pour le bouton, pour passer à l'acte suivant et sauvegarder dans le localStorage
+                            document.getElementById("buttonNewAct").addEventListener("click", function(){
+                                localStorage.act = myGameTxt.currentAct;
+                                actOne();
+                            });
                         }
-                        if(myGameTxt.currentAct == 4){
+                        if (myGameTxt.currentAct == 4){
+                            textAlert = e.waitTxtBledOut;
                             myGameTxt.currentScene = myGameTxt.currentScene+1;
                             actOne();
                         }
                     }
+
+                    // si utiliser "wait" débloque quelque chose, débloquer l'objet correspondant
+                    if (e.waitOpens >= 0){
+                        monItem[e.waitOpens].isOpened = true;
+                    }
                 }
-                // SI ON ACCEPT
-                else if(maCommande == "accept" && myGameTxt.currentAct >= 4){
+                
+                // si maCommande est "accept", on affiche son texte
+                else if (maCommande == "accept" && myGameTxt.currentAct >= 4){
                     textAlert = e.acceptTxt;
-                    if(e.acceptWin == true){
+
+                    // si acceptWin est true (si utiliser "accept" fait passer à la scène suivante), passer à la scène suivante
+                    if (e.acceptWin){
                         myGameTxt.currentScene = maScene+1;
                         actOne();
                     }
-                    /* CONDITIONS SPECIFIQUES */
-                    if(maScene == 2 && e.name == "bookshelf"){
-                        e.isDoorOpen = true;
+
+                    // set de condition speciales
+                    if (maScene == 2 && e.name == "bookshelf") e.isDoorOpen = true;
+                    if (maScene == 4 && e.name == "altar"){
+                        myGameTxt.currentScene = myGameTxt.currentScene+1;
+                        actOne();
                     }
-                    if(maScene == 4 && e.name == "altar"){
-                        if(myGameTxt.currentAct == 4){
-                            myGameTxt.currentScene = myGameTxt.currentScene+1;
-                            actOne();
-                        }
-                    }
-                    if(maScene == 5 && e.name == "screen" && monItem[0].letterRead == true){
-                        endScreen(0);
-                    }
+                    if (maScene == 5 && e.name == "screen" && monItem[0].letterRead == true) endScreen(0);
                 }
-                // SI LA COMMANDE N'EST PAS RECONNUE
-                else{
+                
+                // si maCommande n'est pas reconnu
+                else {
                     textAlert = "Command not recognized or unavailable.";
                 }
             }
         });
-        //SI L'ITEM N'EST PAS RECONNU
-        if(textAlert == ""){
+                
+        // si l'objet entré dans l'input ne correspond à aucun myGamTxt.scenes[myGametxt.currentScene].items
+        if (textAlert == ""){
             textAlert = "Object not recognized";
         }
     }
+
+    // return textAlert pour que cela puisse être utilisé dans la fonction displayAlert()
     return textAlert;
 }

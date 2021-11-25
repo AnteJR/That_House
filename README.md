@@ -60,3 +60,11 @@ Publication Numériques - Dir. Isaac Pante
 4. TODO : gérer les sauvegardes savec le `localStorage`
 5. TODO : Muuuuuuuuusique ! (et sound design)
 6. TODO : Améliorer les transitions
+### Jeudi 25.11 - 8h
+1. Gérer les sauvegardes savec le `localStorage`
+2. Améliorer les transitions
+3. Commenter le texte
+4. Alléger le code là où c'est possible
+5. TODO : Muuuuuuuuusique ! (et sound design)
+6. TODO : Playtest & bug fix
+7. TODO : Alléger le code là où c'est possible (BIS)

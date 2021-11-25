@@ -1,270 +1,155 @@
-@keyframes upDown {
-    0%      {transform: translateY(0px)}
-    25%     {transform: translateY(-2px)}
-    75%     {transform: translateY(2px)}
-    100%    {transform: translateY(0px)}
+/*  LOT D'ANIMATIONS POUR LES TEXTES INTERACTIFS, POUR QU'ILS BOUGENT  */
+/*  ANIMATION POUR LES TEXTES "REGULAR"  */
+@keyframes upDown { 
+    0%      { transform: translateY(0px) }
+    25%     { transform: translateY(-2px) }
+    75%     { transform: translateY(2px) }
+    100%    { transform: translateY(0px) }
 }
 
-@keyframes angryWobble {
-    0%      {transform: translateX(0px) translateY(0px)}
-    25%     {transform: translateX(1px) translateY(1px)}
-    75%     {transform: translateX(-1px) translateY(-1px)}
-    100%    {transform: translateX(0px) translateY(0px)}
+/*  ANIMATION POUR LES TEXTES "ANGRY"  */
+@keyframes angryWobble { 
+    0%      { transform: translateX(0px) translateY(0px) }
+    25%     { transform: translateX(1px) translateY(1px) }
+    75%     { transform: translateX(-1px) translateY(-1px) }
+    100%    { transform: translateX(0px) translateY(0px) }
 }
 
-@keyframes barWobble {
-    0%      {transform: translateY(0px)}
-    25%     {transform: translateY(-3px)}
-    75%     {transform: translateY(3px)}
-    100%    {transform: translateY(0px)}
+/*  ANIMATION POUR LES TEXTES "BARGAIN"  */
+@keyframes barWobble { 
+    0%      { transform: translateY(0px) }
+    25%     { transform: translateY(-3px) }
+    75%     { transform: translateY(3px) }
+    100%    { transform: translateY(0px) }
 }
 
-@keyframes sWobble {
-    0%      {transform: rotate(0deg) translateY(0px)}
-    25%     {transform: rotate(2deg) translateY(2px)}
-    75%     {transform: rotate(-2deg) translateY(-2px)}
-    100%    {transform: rotate(0deg) translateY(0px)}
+/*  ANIMATION POUR LES TEXTES "SAD"  */
+@keyframes sWobble { 
+    0%      { transform: rotate(0deg) translateY(0px) }
+    25%     { transform: rotate(2deg) translateY(2px) }
+    75%     { transform: rotate(-2deg) translateY(-2px) }
+    100%    { transform: rotate(0deg) translateY(0px) }
 }
 
-@keyframes acceptWobble {
-    0%      {transform: translateX(2px) translateY(0px)}
-    25%     {transform: translateX(0px) translateY(2px)}
-    50%     {transform: translateX(-2px) translateY(0px)}
-    75%     {transform: translateX(0px) translateY(-2px)}
-    100%    {transform: translateX(2px) translateY(0px)}
+/*  ANIMATION POUR LES TEXTES "ACCEPT"  */
+@keyframes acceptWobble { 
+    0%      { transform: translateX(2px) translateY(0px) }
+    25%     { transform: translateX(0px) translateY(2px) }
+    50%     { transform: translateX(-2px) translateY(0px) }
+    75%     { transform: translateX(0px) translateY(-2px) }
+    100%    { transform: translateX(2px) translateY(0px) }
 }
 
-@keyframes textShadowWhite {
-    0% {
-      text-shadow: 0.4389924193300864px 0 1px rgba(255, 255, 255, 0.5), -0.4389924193300864px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    10% {
-      text-shadow: 0.02956275843481219px 0 1px rgba(255, 255, 255, 0.5), -0.02956275843481219px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    20% {
-      text-shadow: 1.4794037899852017px 0 1px rgba(255, 255, 255, 0.5), -1.4794037899852017px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    30% {
-      text-shadow: 0.7015590085143956px 0 1px rgba(255, 255, 255, 0.5), -0.7015590085143956px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    40% {
-      text-shadow: 1.870905614848819px 0 1px rgba(255, 255, 255, 0.5), -1.870905614848819px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    50% {
-      text-shadow: 0.08084290417898504px 0 1px rgba(255, 255, 255, 0.5), -0.08084290417898504px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    60% {
-      text-shadow: 1.202193051050636px 0 1px rgba(255, 255, 255, 0.5), -1.202193051050636px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    70% {
-      text-shadow: 0.48874025155497314px 0 1px rgba(255, 255, 255, 0.5), -0.48874025155497314px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    80% {
-      text-shadow: 0.0833037308038857px 0 1px rgba(255, 255, 255, 0.5), -0.0833037308038857px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    90% {
-      text-shadow: 1.443339761481782px 0 1px rgba(255, 255, 255, 0.5), -1.443339761481782px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
-    100% {
-      text-shadow: 1.6208764473832513px 0 1px rgba(255, 255, 255, 0.5), -1.6208764473832513px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px;
-    }
+/*  LOT D'ANIMATIONS POUR L'EFFET VIEIL ÉCRAN SUR LE TEXTE  */
+      /*  REPRIS EN PARTIE AU SITE MBRSERVER.COM  */
+                  /*  SPREAD THE CODE  */
+/*  ANIMATION POUR LES TEXTES BLANCS  */
+@keyframes textShadowWhite { 
+  0%        { text-shadow: 0.4389924193300864px 0 1px rgba(225, 225, 225, 0.5), -0.4389924193300864px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  10%       { text-shadow: 0.02956275843481219px 0 1px rgba(225, 225, 225, 0.5), -0.02956275843481219px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  20%       { text-shadow: 1.4794037899852017px 0 1px rgba(225, 225, 225, 0.5), -1.4794037899852017px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  30%       { text-shadow: 0.7015590085143956px 0 1px rgba(225, 225, 225, 0.5), -0.7015590085143956px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  40%       { text-shadow: 1.870905614848819px 0 1px rgba(225, 225, 225, 0.5), -1.870905614848819px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  50%       { text-shadow: 0.08084290417898504px 0 1px rgba(225, 225, 225, 0.5), -0.08084290417898504px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  60%       { text-shadow: 1.202193051050636px 0 1px rgba(225, 225, 225, 0.5), -1.202193051050636px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  70%       { text-shadow: 0.48874025155497314px 0 1px rgba(225, 225, 225, 0.5), -0.48874025155497314px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  80%       { text-shadow: 0.0833037308038857px 0 1px rgba(225, 225, 225, 0.5), -0.0833037308038857px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  90%       { text-shadow: 1.443339761481782px 0 1px rgba(225, 225, 225, 0.5), -1.443339761481782px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
+  100%      { text-shadow: 1.6208764473832513px 0 1px rgba(225, 225, 225, 0.5), -1.6208764473832513px 0 1px rgba(141, 141, 141, 0.3), 0 0 3px; }
 }
 
-@keyframes textShadowAngry {
-    0% {
-      text-shadow: 0.4389924193300864px 0 1px rgba(228, 71, 9, 0.5), -0.4389924193300864px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    10% {
-      text-shadow: 0.02956275843481219px 0 1px rgba(228, 71, 9, 0.5), -0.02956275843481219px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    20% {
-      text-shadow: 1.4794037899852017px 0 1px rgba(228, 71, 9, 0.5), -1.4794037899852017px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    30% {
-      text-shadow: 0.7015590085143956px 0 1px rgba(228, 71, 9, 0.5), -0.7015590085143956px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    40% {
-      text-shadow: 1.870905614848819px 0 1px rgba(228, 71, 9, 0.5), -1.870905614848819px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    50% {
-      text-shadow: 0.08084290417898504px 0 1px rgba(228, 71, 9, 0.5), -0.08084290417898504px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    60% {
-      text-shadow: 1.202193051050636px 0 1px rgba(228, 71, 9, 0.5), -1.202193051050636px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    70% {
-      text-shadow: 0.48874025155497314px 0 1px rgba(228, 71, 9, 0.5), -0.48874025155497314px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    80% {
-      text-shadow: 0.0833037308038857px 0 1px rgba(228, 71, 9, 0.5), -0.0833037308038857px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    90% {
-      text-shadow: 1.443339761481782px 0 1px rgba(228, 71, 9, 0.5), -1.443339761481782px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
-    100% {
-      text-shadow: 1.6208764473832513px 0 1px rgba(228, 71, 9, 0.5), -1.6208764473832513px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px;
-    }
+/*  ANIMATION POUR LES TEXTES ORANGES  */
+@keyframes textShadowAngry { 
+    0%      { text-shadow: 0.4389924193300864px 0 1px rgba(228, 71, 9, 0.5), -0.4389924193300864px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    10%     { text-shadow: 0.02956275843481219px 0 1px rgba(228, 71, 9, 0.5), -0.02956275843481219px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    20%     { text-shadow: 1.4794037899852017px 0 1px rgba(228, 71, 9, 0.5), -1.4794037899852017px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    30%     { text-shadow: 0.7015590085143956px 0 1px rgba(228, 71, 9, 0.5), -0.7015590085143956px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    40%     { text-shadow: 1.870905614848819px 0 1px rgba(228, 71, 9, 0.5), -1.870905614848819px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    50%     { text-shadow: 0.08084290417898504px 0 1px rgba(228, 71, 9, 0.5), -0.08084290417898504px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    60%     { text-shadow: 1.202193051050636px 0 1px rgba(228, 71, 9, 0.5), -1.202193051050636px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    70%     { text-shadow: 0.48874025155497314px 0 1px rgba(228, 71, 9, 0.5), -0.48874025155497314px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    80%     { text-shadow: 0.0833037308038857px 0 1px rgba(228, 71, 9, 0.5), -0.0833037308038857px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    90%     { text-shadow: 1.443339761481782px 0 1px rgba(228, 71, 9, 0.5), -1.443339761481782px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
+    100%    { text-shadow: 1.6208764473832513px 0 1px rgba(228, 71, 9, 0.5), -1.6208764473832513px 0 1px rgba(238, 217, 28, 0.3), 0 0 3px; }
 }
 
-@keyframes textShadowBargain {
-    0% {
-      text-shadow: 0.4389924193300864px 0 1px rgba(34, 228, 9, 0.5), -0.4389924193300864px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    10% {
-      text-shadow: 0.02956275843481219px 0 1px rgba(34, 228, 9, 0.5), -0.02956275843481219px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    20% {
-      text-shadow: 1.4794037899852017px 0 1px rgba(34, 228, 9, 0.5), -1.4794037899852017px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    30% {
-      text-shadow: 0.7015590085143956px 0 1px rgba(34, 228, 9, 0.5), -0.7015590085143956px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    40% {
-      text-shadow: 1.870905614848819px 0 1px rgba(34, 228, 9, 0.5), -1.870905614848819px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    50% {
-      text-shadow: 0.08084290417898504px 0 1px rgba(34, 228, 9, 0.5), -0.08084290417898504px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    60% {
-      text-shadow: 1.202193051050636px 0 1px rgba(34, 228, 9, 0.5), -1.202193051050636px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    70% {
-      text-shadow: 0.48874025155497314px 0 1px rgba(34, 228, 9, 0.5), -0.48874025155497314px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    80% {
-      text-shadow: 0.0833037308038857px 0 1px rgba(34, 228, 9, 0.5), -0.0833037308038857px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    90% {
-      text-shadow: 1.443339761481782px 0 1px rgba(34, 228, 9, 0.5), -1.443339761481782px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
-    100% {
-      text-shadow: 1.6208764473832513px 0 1px rgba(34, 228, 9, 0.5), -1.6208764473832513px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px;
-    }
+/*  ANIMATION POUR LES TEXTES VERTS  */
+@keyframes textShadowBargain { 
+    0%      { text-shadow: 0.4389924193300864px 0 1px rgba(34, 228, 9, 0.5), -0.4389924193300864px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    10%     { text-shadow: 0.02956275843481219px 0 1px rgba(34, 228, 9, 0.5), -0.02956275843481219px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    20%     { text-shadow: 1.4794037899852017px 0 1px rgba(34, 228, 9, 0.5), -1.4794037899852017px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    30%     { text-shadow: 0.7015590085143956px 0 1px rgba(34, 228, 9, 0.5), -0.7015590085143956px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    40%     { text-shadow: 1.870905614848819px 0 1px rgba(34, 228, 9, 0.5), -1.870905614848819px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    50%     { text-shadow: 0.08084290417898504px 0 1px rgba(34, 228, 9, 0.5), -0.08084290417898504px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    60%     { text-shadow: 1.202193051050636px 0 1px rgba(34, 228, 9, 0.5), -1.202193051050636px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    70%     { text-shadow: 0.48874025155497314px 0 1px rgba(34, 228, 9, 0.5), -0.48874025155497314px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    80%     { text-shadow: 0.0833037308038857px 0 1px rgba(34, 228, 9, 0.5), -0.0833037308038857px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    90%     { text-shadow: 1.443339761481782px 0 1px rgba(34, 228, 9, 0.5), -1.443339761481782px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
+    100%    { text-shadow: 1.6208764473832513px 0 1px rgba(34, 228, 9, 0.5), -1.6208764473832513px 0 1px rgba(56, 105, 43, 0.3), 0 0 3px; }
 }
 
-@keyframes textShadowDepression {
-    0% {
-      text-shadow: 0.4389924193300864px 0 1px rgba(9, 184, 228, 0.5), -0.4389924193300864px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    10% {
-      text-shadow: 0.02956275843481219px 0 1px rgba(9, 184, 228, 0.5), -0.02956275843481219px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    20% {
-      text-shadow: 1.4794037899852017px 0 1px rgba(9, 184, 228, 0.5), -1.4794037899852017px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    30% {
-      text-shadow: 0.7015590085143956px 0 1px rgba(9, 184, 228, 0.5), -0.7015590085143956px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    40% {
-      text-shadow: 1.870905614848819px 0 1px rgba(9, 184, 228, 0.5), -1.870905614848819px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    50% {
-      text-shadow: 0.08084290417898504px 0 1px rgba(9, 184, 228, 0.5), -0.08084290417898504px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    60% {
-      text-shadow: 1.202193051050636px 0 1px rgba(9, 184, 228, 0.5), -1.202193051050636px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    70% {
-      text-shadow: 0.48874025155497314px 0 1px rgba(9, 184, 228, 0.5), -0.48874025155497314px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    80% {
-      text-shadow: 0.0833037308038857px 0 1px rgba(9, 184, 228, 0.5), -0.0833037308038857px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    90% {
-      text-shadow: 1.443339761481782px 0 1px rgba(9, 184, 228, 0.5), -1.443339761481782px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
-    100% {
-      text-shadow: 1.6208764473832513px 0 1px rgba(9, 184, 228, 0.5), -1.6208764473832513px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px;
-    }
+/*  ANIMATION POUR LES TEXTES BLEUS  */
+@keyframes textShadowDepression { 
+    0%      { text-shadow: 0.4389924193300864px 0 1px rgba(9, 184, 228, 0.5), -0.4389924193300864px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    10%     { text-shadow: 0.02956275843481219px 0 1px rgba(9, 184, 228, 0.5), -0.02956275843481219px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    20%     { text-shadow: 1.4794037899852017px 0 1px rgba(9, 184, 228, 0.5), -1.4794037899852017px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    30%     { text-shadow: 0.7015590085143956px 0 1px rgba(9, 184, 228, 0.5), -0.7015590085143956px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    40%     { text-shadow: 1.870905614848819px 0 1px rgba(9, 184, 228, 0.5), -1.870905614848819px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    50%     { text-shadow: 0.08084290417898504px 0 1px rgba(9, 184, 228, 0.5), -0.08084290417898504px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    60%     { text-shadow: 1.202193051050636px 0 1px rgba(9, 184, 228, 0.5), -1.202193051050636px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    70%     { text-shadow: 0.48874025155497314px 0 1px rgba(9, 184, 228, 0.5), -0.48874025155497314px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    80%     { text-shadow: 0.0833037308038857px 0 1px rgba(9, 184, 228, 0.5), -0.0833037308038857px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    90%     { text-shadow: 1.443339761481782px 0 1px rgba(9, 184, 228, 0.5), -1.443339761481782px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
+    100%    { text-shadow: 1.6208764473832513px 0 1px rgba(9, 184, 228, 0.5), -1.6208764473832513px 0 1px rgba(41, 33, 121, 0.3), 0 0 3px; }
 }
 
-@keyframes textShadowAcceptance {
-    0% {
-      text-shadow: 0.4389924193300864px 0 1px rgba(228, 213, 9, 0.5), -0.4389924193300864px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    10% {
-      text-shadow: 0.02956275843481219px 0 1px rgba(228, 213, 9, 0.5), -0.02956275843481219px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    20% {
-      text-shadow: 1.4794037899852017px 0 1px rgba(228, 213, 9, 0.5), -1.4794037899852017px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    30% {
-      text-shadow: 0.7015590085143956px 0 1px rgba(228, 213, 9, 0.5), -0.7015590085143956px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    40% {
-      text-shadow: 1.870905614848819px 0 1px rgba(228, 213, 9, 0.5), -1.870905614848819px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    50% {
-      text-shadow: 0.08084290417898504px 0 1px rgba(228, 213, 9, 0.5), -0.08084290417898504px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    60% {
-      text-shadow: 1.202193051050636px 0 1px rgba(228, 213, 9, 0.5), -1.202193051050636px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    70% {
-      text-shadow: 0.48874025155497314px 0 1px rgba(228, 213, 9, 0.5), -0.48874025155497314px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    80% {
-      text-shadow: 0.0833037308038857px 0 1px rgba(228, 213, 9, 0.5), -0.0833037308038857px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    90% {
-      text-shadow: 1.443339761481782px 0 1px rgba(228, 213, 9, 0.5), -1.443339761481782px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
-    100% {
-      text-shadow: 1.6208764473832513px 0 1px rgba(228, 213, 9, 0.5), -1.6208764473832513px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px;
-    }
+/*  ANIMATION POUR LES TEXTES DORÉS  */
+@keyframes textShadowAcceptance { 
+    0%      { text-shadow: 0.4389924193300864px 0 1px rgba(228, 213, 9, 0.5), -0.4389924193300864px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    10%     { text-shadow: 0.02956275843481219px 0 1px rgba(228, 213, 9, 0.5), -0.02956275843481219px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    20%     { text-shadow: 1.4794037899852017px 0 1px rgba(228, 213, 9, 0.5), -1.4794037899852017px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    30%     { text-shadow: 0.7015590085143956px 0 1px rgba(228, 213, 9, 0.5), -0.7015590085143956px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    40%     { text-shadow: 1.870905614848819px 0 1px rgba(228, 213, 9, 0.5), -1.870905614848819px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    50%     { text-shadow: 0.08084290417898504px 0 1px rgba(228, 213, 9, 0.5), -0.08084290417898504px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    60%     { text-shadow: 1.202193051050636px 0 1px rgba(228, 213, 9, 0.5), -1.202193051050636px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    70%     { text-shadow: 0.48874025155497314px 0 1px rgba(228, 213, 9, 0.5), -0.48874025155497314px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    80%     { text-shadow: 0.0833037308038857px 0 1px rgba(228, 213, 9, 0.5), -0.0833037308038857px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    90%     { text-shadow: 1.443339761481782px 0 1px rgba(228, 213, 9, 0.5), -1.443339761481782px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
+    100%    { text-shadow: 1.6208764473832513px 0 1px rgba(228, 213, 9, 0.5), -1.6208764473832513px 0 1px rgba(105, 83, 11, 0.3), 0 0 3px; }
 }
 
-@keyframes textShadowBlack {
-    0% {
-      text-shadow: 0.4389924193300864px 0 1px rgba(87, 87, 87, 0.5), -0.4389924193300864px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    10% {
-      text-shadow: 0.02956275843481219px 0 1px rgba(87, 87, 87, 0.5), -0.02956275843481219px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    20% {
-      text-shadow: 1.4794037899852017px 0 1px rgba(87, 87, 87, 0.5), -1.4794037899852017px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    30% {
-      text-shadow: 0.7015590085143956px 0 1px rgba(87, 87, 87, 0.5), -0.7015590085143956px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    40% {
-      text-shadow: 1.870905614848819px 0 1px rgba(87, 87, 87, 0.5), -1.870905614848819px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    50% {
-      text-shadow: 0.08084290417898504px 0 1px rgba(87, 87, 87, 0.5), -0.08084290417898504px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    60% {
-      text-shadow: 1.202193051050636px 0 1px rgba(87, 87, 87, 0.5), -1.202193051050636px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    70% {
-      text-shadow: 0.48874025155497314px 0 1px rgba(87, 87, 87, 0.5), -0.48874025155497314px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    80% {
-      text-shadow: 0.0833037308038857px 0 1px rgba(87, 87, 87, 0.5), -0.0833037308038857px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    90% {
-      text-shadow: 1.443339761481782px 0 1px rgba(87, 87, 87, 0.5), -1.443339761481782px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
-    100% {
-      text-shadow: 1.6208764473832513px 0 1px rgba(87, 87, 87, 0.5), -1.6208764473832513px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px;
-    }
+/*  ANIMATION POUR LES TEXTES NOIRS  */
+@keyframes textShadowBlack { 
+    0%      { text-shadow: 0.4389924193300864px 0 1px rgba(87, 87, 87, 0.5), -0.4389924193300864px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    10%     { text-shadow: 0.02956275843481219px 0 1px rgba(87, 87, 87, 0.5), -0.02956275843481219px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    20%     { text-shadow: 1.4794037899852017px 0 1px rgba(87, 87, 87, 0.5), -1.4794037899852017px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    30%     { text-shadow: 0.7015590085143956px 0 1px rgba(87, 87, 87, 0.5), -0.7015590085143956px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    40%     { text-shadow: 1.870905614848819px 0 1px rgba(87, 87, 87, 0.5), -1.870905614848819px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    50%     { text-shadow: 0.08084290417898504px 0 1px rgba(87, 87, 87, 0.5), -0.08084290417898504px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    60%     { text-shadow: 1.202193051050636px 0 1px rgba(87, 87, 87, 0.5), -1.202193051050636px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    70%     { text-shadow: 0.48874025155497314px 0 1px rgba(87, 87, 87, 0.5), -0.48874025155497314px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    80%     { text-shadow: 0.0833037308038857px 0 1px rgba(87, 87, 87, 0.5), -0.0833037308038857px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    90%     { text-shadow: 1.443339761481782px 0 1px rgba(87, 87, 87, 0.5), -1.443339761481782px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
+    100%    { text-shadow: 1.6208764473832513px 0 1px rgba(87, 87, 87, 0.5), -1.6208764473832513px 0 1px rgba(0, 0, 0, 0.3), 0 0 3px; }
 }
 
-@keyframes flicker { 
-  0% { opacity: 1; } 
-  10% { opacity: 0.35748; } 
-  20% { opacity: 0.9408; } 
-  30% { opacity: 0.22426; }
-  40% { opacity: 0.09249; }
-  50% { opacity: 0.89436; } 
-  60% { opacity: 0.19754; } 
-  70% { opacity: 0.12137; } 
-  80% { opacity: 0.89617; } 
-  90% { opacity: 0.20657; } 
-  100% { opacity: 0.78042; }
+/*  ANIMATION POUR LE CÔTÉ OSCILLANT DE L'ÉCRAN  */
+@keyframes flicker {  
+  0%      { opacity: 1; } 
+  10%     { opacity: 0.35748; } 
+  20%     { opacity: 0.9408; } 
+  30%     { opacity: 0.22426; }
+  40%     { opacity: 0.09249; }
+  50%     { opacity: 0.89436; } 
+  60%     { opacity: 0.19754; } 
+  70%     { opacity: 0.12137; } 
+  80%     { opacity: 0.89617; } 
+  90%     { opacity: 0.20657; } 
+  100%    { opacity: 0.78042; }
 }
 
-.wobblyTitle span {
+/*  ATTRIBUTIONS DES ANIMATIONS (MOUVEMENTS DES LETTRES)  */
+.wobblyTitle span { 
     animation-name: upDown;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -273,7 +158,7 @@
     transform: translateY(0px);
 }
 
-.wobblyTxt span {
+.wobblyTxt span { 
     animation-name: upDown;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -282,7 +167,7 @@
     transform: translateY(0px);
 }
 
-.angerWobble span {
+.angerWobble span { 
     animation-name: angryWobble;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -291,7 +176,7 @@
     transform: translateY(0px);
 }
 
-.bargainWobble span {
+.bargainWobble span { 
     animation-name: barWobble;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -300,7 +185,7 @@
     transform: translateY(0px);
 }
 
-.sadWobble span {
+.sadWobble span { 
     animation-name: sWobble;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -309,7 +194,7 @@
     transform: translateY(0px);
 }
 
-.acceptanceWobble span {
+.acceptanceWobble span { 
     animation-name: acceptWobble;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -318,7 +203,7 @@
     transform: translateY(0px);
 }
 
-.bigTextDiv {
+.bigTextDiv { 
     animation-name: upDown;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
@@ -327,34 +212,36 @@
     transform: translateY(0px);
 }
 
-body{
+/*  ANIMATION POUR LE CÔTÉ LA COULEUR DES TEXTES  */
+body { 
     animation: textShadowWhite 1.033s infinite;
 }
 
-body .buttonGo, .buttonAlert, .buttonGoForward{
+body .buttonGo, .buttonAlert, .buttonGoForward { 
   animation: textShadowWhite 1.033s infinite;
 }
 
-body .iAmAnger{
+body .iAmAnger { 
     animation: textShadowAngry 1.033s infinite;
 }
 
-body .iAmBargain{
+body .iAmBargain { 
     animation: textShadowBargain 1.033s infinite;
 }
 
-body .iAmDepression{
+body .iAmDepression { 
     animation: textShadowDepression 1.033s infinite;
 }
 
-body .iAmAcceptance{
+body .iAmAcceptance { 
     animation: textShadowAcceptance 1.033s infinite;
 }
 
-body .inputCommand{
+body .inputCommand { 
     animation: textShadowBlack 1.033s infinite;
 }
 
-.flicker{
+/*  ANIMATION POUR LE CÔTÉ SCINTILLANT  */
+.flicker { 
   animation: flicker 0.3301s infinite;
 }

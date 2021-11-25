@@ -6,22 +6,24 @@
     font-family: "retroGame";
     src: url("./polices/RetroGaming.ttf");
 }
-html, body{
+
+/*  BODY, HTML & GENERAL RULES  */
+html, body {
     width:100%;
     height:100%;
     font-family: "retroGame";
     color:white;
     font-size: 1.5em;
 }
-body{
+body {
     padding:0px;
     margin:0px;
     background-color: rgb(3, 15, 26);
+    transition: background-color 5s ease-out;
 }
-span{
-    font-family: "retroGame", monospace;
-}
-.gameContainer{
+
+/*  DIV QUI COMPOSENT LA PAGE  */
+.gameContainer {
     width:95%;
     height: 95%;
     margin-left:2.5%;
@@ -33,12 +35,22 @@ span{
         to bottom,
         white,
         rgb(3, 15, 26)) 1;
+    transition: border-width 1s linear;
 }
-.topScreen{
+.topScreen {
     width: 100%;
     height: 60%;
 }
-.bottomScreen{
+.titleGame {
+    width:100%;
+    height:10%;
+}
+.gameScreen {
+    width:80%;
+    height:90%;
+    margin-left: 10%;
+}
+.bottomScreen {
     z-index:-1;
     width:100%;
     height: 40%;
@@ -51,35 +63,15 @@ span{
         white,
         rgb(3, 15, 26)) 5;
 }
-.titleGame{
-    width:100%;
-    height:10%;
-}
-.gameScreen{
-    width:80%;
-    height:90%;
-    margin-left: 10%;
-}
-.enterTxt{
+.enterTxt {
     width: 50%;
     height: 30%;
     margin-left: 25%;
 }
-.inputCommand{
-    text-align:center;
-    color:white;
-    font-size:1em;
+.menuDiv {
     width:100%;
-    height:90%;
-    font-family: "retroGame";
-    background-color: rgba(0, 0, 0, 0);
-    border:none;
-    text-transform:uppercase;
 }
-.inputCommand:focus{
-    outline:none;
-}
-.commandsList{
+.commandsList {
     width: 80%;
     height: 70%;
     margin-left: 10%;
@@ -92,25 +84,9 @@ span{
         white,
         rgb(3, 15, 26)) 5;
 }
-.titleDiv{
-    text-align: center;
-    font-size: 1.25em;
-}
-.textDiv{
-    display:inline;
-}
-.bigTextDiv {
-    font-size: 1.25em;
-    cursor: pointer;
-}
-.interactiveText{
-    cursor: pointer;
-    display: inline-block;
-}
-.menuDiv{
-    width:100%;
-}
-.baseCommands{
+
+/*  COMMANDES ET LEURS AFFICHAGES  */
+.baseCommands {
     float:left;
     width:49%;
     height:100%;
@@ -136,10 +112,45 @@ span{
 .iAmAcceptance {
     color: rgb(243, 181, 10);
 }
-/*.bonusCommands {
-    display:none;
-}*/
-.alertBox{
+
+/*  INPUT  */
+.inputCommand {
+    text-align:center;
+    color:white;
+    font-size:1em;
+    width:100%;
+    height:90%;
+    font-family: "retroGame";
+    background-color: rgba(0, 0, 0, 0);
+    border:none;
+    text-transform:uppercase;
+}
+.inputCommand:focus {
+    outline:none;
+}
+
+/*  CSS TEXTE GÉNÉRIQUE  */
+.titleDiv {
+    text-align: center;
+    font-size: 1.25em;
+}
+.textDiv {
+    display:inline;
+}
+.bigTextDiv {
+    font-size: 1.25em;
+    cursor: pointer;
+}
+.interactiveText {
+    cursor: pointer;
+    display: inline-block;
+}
+.decorationTxt {
+    display:inline-block;
+}
+
+/*  DIV QUI COMPOSENT L'ALERT  */
+.alertBox {
     width: 60%;
     height: 40%;
     top: 30%;
@@ -156,25 +167,26 @@ span{
     background-color: rgb(3, 15, 26);
     z-index:1;
 }
-.txtAlert{
+.txtAlert {
     width:80%;
     height:60%;
     margin-top:25px;
     margin-left:10%;
 }
-.buttonAlert{
+
+/*  BOUTON ALERT  */
+.buttonAlert {
     width:50%;
     height:20%;
+    border:none;
     margin-left:25%;
+    background-color: rgb(3, 15, 26);
+    color:white;
     text-transform:uppercase;
     font-family: "retroGame";
     font-size:1em;
-    border:none;
-    background-color: rgb(3, 15, 26);
-    color:white;
     transition: width 0.2s;
     transition: margin-left 0.2s;
-    transition: width 0.2s;
 }
 .buttonAlert:hover {
     cursor: pointer;
@@ -188,15 +200,17 @@ span{
     background-color: rgb(3, 15, 26);
     color:white;
 }
-.buttonGo{
+
+/*  BOUTON SANS MARGIN-LEFT  */
+.buttonGo {
     width:50%;
     height:20%;
-    text-transform:uppercase;
-    font-family: "retroGame";
-    font-size:1em;
     border:none;
     background-color: rgb(3, 15, 26);
     color:white;
+    text-transform:uppercase;
+    font-family: "retroGame";
+    font-size:1em;
     transition: width 0.2s;
     transition: margin-left 0.2s;
 }
@@ -211,16 +225,18 @@ span{
     background-color: rgb(3, 15, 26);
     color:white;
 }
-.buttonGoBack{
+
+/*  BOUTON COULEURS INVERSÉES  */
+.buttonGoBack {
     width:50%;
-    margin-left: 25%;
     height:20%;
+    border:none;
+    margin-left: 25%;
+    background-color: white;
+    color:rgb(3, 15, 26);
     text-transform:uppercase;
     font-family: "retroGame";
     font-size:1em;
-    border:none;
-    background-color: white;
-    color:rgb(3, 15, 26);
 }
 .buttonGoBack:hover {
     cursor: pointer;
@@ -232,32 +248,30 @@ span{
     background-color: white;
     color:rgb(3, 15, 26);
 }
-.buttonGoForward{
+
+/*  BOUTON LARGE SANS MARGIN-LEFT  */
+.buttonGoForward {
     width:80%;
     height:20%;
-    text-transform:uppercase;
-    font-family: "retroGame";
-    font-size:1em;
     border:none;
     background-color: rgb(3, 15, 26);
     color:white;
-    transition: width 0.2s;
-    transition: margin-left 0.2s;
+    text-transform:uppercase;
+    font-family: "retroGame";
+    font-size:1em;
 }
 .buttonGoForward:hover {
     cursor: pointer;
     background: linear-gradient(90deg, rgb(3, 15, 26) 0%, white 50%, rgb(3, 15, 26) 100%);
     color: rgb(3, 15, 26);
-    width:80%;
 }
 .buttonGoForward:active {
     background: none;
     background-color: rgb(3, 15, 26);
     color:white;
 }
-.decorationTxt{
-    display:inline-block;
-}
+
+/*  STYLE POUR LA DIV .FLICKER  */
 .flicker {
     pointer-events: none;
     position: absolute;
@@ -266,10 +280,14 @@ span{
     height:100%;
     z-index:15;
     background: rgba(9, 8, 8, 0.1);
-    animation: flicker 0.3301s infinite;
 }
+
+/*  STYLE POUR LES SMARTPHONE  */
+/*  J'avais commencé mais me suis finalement rendu compte que ce
+n'était peut-être pas des plus pertinent vu le texte à afficher  */
+/*  A VOIR SI JE DÉVELOPPE  */
 @media only screen and (max-width: 786px) {
-    .decorationTxt{
+    .decorationTxt {
         display:none;
     }
 }
