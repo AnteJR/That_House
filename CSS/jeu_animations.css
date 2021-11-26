@@ -212,8 +212,8 @@
     transform: translateY(0px);
 }
 
-/*  ANIMATION POUR LE CÔTÉ LA COULEUR DES TEXTES  */
-body { 
+/*  ANIMATION POUR LE CÔTÉ LA COULEUR DES TEXTES */
+body .whiteText{ 
     animation: textShadowWhite 1.033s infinite;
 }
 
@@ -241,7 +241,7 @@ body .inputCommand {
     animation: textShadowBlack 1.033s infinite;
 }
 
-/*  ANIMATION POUR LE CÔTÉ SCINTILLANT  */
+/*  ANIMATION POUR LE CÔTÉ SCINTILLANT */
 .flicker { 
   animation: flicker 0.3301s infinite;
 }

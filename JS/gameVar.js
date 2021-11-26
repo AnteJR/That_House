@@ -455,10 +455,10 @@ var myGameTxt = {
                     lookTxtOpen: "The candles were already burning. How is this possible?",
                     useTxtOpen: "I wouldn't dare touch that. I didn't to burn myself.",
                     goTxtOpen: "I was already neat the candles. The room was small enough.",
-                    hitTxtOpen: "One of the candles fell after I kicked the stand. Pretty sure it didn't help.",
-                    inspectTxtOpen: "The candles' wax was dripping and forming cascading shapes towards the ground.",
-                    waitTxtOpen: "I waited for about an hour. The candles didn't diminish in size. That was... weird.",
-                    acceptTxtOpen: "These candles were otherworldly. That was the only sound explaination."
+                    hitTxt: "One of the candles fell after I kicked the stand. Pretty sure it didn't help.",
+                    inspectTxt: "The candles' wax was dripping and forming cascading shapes towards the ground.",
+                    waitTxt: "I waited for about an hour. The candles didn't diminish in size. That was... weird.",
+                    acceptTxt: "These candles were otherworldly. That was the only sound explaination."
 				},
                 {
                     name: "altar",
@@ -541,7 +541,7 @@ var myGameTxt = {
                     letterRead: false,
                     isOpened: true,
                     lookTxtOpen: "The letter was folded. It was white, neat. It had a pleasant smell to it.",
-                    useTxtOpen: `<div class="textDiv">Dear me,</div><br/><br/><div class="textDiv">I've been meaning to tell you so, so much. About how I love you. And how I have been happy being you all this time. You must have many questions. Let me get to some.</div><br/><br/><div class="textDiv">First and foremost, that house you've been seeing is indeed yours. Ours. The one we grew up in. It's been decayed this way because of we never thought about it in our adult life. We've been living our life, we didn't have the need to remember, we were busy with work, love, friends... It's unfortunate, but that's behind us now.</div><br/><br/><div class="textDiv">Now the important part. Yes. You died. I mean, we died. Together. At the same time. You had a bad car accident. You've been badly injured, and fought for your life, in a coma, for 4 months. You caved in, you had to, but you never stopped fighting.</div><br/><br/><div class="textDiv">But you do not have to worry anymore. The electrons of our body mingle and dance with the electrons of the ground below us and the air. We are no longer breathing. And we have to remember that there is no point where any of that ends and we begin. We now are energy. Not memory. Not self. Our choice, name, personality, all came after us. We were before them, and we will be after.</div><br/><br/><div class="textDiv">There is no time. There is no death. Life is a dream. It's a wish. Made again, and again, and again, and again, and on into eternity. We are all of it. We are everything. We are all. </div><br/><br/><div class="textDiv">So there is nothing to fear. You are loved. We are everywhere. We are dead, yet, in a sense, we are more alive. We joined the stars, and the rest of the universe.</div><br/><br/><div class="textDiv">With you always,</div><br/><div class="textDiv">#USERNAME</div>`,
+                    useTxtOpen: `<div class="textDiv">Dear me,</div><br/><br/><div class="textDiv">I've been meaning to tell you so, so much. About how I love you. And how I have been happy being you all this time. You must have many questions. Let me get to some.</div><br/><br/><div class="textDiv">First and foremost, that house you've been seeing is indeed yours. Ours. The one we grew up in. It's been decayed this way because of we never thought about it in our adult life. We've been living our life, we didn't have the need to remember, we were busy with work, love, friends... It's unfortunate, but that's behind us now.</div><br/><br/><div class="textDiv">Now the important part. Yes. You died. I mean, we died. Together. At the same time. You had a bad car accident. You've been badly injured, and fought for your life, in a coma, for 4 months. You caved in, you had to, but you never stopped fighting.</div><br/><br/><div class="textDiv">But you do not have to worry anymore. The electrons of our body mingle and dance with the electrons of the ground below us and the air. We are no longer breathing. And we have to remember that there is no point where any of that ends and we begin. We now are energy. Not memory. Not self. Our choice, name, personality, all came after us. We were before them, and we will be after.</div><br/><br/><div class="textDiv">There is no time. There is no death. Life is a dream. It's a wish. Made again, and again, and again, and again, and on into eternity. We are all of it. We are everything. We are all. </div><br/><br/><div class="textDiv">So there is nothing to fear. You are loved. We are everywhere. We are dead, yet, in a sense, we are more alive. We joined the stars, and the rest of the universe.</div><br/><br/><div class="textDiv">With you always,</div><br/><div class="textDiv">`,
                     goTxtOpen: "It was at my feet already.",
                     hitTxt: "Was I out of your mind? No way would I've done that!",
                     inspectTxt: "The letter was rather small in my hands. It felt... fragile.",
@@ -624,17 +624,30 @@ var myGameTxt = {
                 }
 			],
 		},
+        {
+            name: "Enter your name",
+            sceneNumber: 8,
+			title: "What's your name?",
+            text1: "Please enter your username.",
+            text2: "It works best with your actual first name."
+		},
 	],
     currentScene:6,
-    currentAct:0
+    currentAct:0,
+    username: "Joël"
 };
 
 /*
     Ce code gère le localStorage pour les actes
 */
 if(storageAvailable('localStorage')) {
-    if(localStorage.act) myGameTxt.currentAct = localStorage.act;
-    else myGameTxt.currentAct = 0;
+    if (localStorage.act) {
+        myGameTxt.currentAct = localStorage.act;
+        myGameTxt.username = localStorage.username;
+    }
+    else { 
+        myGameTxt.currentAct = 0;
+    }
   }
   else {
       alert("No local storage detected")

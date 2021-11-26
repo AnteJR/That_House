@@ -17,7 +17,7 @@
     <!-- DIV QUI CONTIENT L'ENTIER DE L'INTERFACE DE JEU -->
     <div class="gameContainer">
         <div class="topScreen">
-            <div class="wobblyTitle titleDiv" id="titleGame">THAT HOUSE</div>
+            <div class="wobblyTitle titleDiv whiteText" id="titleGame">THAT HOUSE</div>
             <div class="gameScreen" id="gameScreen"></div>
         </div>
         <div class="bottomScreen" id="screenBottom">
@@ -25,12 +25,12 @@
                 <input type="text" placeholder="~ enter command here ~" class="inputCommand" id="commandInput"/>
             </div>
             <div class="commandsList">
-                <div class="menuDiv" align="center">~~~ COMMAND LIST ~~~</div>
+                <div class="menuDiv whiteText" align="center">~~~ COMMAND LIST ~~~</div>
                 <div class="baseCommands">
-                    <div class="command lookC" id="lookC"><span>LOOK</span></div>
-                    <div class="command useC" id="useC"><span>USE</span></div>
-                    <div class="command goC" id="goC"><span>GO</span></div>
-                    <div class="command leaveC" id="leaveC"><span>LEAVE</span></div>
+                    <div class="command whiteText lookC" id="lookC"><span>LOOK</span></div>
+                    <div class="command whiteText useC" id="useC"><span>USE</span></div>
+                    <div class="command whiteText goC" id="goC"><span>GO</span></div>
+                    <div class="command whiteText leaveC" id="leaveC"><span>LEAVE</span></div>
                 </div>
                 <div class="baseCommands bonusCommands" id="bonusCommands">
                     <div class="command hitC bonusC" id="hitC"><span class="iAmAnger">HIT</span></div>
@@ -47,6 +47,16 @@
         <div class="txtAlert" id="alertTxt"></div>
         <input type="button" value="next" class="buttonAlert" id="alertButton"/>
     </div>
+
+    <!-- AUDIOS -->
+    <audio src="Audio/Keyboard1.wav" id = "key1" muted="muted"></audio>
+    <audio src="Audio/Keyboard2.wav" id = "key2" muted="muted"></audio>
+    <audio src="Audio/Keyboard3.wav" id = "key3" muted="muted"></audio>
+    <audio src="Audio/Keyboard4.wav" id = "key4" muted="muted"></audio>
+    <audio src="Audio/Keyboard5.wav" id = "key5" muted="muted"></audio>
+    <audio src="Audio/Keyboard6.wav" id = "key6" muted="muted"></audio>
+    <audio src="Audio/Keyboard7.wav" id = "key7" muted="muted"></audio>
+    <audio src="Audio/Keyboard8.wav" id = "key8" muted="muted"></audio>
 
     <!-- CHARGEMENT DES SCRIPTS ICI POUR LES CHARGER APRÈS LE DOM -->
     <script type="text/javascript" src="JS/localStorageManagement.js"></script>

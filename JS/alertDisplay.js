@@ -35,11 +35,16 @@ function displayAlert(text){
     }
     // CONDITION SPÉCIALE : sinon on définit textToDisplay en appelant la fonction findText() avec comme argument la variable command
     else {
-        textToDisplay = findText(command);
+        textToDisplay = `<div class = "whiteText" id = "monTxtAlert">` + findText(command) + "</div";
     }
+
+    maDiv.innerHTML = textToDisplay;
+    let maDivTxt = document.getElementById("monTxtAlert");
+    let monTxt = maDivTxt.textContent;
+    maDivTxt.innerHTML = "";
     
     // set de variables utiles pour la fonction txtDisplay()
-    let txtFrag = textToDisplay.split("");
+    let txtFrag = monTxt.split("");
     let i = txtFrag.length;
     let j = 0;
     let interval = Math.round(Math.random()*25)+15;
@@ -52,10 +57,11 @@ function displayAlert(text){
     */
     function txtDisplay(){
         // on configure un timeout pour qu'il y a du temps entre l'affichage de chaque caractère
-        setTimeout(function(){
+        setTimeout(function(){ 
             if (i>0){
                 // on insère dans la maDiv le caractère, allant du premier au dernier
-                maDiv.innerHTML += txtFrag[j];
+                maDivTxt.innerHTML += txtFrag[j];
+                if(i%2 == 0) playKeyType();
                 j++;
                 i--;
                 txtDisplay();
@@ -91,7 +97,7 @@ function findText(commandItem){
 
         // CONDITION SECONDAIRE : si la scène vaut 0 ET que l'on peut leave ET que l'acte actuel est l'acte 1 ou 2 (en partant de 0)
         else if (maScene == 0 && leaveItem.canLeave && myGameTxt.currentAct <= 1){
-            nextActPlease();
+            nextActPlease(1);
         }
 
         // CONDITION SECONDAIRE : si la scène vaut entre 1 et 3 (entre 2 et 4 en partant de 0)
@@ -102,11 +108,11 @@ function findText(commandItem){
 
             // CONDITION TERTIAIRE : si la scène vaut 3 et l'acte 1 (acte 2, scène 4 en partant de 0)
             if (maScene == 3 && myGameTxt.currentAct == 1){
-                nextActPlease();
+                nextActPlease(2);
             }
             // CONDITION TERTIAIRE : si la scène vaut 2 et l'acte 2 (acte 3, scène 3 en partant de 0)
             else if (maScene == 2 && myGameTxt.currentAct == 2){
-                nextActPlease();
+                nextActPlease(3);
             }
         }
 
@@ -120,7 +126,7 @@ function findText(commandItem){
         /*
             LA FONCTION NEXTACTPLEASE() PARAMÈTRE LE PASSAGE À UN NOUVEL ACTE.
         */
-        function nextActPlease(){
+        function nextActPlease(newAct){
             myGameTxt.scenes[0].items[2].canLeave = false;
 
             // on incrémente le numéro de l'acte et set la scène à 6
@@ -129,14 +135,14 @@ function findText(commandItem){
 
             // on désaffiche l'alert et on insère le texte normalement prévu à l'alert dans la div gameDiv, qui est centrée
             document.getElementById("boxAlert").style.display = "none";
-            textAlert = `<br/><div class="textDiv">`+leaveItem.leftTrue
+            textAlert = `<br/><div class="textDiv whiteText">`+leaveItem.leftTrue
             textAlert += `</div><br/><br/><input type="button" value="save and continue" class="buttonGoForward" id="buttonNewAct"/>`
             gameDiv.innerHTML = textAlert;
             gameDiv.style.textAlign = "center";
 
             // on paramètre un eventListener pour le bouton, pour passer à l'acte suivant et sauvegarder dans le localStorage
             document.getElementById("buttonNewAct").addEventListener("click", function(){
-                localStorage.act = myGameTxt.currentAct;
+                localStorage.act = newAct;
                 actOne();
             });
         }
@@ -191,7 +197,7 @@ function findText(commandItem){
                         if (maScene == 3 && e.name == "bedlamp") monItem[4].isOpened = true;
                         if (maScene == 3 && e.name == "glass") myGameTxt.scenes[e.useGlassOpens[0]].items[e.useGlassOpens[1]].isOpened = true;
                         if (maScene == 4 && e.name == "altar") e.bledOut = true;
-                        if (maScene == 4 && e.name == "book") e.tookTheBook = 0;
+                        if (maScene == 4 && e.name == "book") e.tookTheBook = true;
                     }
 
                     // si utiliser "look" débloque quelque chose, débloquer l'objet correspondant
@@ -263,12 +269,12 @@ function findText(commandItem){
                             myGameTxt.scenes[0].items[2].canLeave = false;
                 
                             // on incrémente le numéro de l'acte et set la scène à 6
-                            myGameTxt.currentAct = myGameTxt.currentAct+1;
+                            myGameTxt.currentAct = 4;
                             myGameTxt.currentScene = 6;
                 
                             // on désaffiche l'alert et on insère le texte normalement prévu à l'alert dans la div gameDiv, qui est centrée
                             document.getElementById("boxAlert").style.display = "none";
-                            textAlert = `<br/><div class="textDiv">` + e.waitTxtBledOut;
+                            textAlert = `<br/><div class="textDiv whiteText">` + e.waitTxtBledOut;
                             textAlert += `</div><br/><br/><input type="button" value="save and continue" class="buttonGoForward" id="buttonNewAct"/>`
                             gameDiv.innerHTML = textAlert;
                             gameDiv.style.textAlign = "center";
@@ -279,7 +285,7 @@ function findText(commandItem){
                                 actOne();
                             });
                         }
-                        if (myGameTxt.currentAct == 4){
+                        else if (myGameTxt.currentAct == 4){
                             textAlert = e.waitTxtBledOut;
                             myGameTxt.currentScene = myGameTxt.currentScene+1;
                             actOne();

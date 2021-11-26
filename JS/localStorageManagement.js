@@ -19,3 +19,9 @@ function storageAvailable(type) {
             (storage && storage.length !== 0);
     }
 }
+
+function playKeyType(){
+    let monAudioNbr = Math.round(Math.random()*7)+1;
+    document.getElementById("key"+monAudioNbr).muted = false;
+    document.getElementById("key"+monAudioNbr).play();
+}

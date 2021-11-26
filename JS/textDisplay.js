@@ -70,7 +70,7 @@ function displayGameText(){
         let interval2 = 43;
         let diviser = 1;
         // dans le cas spécifique de l'affichage de la lettre, on a besoin que ça s'affiche plus rapidement
-        if(myGameTxt.currentAct >= 4 && myGameTxt.currentScene >= 5 && myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter == true){
+        if(myGameTxt.currentAct >= 4 && myGameTxt.currentScene >= 5 && myGameTxt.scenes[5].items[0].lookingAtLetter == true){
             diviser = 3;
             interval2 = (interval2-13)/diviser;
         }
@@ -120,6 +120,10 @@ function displayGameText(){
                         if(txtFrag[j] == "&nbsp;"){
                             txtFrag[j] = " ";
                         }
+                        
+                        if(j%2 == 0){
+                            playKeyType();
+                        }
                         element.innerHTML+=txtFrag[j];
                     }
                     // on rappelle la fonction (elle est récursive)
@@ -144,7 +148,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 1 ou +, donner l'opacité 0.2 à toutes les commandes bonus sauf hit
-    else if(myGameTxt.currentAct >= 1 ){
+    if(myGameTxt.currentAct >= 1 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             if(e.className.split(" ")[1] == "hitC"){
                 e.style.opacity = 1;
@@ -155,7 +159,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 2 ou +, donner l'opacité 0.2 à toutes les commandes bonus sauf hit et inspect
-    else if(myGameTxt.currentAct >= 2 ){
+    if(myGameTxt.currentAct >= 2 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             if(e.className.split(" ")[1] == "hitC"){
                 e.style.opacity = 1;
@@ -169,7 +173,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 3 ou +, donner l'opacité 1 à toutes les commandes bonus sauf accept
-    else if(myGameTxt.currentAct >= 3 ){
+    if(myGameTxt.currentAct >= 3 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             if(e.className.split(" ")[1] == "acceptC"){
                 e.style.opacity = 0.2;
@@ -180,7 +184,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 4 ou +, donner l'opacité 1 à toutes les commandes bonus
-    else if(myGameTxt.currentAct >= 4 ){
+    if(myGameTxt.currentAct >= 4 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             e.style.opacity = 1;
         });

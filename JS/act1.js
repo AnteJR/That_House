@@ -29,11 +29,11 @@ function actOne(){
                 if(mesTxt[i].id == thisAct){
                     // on inscrit le fait que ce soit un titre
                     if(mesTxt[i].text[j][1] == true){
-                        monTxt += `<br/><div class = "titleDiv">`;
+                        monTxt += `<br/><div class = "titleDiv whiteText">`;
                     }
                     // on inscrit le fait que ce soit un sous-titre
                     else{
-                        monTxt += `<div class = "sadWobble textDiv">`;
+                        monTxt += `<div class = "sadWobble textDiv whiteText">`;
                     }
                     // on inscrit du texte dans puis clos la div ouverte et au rajoute un retour
                     monTxt += mesTxt[i].text[j][0]+`</div><br/>`;
@@ -52,6 +52,26 @@ function actOne(){
         });
     }
 
+    // CONDITION PRINCIPALE : si c'est la 8ème scène (en partant de 0)
+    else if(myGameTxt.currentScene == 7){
+        gameDiv.style.textAlign = "center";
+        monTxt = `<br/><div class="titleDiv whiteText">${myGameTxt.scenes[7].title}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text1}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text2}</div><br/><br/><form id="maForm" autocomplete="off"><input type="text" placeholder="~~enter your name here~~" class="inputCommand" id="monUsername"/><br/><br/><input type="submit" value="validate" class="buttonGo" id="buttonStart"/></form>`;
+
+        gameDiv.innerHTML = monTxt;
+
+        // on attribue un eventListener au bouton #buttonStart pour accéder à la scène 0 de l'acte actuel
+        document.getElementById("maForm").addEventListener("submit", function(e){
+            e.preventDefault();
+            if(document.getElementById("monUsername").value!=""){
+                myGameTxt.username = document.getElementById("monUsername").value;
+                localStorage.username = document.getElementById("monUsername").value;
+                document.getElementsByClassName("bottomScreen")[0].style.display = "block";
+                myGameTxt.currentScene = 6;
+                actOne();
+            }
+        });
+    }
+
     // CONDITION PRINCIPALE : si ce n'est pas la 7ème scène (en partant de 0) --> donc si c'est la scène 0 à 6
     else{
 
@@ -65,11 +85,11 @@ function actOne(){
             if(mesTxt[i][1] == "regular"){
                 // s'il est true ; c'est-à-dire, s'il est interactif
                 if(mesTxt[i][2] == true){
-                    monTxt += `<div class = "wobblyTxt textDiv interactiveText">`;
+                    monTxt += `<div class = "wobblyTxt textDiv interactiveText whiteText">`;
                 }
                 // s'il est false ; c'est-à-dire, s'il n'est pas interactif
                 else{
-                    monTxt += `<div class = "textDiv">`;
+                    monTxt += `<div class = "textDiv whiteText">`;
                 }
                 monTxt += mesTxt[i][0]+`</div>`;
             }

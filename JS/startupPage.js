@@ -12,12 +12,11 @@ function startUpSetUp(){
                 // reset le style, notamment en affichant le bas de l'écran
                 gameDiv.style.textAlign = "left";
                 gameDiv.style.marginTop = "0%";
-                document.getElementsByClassName("bottomScreen")[0].style.display = "block";
 
                 // on reset le localStorage et on initialise l'acte 0, scène 6 (acte 1 scène 7 en partant de 0)
                 localStorage.clear();
                 myGameTxt.currentAct = 0;
-                myGameTxt.currentScene = 6;
+                myGameTxt.currentScene = 7;
                 actOne();
             }
             // pour continuer sa partie

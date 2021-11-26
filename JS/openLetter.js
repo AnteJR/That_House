@@ -9,6 +9,7 @@ function openLetter(){
     document.body.style.color = "rgb(3, 15, 26)";
     document.body.style.backgroundColor = "white";
     document.body.style.opacity = 1;
+    document.getElementById("commandInput").value = "";
     document.getElementById("flickerDiv").style.display = "none";
     document.getElementsByClassName("gameContainer")[0].style.borderWidth = "0px";
     document.getElementById("boxAlert").style.display = "none";
@@ -17,7 +18,7 @@ function openLetter(){
 
     // sélectionne le texte à insérer dans la div #gameDiv et le fait (+ un bouton)
     let monTxt = myGameTxt.scenes[myGameTxt.currentScene].items[0].useTxtOpen;
-    monTxt += `<br/><input type="button" value="proceed" class="buttonGoBack" id="buttonGoBack"/>`;
+    monTxt += myGameTxt.username + `</div><br/><input type="button" value="proceed" class="buttonGoBack" id="buttonGoBack"/>`;
     gameDiv.innerHTML = monTxt;
 
     // réduit la taille des caractères paragraphes pour cette occasion
