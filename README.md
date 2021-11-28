@@ -1,5 +1,4 @@
 # That House
-Publication Numériques - Dir. Isaac Pante
 ## What's _That House_?
 _That House_ is a text-based adventure game I programmed in the context of the course "Digital Publications", given by Isaac Pante at the University of Lausanne. It has for subject death and its acceptance. You play as a person who recently died in a car accident, who (re)visits a place once familiar, and learn to accept their own death. The story is recursive: you will play through the same selection of scenes multiple times, each time bringing something new, either in unlockable content, or backstory. The game features:
 * A story-rich scenario with liberty of exploration
@@ -19,6 +18,7 @@ The game can be downloaded from this Repository. Once you've got it on your comp
 6. Sometimes, the solution is to leave.
 7. Pick-ups unlock further content automatically. No need to enter them in your commands.
 8. A command is either _"leave"_, or a composition of 2 words, like _"look book"_. Adding more words won't help.
+
 The game has a series of command, which are described as follows:
 1. **LOOK** allows you to, well, look at items and objects
 2. **USE** is the generic interaction with an object. Use it to turn an interruptor on, or to pick up an item.
