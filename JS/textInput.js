@@ -57,8 +57,11 @@ window.addEventListener('keydown', (e) => {
             // s'il l'input a une valeur non-nulle, on envoie les données pour afficher les alerts
             if(document.getElementById("commandInput").value!=""){
                 if(document.getElementById("boxAlert").style.display == "none"){
-                    if(monInput.value == "leave"){
+                    if(monInput.value.split(" ").length == 1 && monInput.value == "leave"){
                         monInput.value = "leave "
+                    }
+                    else if((monInput.value.split(" ").length == 1 && monInput.value != "leave") || monInput.value.split(" ").length > 2){
+                        monInput.value = "false statement";
                     }
                     displayAlert(monInput.value);
                     monInput.value = "";

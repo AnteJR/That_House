@@ -13,11 +13,37 @@ function startUpSetUp(){
                 gameDiv.style.textAlign = "left";
                 gameDiv.style.marginTop = "0%";
 
-                // on reset le localStorage et on initialise l'acte 0, scène 6 (acte 1 scène 7 en partant de 0)
-                localStorage.clear();
-                myGameTxt.currentAct = 0;
-                myGameTxt.currentScene = 7;
-                actOne();
+                if(localStorage.act){
+                    gameDiv.innerHTML = `<br/><div class="textDiv">There is an existing saved game:</div> 
+                    <ul style="list-style:none;">
+                        <li>
+                            <div class="textDiv">Act ${localStorage.act}</div>
+                        </li>
+                        <li>
+                            <div class="textDiv">Name: ${localStorage.username}</div>
+                        </li>
+                    </ul>
+                    <div class="textDiv">Do you wish to erase it and start a new game?</div>
+                    <br/>
+                    <br/>
+                    <input type="button" value="Yes, proceed" class="buttonAlert" id="alertButton2"/>
+                    <input type="button" value="Nope, cancel" class="buttonAlert" id="alertButton3"/>`;
+                    
+                    document.getElementById("alertButton2").addEventListener("click", () => {
+                        localStorage.clear();
+                        myGameTxt.currentAct = 0;
+                        myGameTxt.currentScene = 7;
+                        actOne();
+                    });
+                    document.getElementById("alertButton3").addEventListener("click", () => {
+                        gameLaunch();
+                    });
+                }
+                else{
+                    myGameTxt.currentAct = 0;
+                    myGameTxt.currentScene = 7;
+                    actOne();
+                }
             }
             // pour continuer sa partie
             else if(maClass == "continueButton"){

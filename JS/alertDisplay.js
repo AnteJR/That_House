@@ -149,6 +149,11 @@ function findText(commandItem){
     }
 
     // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
+    else if (maCommande == "false") {
+        textAlert = "There seems to be a problem with your input. Please try again."
+    }
+
+    // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
     else {
         // on parcours la liste des items pour trouver le bon. Une fois trouver, on a un set de conditions principales et secondaires
         monItem.forEach((e) => {
