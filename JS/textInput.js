@@ -13,6 +13,9 @@ monInput.addEventListener("keydown", (e) => {
                 if(monInput.value == "leave"){
                     monInput.value = "leave "
                 }
+                else if((monInput.value.split(" ").length == 1 && monInput.value != "leave") || monInput.value.split(" ").length > 2){
+                    monInput.value = "false statement";
+                }
                 displayAlert(monInput.value);
                 monInput.value = "";
             }

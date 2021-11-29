@@ -152,8 +152,8 @@ body {
 /*  DIV QUI COMPOSENT L'ALERT  */
 .alertBox {
     width: 60%;
-    height: 40%;
-    top: 30%;
+    height: 50%;
+    top: 25%;
     margin-left: 20%;
     border-width:5px 0px 5px 0px;
     border-style:solid;
