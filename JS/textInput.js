@@ -35,7 +35,18 @@ let nameInput;
 */
 window.addEventListener('keydown', (e) => {
     if(myGameTxt.currentScene == 7) nameInput = document.getElementById("monUsername");
-    playKeyType()
+
+    // condition pour lancer les bruitages, une lettre sur 2
+    let canPlaySound = false;
+    if(myGameTxt.currentScene != 5) {
+        canPlaySound = true;
+    }
+    else{
+        if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
+    }
+    
+    if(canPlaySound) playKeyType();
+
     // ne fonctionne que si l'input n'est pas focused, ce afin d'éviter les doubles inputs
     if(monInput != document.activeElement && nameInput != document.activeElement){
         // s'il s'agit de touches qui peuvent faire bouger la position de la fenêtre, on désactive leur effet par défaut

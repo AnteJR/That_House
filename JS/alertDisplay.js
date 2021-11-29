@@ -61,7 +61,20 @@ function displayAlert(text){
             if (i>0){
                 // on insère dans la maDiv le caractère, allant du premier au dernier
                 maDivTxt.innerHTML += txtFrag[j];
-                if(i%2 == 0) playKeyType();
+
+                //condition pour lancer les bruitages
+                if(i%2 == 0){
+                    let canPlaySound = false;
+                    if(myGameTxt.currentScene != 5) {
+                        canPlaySound = true;
+                    }
+                    else{
+                        if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
+                    }
+                    
+                    if(canPlaySound) playKeyType();
+                }
+                
                 j++;
                 i--;
                 txtDisplay();
@@ -319,7 +332,10 @@ function findText(commandItem){
                         myGameTxt.currentScene = myGameTxt.currentScene+1;
                         actOne();
                     }
-                    if (maScene == 5 && e.name == "screen" && monItem[0].letterRead == true) endScreen(0);
+                    if (maScene == 5 && e.name == "screen" && monItem[0].letterRead == true){
+                        endScreen(0);
+                        myGameTxt.isFinished = true;
+                    }
                 }
                 
                 // si maCommande n'est pas reconnu

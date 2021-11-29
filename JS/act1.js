@@ -55,7 +55,7 @@ function actOne(){
     // CONDITION PRINCIPALE : si c'est la 8ème scène (en partant de 0)
     else if(myGameTxt.currentScene == 7){
         gameDiv.style.textAlign = "center";
-        monTxt = `<br/><div class="titleDiv whiteText">${myGameTxt.scenes[7].title}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text1}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text2}</div><br/><br/><form id="maForm" autocomplete="off"><input type="text" placeholder="~~enter your name here~~" class="inputCommand" id="monUsername"/><br/><br/><input type="submit" value="validate" class="buttonGo" id="buttonStart"/></form>`;
+        monTxt = `<br/><div class="titleDiv whiteText">${myGameTxt.scenes[7].title}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text1}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text2}</div><br/><br/><form id="maForm" autocomplete="off"><input type="text" placeholder="~~enter your name here~~" class="inputCommand" id="monUsername"/><br/><br/><input type="submit" value="Confirm" class="buttonGo" id="buttonStart"/></form>`;
 
         gameDiv.innerHTML = monTxt;
 

@@ -120,12 +120,22 @@ function displayGameText(){
                         if(txtFrag[j] == "&nbsp;"){
                             txtFrag[j] = " ";
                         }
-                        
-                        if(j%2 == 0){
-                            playKeyType();
-                        }
                         element.innerHTML+=txtFrag[j];
                     }
+
+                    // condition pour lancer les bruitages, une lettre sur 2
+                    if(j%2 == 0){
+                        let canPlaySound = false;
+                        if(myGameTxt.currentScene != 5) {
+                            canPlaySound = true;
+                        }
+                        else{
+                            if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
+                        }
+                        
+                        if(canPlaySound) playKeyType();
+                    }
+
                     // on rappelle la fonction (elle est récursive)
                     j++;
                     i--;

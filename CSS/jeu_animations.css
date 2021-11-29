@@ -208,7 +208,7 @@ body .whiteText{
     animation: textShadowWhite 1.033s infinite;
 }
 
-body .buttonGo, .buttonAlert, .buttonGoForward { 
+body .buttonGo, .buttonAlert, .buttonGoForward, .inputCommand { 
   animation: textShadowWhite 1.033s infinite;
 }
 
@@ -226,10 +226,6 @@ body .iAmDepression {
 
 body .iAmAcceptance { 
     animation: textShadowAcceptance 1.033s infinite;
-}
-
-body .inputCommand { 
-    animation: textShadowBlack 1.033s infinite;
 }
 
 /*  ANIMATION POUR LE CÔTÉ SCINTILLANT */
