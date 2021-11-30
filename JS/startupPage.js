@@ -16,16 +16,16 @@ function startUpSetUp(){
                 gameDiv.style.marginTop = "0%";
 
                 if(localStorage.act){
-                    gameDiv.innerHTML = `<br/><div class="textDiv">There is an existing saved game:</div> 
+                    gameDiv.innerHTML = `<br/><div class="textDiv whiteText">There is an existing saved game:</div> 
                     <ul style="list-style:none;">
                         <li>
-                            <div class="textDiv">Act ${localStorage.act}</div>
+                            <div class="textDiv whiteText">Act ${localStorage.act}</div>
                         </li>
                         <li>
-                            <div class="textDiv">Name: ${localStorage.username}</div>
+                            <div class="textDiv whiteText">Name: ${localStorage.username}</div>
                         </li>
                     </ul>
-                    <div class="textDiv">Do you wish to erase it and start a new game?</div>
+                    <div class="textDiv whiteText">Do you wish to erase it and start a new game?</div>
                     <br/>
                     <br/>
                     <input type="button" value="Yes, proceed" class="buttonAlert" id="alertButton2"/>
