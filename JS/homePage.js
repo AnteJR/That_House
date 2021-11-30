@@ -9,6 +9,7 @@ function homePage(){
         <div class= "textDiv whiteText">This game has been developped in the context of a course on digital publishing given by Isaac Pante at the University of Lausanne, in Fall 2021.</div><br /><br />
         <input type="button" value="play game" class="buttonGo" id="buttonStartGame"/>`;
         document.getElementById("buttonStartGame").addEventListener("click", function(){
+            document.getElementById("titleGame").style.fontSize = "1.25em";
             myGameTxt.isMenu = false;
             gameLaunch();
         });
