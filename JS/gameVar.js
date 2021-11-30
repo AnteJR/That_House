@@ -635,7 +635,8 @@ var myGameTxt = {
     currentScene:6,
     currentAct:0,
     username: "Joël",
-    isFinished: false
+    isFinished: false,
+    isMenu: true
 };
 
 /*

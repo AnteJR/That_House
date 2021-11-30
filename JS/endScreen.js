@@ -3,6 +3,8 @@
     PUIS LE GÉNÉRIQUE DE FIN.
  */
 function endScreen(i){
+    playMusic("end");
+
     // on set les styles nécessaires, en désaffichang notamment la plupart de l'interface
     document.getElementById("boxAlert").style.display = "none";
     document.getElementById("screenBottom").style.display = "none";

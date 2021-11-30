@@ -1,5 +1,5 @@
 /*
-    CETTE FONCTION VÉRIFIER QU'UN LOCALSTORAGE SOIT DISPONIBLE.
+    CETTE FONCTION VÉRIFIE QU'UN LOCALSTORAGE SOIT DISPONIBLE.
  */
 function storageAvailable(type) {
     var storage;
@@ -18,10 +18,4 @@ function storageAvailable(type) {
             e.name === 'NS_ERROR_DOM_QUOTA_REACHED') &&
             (storage && storage.length !== 0);
     }
-}
-
-function playKeyType(){
-    let monAudioNbr = Math.round(Math.random()*7)+1;
-    document.getElementById("key"+monAudioNbr).muted = false;
-    document.getElementById("key"+monAudioNbr).play();
 }

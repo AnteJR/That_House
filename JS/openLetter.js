@@ -4,6 +4,8 @@
     UNE FOIS LA LETTRE LU.
 */
 function openLetter(){
+    playMusic("reading");
+
     // établissement du style de la page
     document.body.style.animation = "none"
     document.body.style.color = "rgb(3, 15, 26)";

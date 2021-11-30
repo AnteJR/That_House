@@ -111,6 +111,7 @@ function findText(commandItem){
         // CONDITION SECONDAIRE : si la scène vaut 0 ET que l'on peut leave ET que l'acte actuel est l'acte 1 ou 2 (en partant de 0)
         else if (maScene == 0 && leaveItem.canLeave && myGameTxt.currentAct <= 1){
             nextActPlease(1);
+            playMusic("anger");
         }
 
         // CONDITION SECONDAIRE : si la scène vaut entre 1 et 3 (entre 2 et 4 en partant de 0)
@@ -122,10 +123,12 @@ function findText(commandItem){
             // CONDITION TERTIAIRE : si la scène vaut 3 et l'acte 1 (acte 2, scène 4 en partant de 0)
             if (maScene == 3 && myGameTxt.currentAct == 1){
                 nextActPlease(2);
+                playMusic("bargain");
             }
             // CONDITION TERTIAIRE : si la scène vaut 2 et l'acte 2 (acte 3, scène 3 en partant de 0)
             else if (maScene == 2 && myGameTxt.currentAct == 2){
                 nextActPlease(3);
+                playMusic("depression");
             }
         }
 
@@ -284,6 +287,7 @@ function findText(commandItem){
                     if (maScene == 2 && e.name == "bookshelf") e.isDoorOpen = true;
                     if (maScene == 4 && e.name == "altar" && e.bledOut == true){
                         if (myGameTxt.currentAct == 3){
+                            playMusic("acceptance");
                             myGameTxt.scenes[0].items[2].canLeave = false;
                 
                             // on incrémente le numéro de l'acte et set la scène à 6

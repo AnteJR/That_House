@@ -137,10 +137,9 @@ function gameLaunch(){
     document.getElementsByClassName("bottomScreen")[0].style.display = "none";
 
     // insertion du texte contenant les élément du menu
-    gameDiv.innerHTML = `<div class="textDiv whiteText decorationTxt" style="animation-delay: 0s">~~~ </div><div class="startButton textDiv bigTextDiv whiteText" style="animation-delay: 0s">New Game</div><div class="textDiv whiteText decorationTxt" style="animation-delay: 0s"> ~~~</div><br/><br/><div class="textDiv whiteText decorationTxt" style="animation-delay: 1s">~~~ </div><div class="continueButton textDiv bigTextDiv whiteText" style="animation-delay: 1s">Continue Game</div><div class="textDiv whiteText decorationTxt" style="animation-delay: 1s"> ~~~</div><br/><br/><div class="textDiv whiteText decorationTxt" style="animation-delay: 2s">~~~ </div><div class="aboutButton textDiv bigTextDiv whiteText" style="animation-delay: 2s">About</div><div class="textDiv whiteText decorationTxt" style="animation-delay: 2s"> ~~~</div>`
+    gameDiv.innerHTML = `<div class="startButton textDiv bigTextDiv whiteText menuTxt" style="animation-delay: 0s">~~~ New Game ~~~</div><br/><br/><div class="continueButton textDiv bigTextDiv whiteText menuTxt" style="animation-delay: 1s">~~~ Continue Game ~~~</div><br/><br/><div class="aboutButton textDiv bigTextDiv whiteText menuTxt" style="animation-delay: 2s">~~~ About ~~~</div>`;
     
     // lancement de la fonction startUpSetUp(), qui ajoute les eventListener aux textes
     startUpSetUp();
+    playMusic("menu");
 }
-
-gameLaunch();

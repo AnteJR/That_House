@@ -22,6 +22,8 @@ function actOne(){
         // on aligne le texte au centre
         gameDiv.style.textAlign = "center";
 
+        document.getElementById("screenBottom").style.display = "none";
+
         // on boucle doublement pour afficher le bon texte
         for(let i = 0; i<mesTxt.length; i++){
             for(let j = 0; j<mesTxt[i].text.length; j++){
@@ -47,6 +49,7 @@ function actOne(){
 
         // on attribue un eventListener au bouton #buttonGo pour accéder à la scène 0 de l'acte actuel
         document.getElementById("buttonGo").addEventListener("click", function(){
+            document.getElementById("screenBottom").style.display = "block";
             myGameTxt.currentScene = 0;
             actOne();
         });
@@ -55,7 +58,7 @@ function actOne(){
     // CONDITION PRINCIPALE : si c'est la 8ème scène (en partant de 0)
     else if(myGameTxt.currentScene == 7){
         gameDiv.style.textAlign = "center";
-        monTxt = `<br/><div class="titleDiv whiteText">${myGameTxt.scenes[7].title}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text1}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text2}</div><br/><br/><form id="maForm" autocomplete="off"><input type="text" placeholder="~~enter your name here~~" class="inputCommand" id="monUsername"/><br/><br/><input type="submit" value="Confirm" class="buttonGo" id="buttonStart"/></form>`;
+        monTxt = `<br/><div class="titleDiv whiteText">${myGameTxt.scenes[7].title}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text1}</div><br/><div class = "sadWobble textDiv whiteText">${myGameTxt.scenes[7].text2}</div><br/><br/><form id="maForm" autocomplete="off"><input type="text" placeholder="~~enter your name here~~" class="inputCommand" id="monUsername"/><br/><br/><input type="submit" value="Confirm" class="buttonGo submitName" id="buttonStart"/></form>`;
 
         gameDiv.innerHTML = monTxt;
 

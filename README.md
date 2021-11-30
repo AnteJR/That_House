@@ -82,6 +82,9 @@ The game has a series of command, which are described as follows:
 1. Correctif de bugs dans l'input
 2. Léger allègement de la charge d'affichage
 3. Le jeu alerte maintenant si une sauvegarde existe déjà quand on clique sur "nouvelle partie"
-2. TODO : Muuuuuuuuusique à mettre ! (et BETTER sound design)
-3. TODO : Playtest & bug fix
-4. TODO : Alléger le code là où c'est possible (BIS)
+### Lundi 29.11 - 4h
+1. Playtest & bug fix (looks good)
+### Mardi 30.11 - 4h
+1. Muuuuuuuuusique ajoutées ! 
+2. TODO: Better sound design (si besoin)
+3. TODO : Alléger le code là où c'est possible (BIS)

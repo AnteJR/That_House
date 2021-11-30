@@ -126,11 +126,13 @@ function displayGameText(){
                     // condition pour lancer les bruitages, une lettre sur 2
                     if(j%2 == 0){
                         let canPlaySound = false;
-                        if(myGameTxt.currentScene != 5) {
-                            canPlaySound = true;
-                        }
-                        else{
-                            if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
+                        if(!myGameTxt.isMenu){
+                            if(myGameTxt.currentScene != 5) {
+                                canPlaySound = true;
+                            }
+                            else{
+                                if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
+                            }
                         }
                         
                         if(canPlaySound) playKeyType();
