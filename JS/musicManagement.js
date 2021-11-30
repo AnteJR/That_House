@@ -11,6 +11,9 @@ function playKeyType(){
     document.getElementById("key"+monAudioNbr).play();
 }
 
+/*
+    CETTE FONCTION LANCE LA MUSIQUE APPROPRIÉE
+*/
 function playMusic(condition){
     muteAll();
     document.getElementById(condition).muted = false;
@@ -18,6 +21,10 @@ function playMusic(condition){
     console.log(document.getElementById(condition).id)
 }
 
+/*
+    CETTE FONCTION MUTE TOUTES LES MUSIQUES. ELLE EST APPELÉE
+    PAR PLAYMUSIC() POUR TOUT MUTER AVANT DE LANCER LE BON MORCEAU
+*/
 function muteAll(){
     let mesMusiques = document.querySelectorAll(".monAudio");
     mesMusiques.forEach((e) => {
