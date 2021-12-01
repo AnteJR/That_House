@@ -41,5 +41,6 @@ function openLetter(){
         document.getElementById("titleGame").style.display = "block";
         myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter = false;
         actOne();
+        playMusic("acceptance");
     });
 }

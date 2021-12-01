@@ -51,15 +51,17 @@ function startUpSetUp(){
             }
             // pour continuer sa partie
             else if(maClass == "continueButton"){
-                // reset le style, notamment en affichant le bas de l'écran, et c'est parti
-                gameDiv.style.textAlign = "left";
-                gameDiv.style.marginTop = "0%";
-                document.getElementsByClassName("bottomScreen")[0].style.display = "block";
-                actOne();
-                if(localStorage.act == 1) playMusic("anger");
-                if(localStorage.act == 2) playMusic("bargain");
-                if(localStorage.act == 3) playMusic("depression");
-                if(localStorage.act == 4) playMusic("acceptance");
+                if(localStorage.username){
+                    // reset le style, notamment en affichant le bas de l'écran, et c'est parti
+                    gameDiv.style.textAlign = "left";
+                    gameDiv.style.marginTop = "0%";
+                    document.getElementsByClassName("bottomScreen")[0].style.display = "block";
+                    actOne();
+                    if(localStorage.act == 1) playMusic("anger");
+                    if(localStorage.act == 2) playMusic("bargain");
+                    if(localStorage.act == 3) playMusic("depression");
+                    if(localStorage.act == 4) playMusic("acceptance");
+                }
             }
             // afficher des infos sur le jeu et son développeur (moi lol)
             else if(maClass =="aboutButton"){
