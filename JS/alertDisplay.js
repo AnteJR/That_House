@@ -26,6 +26,7 @@ function displayAlert(text){
         maDiv.innerHTML = "";
         
         clickButton();
+        clearInterval(monInterval2);
     });
     
     document.getElementById("alertButton").addEventListener("mouseover", () => {
