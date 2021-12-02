@@ -190,7 +190,7 @@ function findText(commandItem){
 
     // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
     else if (maCommande == "false") {
-        textAlert = "There seems to be a problem with your input. Please try again."
+        textAlert = "I got really confused as of what I was doing there."
     }
 
     // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
