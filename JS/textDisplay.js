@@ -15,7 +15,9 @@ observer.observe(gameDiv, {characterData: false, childList: true, attributes: fa
     EN METTANT DES MOTS EN ÉVIDENCE SI BESOIN, ET EN
     RENFANT INTERACTIF LES TEXTES QUI DOIVENT L'ÊTRE
 */
+let monInterval;
 function displayGameText(){
+    txtDisplay(false);
     let textsToAppear = document.querySelectorAll('.textDiv');
     let texts = [];
 
@@ -56,15 +58,20 @@ function displayGameText(){
         let charPos = 0;
 
         // on appelle la fonction qui affiche caractère par caractère
-        txtDisplay(nbrChar, charPos, el, text, idx);
+        txtDisplay(true, nbrChar, charPos, el, text, idx);
     });
+
+    let mesChars = texts.join("").length;
+
+    monInterval;
+    playTheFuckingSounds(mesChars, true);
 
     /*
         CETTE FONCTION EST UNE FONCTION RÉCURSIVE QUI AFFICHE :
         1. CHAQUE STRING L'UN APRÈS L'AUTRE
         2. CHAQUE STRING CARACTRÈRE PAR CARACTÈRE
     */
-    function txtDisplay(i, j, element, txtFrag, index){
+    function txtDisplay(canRun, i, j, element, txtFrag, index){
         // gestion des intervals pour les timeout
         let interval1 = 0;
         let interval2 = 43;
@@ -85,66 +92,90 @@ function displayGameText(){
         // 2 setimeout imbriqués :
         // 1. Le premier prend comme intervale la somme des caractères des strings le précédent * 50ms
         // 2. Le deuxième prend comme intervale "interval2", donc 43ms
-        setTimeout(function(){
-            setTimeout(()=> {
-                if(i>0){
-                    let delay = 0;
-
-                    // afficher les espaces comme des espaces inséquables (sans quoi ils ne s'affichent pas en fin de string)
-                    if(txtFrag[j] == " "){
-                        txtFrag[j] = "&nbsp;"
-                    }
-
-                    // set de condition pour appliquer des délais aux spans qui contiennent les animations
-                    if(element.getAttribute("class").split(" ")[0] == "wobblyTxt"){
-                        delay = j*50;
-                        element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
-                    }
-                    else if(element.getAttribute("class").split(" ")[0] == "angerWobble"){
-                        delay = j*20;
-                        element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
-                    }
-                    else if(element.getAttribute("class").split(" ")[0] == "bargainWobble"){
-                        delay = j*500;
-                        element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
-                    }
-                    else if(element.getAttribute("class").split(" ")[0] == "sadWobble"){
-                        delay = j*500;
-                        element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
-                    }
-                    else if(element.getAttribute("class").split(" ")[0] == "acceptanceWobble"){
-                        element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
-                    }
-                    else{
-                        // sinon, on enlève les espaces insécables dans les paragraphes non-animés
-                        if(txtFrag[j] == "&nbsp;"){
-                            txtFrag[j] = " ";
+        let monTimeout = setTimeout(() => {
+            let monTimeout2 = setTimeout(() => {
+                if(canRun == true) {
+                    if(i>0){
+                        let delay = 0;
+    
+                        // afficher les espaces comme des espaces inséquables (sans quoi ils ne s'affichent pas en fin de string)
+                        if(txtFrag[j] == " "){
+                            txtFrag[j] = "&nbsp;"
                         }
-                        element.innerHTML+=txtFrag[j];
-                    }
-
-                    // condition pour lancer les bruitages, une lettre sur 2
-                    if(j%2 == 0){
-                        let canPlaySound = false;
-                        if(!myGameTxt.isMenu){
-                            if(myGameTxt.currentScene != 5) {
-                                canPlaySound = true;
-                            }
-                            else{
-                                if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
-                            }
+    
+                        // set de condition pour appliquer des délais aux spans qui contiennent les animations
+                        if(element.getAttribute("class").split(" ")[0] == "wobblyTxt"){
+                            delay = j*50;
+                            element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
                         }
-                        
-                        if(canPlaySound) playKeyType();
+                        else if(element.getAttribute("class").split(" ")[0] == "angerWobble"){
+                            delay = j*20;
+                            element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
+                        }
+                        else if(element.getAttribute("class").split(" ")[0] == "bargainWobble"){
+                            delay = j*500;
+                            element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
+                        }
+                        else if(element.getAttribute("class").split(" ")[0] == "sadWobble"){
+                            delay = j*500;
+                            element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
+                        }
+                        else if(element.getAttribute("class").split(" ")[0] == "acceptanceWobble"){
+                            element.innerHTML+=`<span style="animation-delay: ${delay}ms">${txtFrag[j]}</span>`;
+                        }
+                        else{
+                            // sinon, on enlève les espaces insécables dans les paragraphes non-animés
+                            if(txtFrag[j] == "&nbsp;"){
+                                txtFrag[j] = " ";
+                            }
+                            element.innerHTML+=txtFrag[j];
+                        }
+    
+                        // on rappelle la fonction (elle est récursive)
+                        j++;
+                        i--;
+                        txtDisplay(true, i, j, element, txtFrag);
                     }
-
-                    // on rappelle la fonction (elle est récursive)
-                    j++;
-                    i--;
-                    txtDisplay(i, j, element, txtFrag);
+                }
+                else {
+                    clearTimeout(monTimeout);
+                    clearTimeout(monTimeout2);
                 }
             },interval2);
         },interval1);
+    }
+
+    function playTheFuckingSounds(fullTextLength, canPlay){
+        clearInterval(monInterval);
+        let k = fullTextLength;
+        let mestrucs = Math.round(Math.random()*10)+45;
+        monInterval = setInterval(() => {
+            mestrucs = Math.round(Math.random()*10)+45;
+            console.log(k)
+            k--;
+            if(canPlay){
+                // condition pour lancer les bruitages, une lettre sur 2
+                if(k%2 == 0 && k > 0){
+                    let canPlaySound = false;
+                    if(!myGameTxt.isMenu){
+                        if(myGameTxt.currentScene != 5) {
+                            canPlaySound = true;
+                        }
+                        else{
+                            if(!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
+                        }
+                    }
+                    if(canPlaySound) playKeyType();
+                }
+                else if(k < 1){
+                    clearInterval(monInterval);
+                }
+            }
+            else{
+                clearInterval(monInterval);
+                return
+            }
+        }, mestrucs);
     }
 }
 

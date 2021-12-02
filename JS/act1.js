@@ -52,6 +52,11 @@ function actOne(){
             document.getElementById("screenBottom").style.display = "block";
             myGameTxt.currentScene = 0;
             actOne();
+            clickButton();
+        });
+    
+        document.getElementById("buttonGo").addEventListener("mouseover", () => {
+            hoverButton();
         });
     }
 
@@ -64,6 +69,7 @@ function actOne(){
 
         // on attribue un eventListener au bouton #buttonStart pour accéder à la scène 0 de l'acte actuel
         document.getElementById("maForm").addEventListener("submit", function(e){
+            clickButton();
             e.preventDefault();
             if(document.getElementById("monUsername").value!=""){
                 myGameTxt.username = document.getElementById("monUsername").value;
@@ -72,6 +78,10 @@ function actOne(){
                 myGameTxt.currentScene = 6;
                 actOne();
             }
+        });
+    
+        document.getElementById("maForm").addEventListener("mouseover", () => {
+            hoverButton();
         });
     }
 

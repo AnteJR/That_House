@@ -18,6 +18,7 @@ function homePage(){
 
     // on crée un eventListener pour que le bouton mène au menu du jeu
     document.getElementById("buttonStartGame").addEventListener("click", function(){
+        clickButton();
         document.getElementById("titleGame").style.fontSize = "1.25em";
         myGameTxt.isMenu = false;
         gameLaunch();

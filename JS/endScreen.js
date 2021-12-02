@@ -22,6 +22,8 @@ function endScreen(i){
     document.getElementById("buttonMoveForward").addEventListener("click", function(){
         i++
 
+        backgroundFlash();
+
         // si i est inférieur à 5, on relance la fonction endScreen()
         if (i<=5) endScreen(i);
 
@@ -39,10 +41,16 @@ function endScreen(i){
             txtToDisplay += `Developpement: Joël Rimaz</div><br/><br/><div class="textDiv bigTextDiv">Under the direction of: Isaac Pante</div><br/><br/><div class="textDiv bigTextDiv">For the course "Digital Publications"</div><br/><br/><div class="textDiv bigTextDiv">University of Lausanne</div><br/><input type="button" value="back to menu" class="buttonGoForward" id="buttonBackHome"/>`;
             gameDiv.innerHTML = txtToDisplay;
             document.getElementById("buttonBackHome").addEventListener("click", function(){
+                clickButton();
                 localStorage.clear();
                 gameLaunch();
                 document.getElementById("titleGame").style.display = "block";
-            })
+                myGameTxt.isFinished = false;
+            });
+    
+            document.getElementById("buttonBackHome").addEventListener("mouseover", () => {
+                hoverButton();
+            });
         }
     })
 }

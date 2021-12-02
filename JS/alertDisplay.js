@@ -11,6 +11,8 @@ function displayAlert(text){
     let command = text.split(" ");
     let textToDisplay = "";
 
+    if(text.toLowerCase() != "use letter" && text.toLowerCase() != "accept screen") alertAppear(monAlert);
+
     // on affiche la div qui compose l'alert
     monAlert.style.display = "block";
 
@@ -19,11 +21,14 @@ function displayAlert(text){
 
     // on ajoute un addEventListener au bouton qui apparaît dans la div
     document.getElementById("alertButton").addEventListener("click", () => {
-        // on désaffiche la div qui compose l'alert
         document.getElementById("boxAlert").style.display = "none";
-
-        // on vide le contenu innerHTML de la div
         maDiv.innerHTML = "";
+        
+        clickButton();
+    });
+    
+    document.getElementById("alertButton").addEventListener("mouseover", () => {
+        hoverButton();
     });
 
     // CONDITION SPÉCIALE : si on entre la commande "use letter" à la scène 6 de l'acte 5 (en partant de 0)
@@ -160,6 +165,11 @@ function findText(commandItem){
             document.getElementById("buttonNewAct").addEventListener("click", function(){
                 localStorage.act = newAct;
                 actOne();
+                clickButton();
+            });
+    
+            document.getElementById("buttonNewAct").addEventListener("mouseover", () => {
+                hoverButton();
             });
         }
     }
@@ -305,6 +315,11 @@ function findText(commandItem){
                             document.getElementById("buttonNewAct").addEventListener("click", function(){
                                 localStorage.act = myGameTxt.currentAct;
                                 actOne();
+                                clickButton();
+                            });
+    
+                            document.getElementById("buttonNewAct").addEventListener("mouseover", () => {
+                                hoverButton();
                             });
                         }
                         else if (myGameTxt.currentAct == 4){

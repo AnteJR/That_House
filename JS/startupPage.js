@@ -32,14 +32,25 @@ function startUpSetUp(){
                     <input type="button" value="Nope, cancel" class="buttonAlert" id="alertButton3"/>`;
                     
                     document.getElementById("alertButton2").addEventListener("click", () => {
+                        clickButton();
                         localStorage.clear();
                         myGameTxt.currentAct = 0;
                         myGameTxt.currentScene = 7;
                         actOne();
                         playMusic("denial");
                     });
+    
+                    document.getElementById("alertButton2").addEventListener("mouseover", () => {
+                        hoverButton();
+                    });
+
                     document.getElementById("alertButton3").addEventListener("click", () => {
+                        clickButton();
                         gameLaunch();
+                    });
+    
+                    document.getElementById("alertButton3").addEventListener("mouseover", () => {
+                        hoverButton();
                     });
                 }
                 else{
@@ -70,7 +81,12 @@ function startUpSetUp(){
                 gameDiv.style.marginTop = "5%";
                 gameDiv.innerHTML = `<div class="textDiv wigglyTxt whiteText">Developper: Joël Rimaz</div><br /><br /><div class="textDiv whiteText">Under the direction of: Isaac Pante</div><br/><br/><div class="textDiv whiteText">For the course "Digital Publication"</div><br/><br/><div class="textDiv whiteText">University of Lausanne</div><br/><br/><div class="textDiv whiteText">Github - AnteJR</div><br/><br/><input type="button" value="back" class="buttonAlert" id="buttonBack"/>`;
                 document.getElementById("buttonBack").addEventListener("click", function(){
+                    clickButton();
                     gameLaunch();
+                });
+    
+                document.getElementById("buttonBack").addEventListener("mouseover", () => {
+                    hoverButton();
                 });
             }
         });
