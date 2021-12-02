@@ -5,6 +5,7 @@
     AVEC UNE COMMANDE. SON BUT EST DE RÉCUPÉRER LE CONTENU DE
     L'INPUT, L'INTERPRÉTER ET L'AFFICHER DANS UNE ALERT CUSTOM.
  */
+let monInterval2;
 function displayAlert(text){
     let monAlert = document.getElementById("boxAlert");
     let maDiv = document.getElementById("alertTxt");
@@ -52,9 +53,11 @@ function displayAlert(text){
     let txtFrag = monTxt.split("");
     let i = txtFrag.length;
     let j = 0;
+    let l = i;
     let interval = Math.round(Math.random()*25)+15;
 
     txtDisplay();
+    playKeySound();
 
     /*
         LA FONCTION TXTTODISPLAY AFFICHE CARACTÈRE PAR CARACTÈRE
@@ -66,9 +69,19 @@ function displayAlert(text){
             if (i>0){
                 // on insère dans la maDiv le caractère, allant du premier au dernier
                 maDivTxt.innerHTML += txtFrag[j];
+                
+                j++;
+                i--;
+                txtDisplay();
+            }
+        },interval);
+    }
 
-                //condition pour lancer les bruitages
-                if(i%2 == 0){
+    function playKeySound(){
+        clearInterval(monInterval2);
+        monInterval2 = setInterval(() => {
+            if(l>0){
+                if(l%2 == 0){
                     let canPlaySound = false;
                     if(myGameTxt.currentScene != 5) {
                         canPlaySound = true;
@@ -79,12 +92,12 @@ function displayAlert(text){
                     
                     if(canPlaySound) playKeyType();
                 }
-                
-                j++;
-                i--;
-                txtDisplay();
+                l--
             }
-        },interval);
+            else{
+                clearInterval(monInterval2);
+            }
+        }, interval)
     }
 }
 

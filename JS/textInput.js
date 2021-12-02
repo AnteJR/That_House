@@ -22,7 +22,8 @@ monInput.addEventListener("keydown", (e) => {
         }
         // sinon, appuyer "Enter" depuis l'input ferme les boîtes de dialogue
         else{
-            document.getElementById("boxAlert").style.display = "none"
+            document.getElementById("boxAlert").style.display = "none";
+            clearInterval(monInterval2);
         }
     }
 });
@@ -83,7 +84,8 @@ window.addEventListener('keydown', (e) => {
             }
             // sinon, appuyer "Enter" depuis l'input ferme les boîtes de dialogue
             else{
-                document.getElementById("boxAlert").style.display = "none"
+                document.getElementById("boxAlert").style.display = "none";
+                clearInterval(monInterval2);
             }
         }
     }

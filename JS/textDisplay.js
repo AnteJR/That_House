@@ -41,6 +41,8 @@ function displayGameText(){
             let monMot = obj.join("");
             if(document.getElementById("commandInput").value != ""){
                 document.getElementById("commandInput").value += monMot;
+                displayAlert(document.getElementById("commandInput").value);
+                document.getElementById("commandInput").value = "";
             }
         });
     });
@@ -148,9 +150,9 @@ function displayGameText(){
     function playTheFuckingSounds(fullTextLength, canPlay){
         clearInterval(monInterval);
         let k = fullTextLength;
-        let mestrucs = Math.round(Math.random()*10)+45;
+        let mestrucs = Math.round(Math.random()*10)+43;
         monInterval = setInterval(() => {
-            mestrucs = Math.round(Math.random()*10)+45;
+            mestrucs = Math.round(Math.random()*10)+43;
             console.log(k)
             k--;
             if(canPlay){
