@@ -153,7 +153,6 @@ function displayGameText(){
         let mestrucs = Math.round(Math.random()*10)+43;
         monInterval = setInterval(() => {
             mestrucs = Math.round(Math.random()*10)+43;
-            console.log(k)
             k--;
             if(canPlay){
                 // condition pour lancer les bruitages, une lettre sur 2

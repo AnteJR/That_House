@@ -6,11 +6,12 @@
     FAÇON DONT JE GÈRE LA CHOSE
 */
 function actOne(){
+    console.log(myGameTxt.currentAct);
     // on revient en haut de la page
     window.scrollTo(0, 0);
 
     // on vérifie les couleurs et l'accès aux fonctionnalités bonus, qui se débloquent à un nouvel acte
-    inspectColor();
+    setTimeout(()=>{inspectColor();},10);
 
     let thisAct = myGameTxt.currentAct;
     let maScene = myGameTxt.scenes[myGameTxt.currentScene];
@@ -74,6 +75,7 @@ function actOne(){
             if(document.getElementById("monUsername").value!=""){
                 myGameTxt.username = document.getElementById("monUsername").value;
                 localStorage.username = document.getElementById("monUsername").value;
+                localStorage.act = 0;
                 document.getElementsByClassName("bottomScreen")[0].style.display = "block";
                 myGameTxt.currentScene = 6;
                 actOne();

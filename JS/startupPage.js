@@ -3,6 +3,7 @@
     ET SES TROIS OPTIONS : "NEW GAME", "CONTINUE" ET "ABOUT"
 */
 function startUpSetUp(){
+    console.log(localStorage.act + " | " + localStorage.username)
     // on revient en haut de la page
     window.scrollTo(0, 0);
     let optionsMenu = document.querySelectorAll(".bigTextDiv");
@@ -15,11 +16,11 @@ function startUpSetUp(){
                 gameDiv.style.textAlign = "left";
                 gameDiv.style.marginTop = "0%";
 
-                if(localStorage.act){
+                if(localStorage.username){
                     gameDiv.innerHTML = `<br/><div class="textDiv whiteText">There is an existing saved game:</div> 
                     <ul style="list-style:none;">
                         <li>
-                            <div class="textDiv whiteText">Act ${localStorage.act}</div>
+                            <div class="textDiv whiteText">Act ${parseInt(localStorage.act)+1}</div>
                         </li>
                         <li>
                             <div class="textDiv whiteText">Name: ${localStorage.username}</div>
