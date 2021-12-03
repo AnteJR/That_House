@@ -184,15 +184,15 @@ function displayGameText(){
     CETTE FONCTION AFFICHE LA COULEUR CORRECTE DES COMMANDES BONUS
     HIT (ACTE 2) - INSPECT (ACTE 3) - WAIT (ACTE 4) - ACCEPT (ACTE 5)
 */
-function inspectColor(){
+function inspectColor(monAct){
     // si l'acte vaut 0, donner l'opacité 0.2 à toutes les commandes bonus
-    if(myGameTxt.currentAct == 0 ){
+    if(monAct == 0 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             e.style.opacity = 0.2;
         });
     }
     // si l'act vaut 1 ou +, donner l'opacité 0.2 à toutes les commandes bonus sauf hit
-    if(myGameTxt.currentAct >= 1 ){
+    if(monAct >= 1 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             if(e.className.split(" ")[1] == "hitC"){
                 e.style.opacity = 1;
@@ -203,7 +203,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 2 ou +, donner l'opacité 0.2 à toutes les commandes bonus sauf hit et inspect
-    if(myGameTxt.currentAct >= 2 ){
+    if(monAct >= 2 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             if(e.className.split(" ")[1] == "hitC"){
                 e.style.opacity = 1;
@@ -217,7 +217,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 3 ou +, donner l'opacité 1 à toutes les commandes bonus sauf accept
-    if(myGameTxt.currentAct >= 3 ){
+    if(monAct >= 3 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             if(e.className.split(" ")[1] == "acceptC"){
                 e.style.opacity = 0.2;
@@ -228,7 +228,7 @@ function inspectColor(){
         });
     }
     // si l'act vaut 4 ou +, donner l'opacité 1 à toutes les commandes bonus
-    if(myGameTxt.currentAct >= 4 ){
+    if(monAct >= 4 ){
         document.querySelectorAll(".bonusC").forEach((e) => {
             e.style.opacity = 1;
         });

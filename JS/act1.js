@@ -6,12 +6,11 @@
     FAÇON DONT JE GÈRE LA CHOSE
 */
 function actOne(){
-    console.log(myGameTxt.currentAct);
     // on revient en haut de la page
     window.scrollTo(0, 0);
 
     // on vérifie les couleurs et l'accès aux fonctionnalités bonus, qui se débloquent à un nouvel acte
-    setTimeout(()=>{inspectColor();},10);
+    inspectColor(parseInt(myGameTxt.currentAct));
 
     let thisAct = myGameTxt.currentAct;
     let maScene = myGameTxt.scenes[myGameTxt.currentScene];

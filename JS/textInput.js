@@ -60,6 +60,7 @@ window.addEventListener('keydown', (e) => {
             if(myGameTxt.currentScene == 7) nameInput.value += e.key;
             else monInput.value += e.key;
         }
+
         // si on appuie sur "Backspace", supprimer le dernier caractère de l'input
         else if(e.key == "Backspace"){
             let valueInput = monInput.value.split("");
@@ -67,6 +68,7 @@ window.addEventListener('keydown', (e) => {
             if(myGameTxt.currentScene == 7) nameInput.value = valueInput.join("");
             else monInput.value = valueInput.join("");
         }
+
         // si on appuie sur "Enter"
         else if(e.key == "Enter"){
             // s'il l'input a une valeur non-nulle, on envoie les données pour afficher les alerts
@@ -88,6 +90,10 @@ window.addEventListener('keydown', (e) => {
                 clearInterval(monInterval2);
             }
         }
+
+        else if(e.key == "ArrowUp"){
+            if(myGameTxt.previousInput[myGameTxt.previousInput.length-1] != "first") monInput.value = myGameTxt.previousInput[myGameTxt.previousInput.length-1];
+        }
     }
 });
 
@@ -99,21 +105,21 @@ let mesCommandes = document.querySelectorAll(".command");
 mesCommandes.forEach((element) => {
     element.addEventListener("click", function(){
         let maCommande = this.textContent;
-        let commandTxt = maCommande.split("")
         let canBeUsed = false;
+        let monAct = myGameTxt.currentAct;
 
         // conditions pour rendre disponible les commandes aux bons actes
         if(this.className.split(" ")[2].length == "bonusC"){
-            if(myGameTxt.currentAct >= 1 && this.className.split(" ")[1] == "hitC"){
+            if(monAct >= 1 && this.className.split(" ")[1] == "hitC"){
                 canBeUsed = true
             }
-            if(myGameTxt.currentAct >= 2 && this.className.split(" ")[1] == "inspectC"){
+            if(monAct >= 2 && this.className.split(" ")[1] == "inspectC"){
                 canBeUsed = true
             }
-            if(myGameTxt.currentAct >= 3 && this.className.split(" ")[1] == "waitC"){
+            if(monAct >= 3 && this.className.split(" ")[1] == "waitC"){
                 canBeUsed = true
             }
-            if(myGameTxt.currentAct >= 4 && this.className.split(" ")[1] == "acceptC"){
+            if(monAct >= 4 && this.className.split(" ")[1] == "acceptC"){
                 canBeUsed = true
             }
         }
@@ -123,7 +129,8 @@ mesCommandes.forEach((element) => {
 
         // insérer le mot lié à la commande dans l'input
         if(canBeUsed == true && document.getElementById('commandInput').value == ""){
-            document.getElementById('commandInput').value += commandTxt.join("")+" ";
+            document.getElementById('commandInput').value += maCommande+" ";
+            if(maCommande.toLowerCase() == "leave") displayAlert("leave ")
         }
     });
 });

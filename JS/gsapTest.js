@@ -1,5 +1,5 @@
 gsap.from("div",{
-    duration: 10,
+    duration: 5,
     opacity:0
 });
 

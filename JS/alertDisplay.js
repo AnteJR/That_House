@@ -42,7 +42,7 @@ function displayAlert(text){
     }
     // CONDITION SPÉCIALE : sinon on définit textToDisplay en appelant la fonction findText() avec comme argument la variable command
     else {
-        textToDisplay = `<div class = "whiteText" id = "monTxtAlert">` + findText(command) + "</div";
+        textToDisplay = `<div class = "whiteText" id = "monTxtAlert">` + findText(command, text) + "</div";
     }
 
     maDiv.innerHTML = textToDisplay;
@@ -108,7 +108,8 @@ function displayAlert(text){
     COMMANDITEM, QUI EST L'ARRAY COMPOSÉ PAR LE SPLIT À L'ESPACEMENT
     DU CONTENU DE L'INPUT.
 */
-function findText(commandItem){
+function findText(commandItem, textInput){
+    let validInput = false;
     let textAlert = "";
     let maScene = myGameTxt.currentScene;
     let monItem = myGameTxt.scenes[maScene].items;
@@ -131,6 +132,7 @@ function findText(commandItem){
         else if (maScene == 0 && leaveItem.canLeave && myGameTxt.currentAct <= 1){
             nextActPlease(1);
             playMusic("anger");
+            myGameTxt.previousInput = [];
         }
 
         // CONDITION SECONDAIRE : si la scène vaut entre 1 et 3 (entre 2 et 4 en partant de 0)
@@ -138,16 +140,19 @@ function findText(commandItem){
             // on indique que la scène actuelle diminue d'1 ; on revient en arrière dans les scènes
             myGameTxt.currentScene = maScene-1;
             actOne();
+            validInput = true;
 
             // CONDITION TERTIAIRE : si la scène vaut 3 et l'acte 1 (acte 2, scène 4 en partant de 0)
             if (maScene == 3 && myGameTxt.currentAct == 1){
                 nextActPlease(2);
                 playMusic("bargain");
+                myGameTxt.previousInput = [];
             }
             // CONDITION TERTIAIRE : si la scène vaut 2 et l'acte 2 (acte 3, scène 3 en partant de 0)
             else if (maScene == 2 && myGameTxt.currentAct == 2){
                 nextActPlease(3);
                 playMusic("depression");
+                myGameTxt.previousInput = [];
             }
         }
 
@@ -156,6 +161,7 @@ function findText(commandItem){
             // on indique que la scène actuelle diminue de 2 ; on revient en arrière dans les scènes
             myGameTxt.currentScene = maScene-2;
             actOne();
+            validInput = true;
         }
 
         /*
@@ -215,6 +221,7 @@ function findText(commandItem){
 
                     // si utiliser "look" débloque quelque chose, débloquer l'objet correspondant
                     if (e.lookOpens >= 0) monItem[e.lookOpens].isOpened = true;
+                    validInput = true;
                 }
                 
                 // si maCommande est "use"
@@ -247,6 +254,7 @@ function findText(commandItem){
 
                     // si utiliser "look" débloque quelque chose, débloquer l'objet correspondant
                     if (e.useOpens >= 0) monItem[e.useOpens].isOpened = true;
+                    validInput = true;
                 }
                 
                 // si maCommande est "go"
@@ -273,6 +281,7 @@ function findText(commandItem){
                             actOne();
                         }
                     }
+                    validInput = true;
                 }
                 
                 // si maCommande est "hit", on affiche son texte
@@ -291,6 +300,7 @@ function findText(commandItem){
 
                     // si utiliser "hit" débloque quelque chose, débloquer l'objet correspondant
                     if (e.hitOpens >= 0) monItem[e.hitOpens].isOpened = true;
+                    validInput = true;
                 }
                 
                 // si maCommande est "inspect", on affiche son texte
@@ -301,6 +311,7 @@ function findText(commandItem){
                     if (e.inspectOpens >= 0){
                         monItem[e.inspectOpens].isOpened = true;
                     }
+                    validInput = true;
                 }
                 
                 // si maCommande est "wait", on affiche son texte
@@ -329,6 +340,7 @@ function findText(commandItem){
                             document.getElementById("buttonNewAct").addEventListener("click", function(){
                                 localStorage.act = myGameTxt.currentAct;
                                 actOne();
+                                myGameTxt.previousInput = [];
                                 clickButton();
                             });
     
@@ -347,6 +359,7 @@ function findText(commandItem){
                     if (e.waitOpens >= 0){
                         monItem[e.waitOpens].isOpened = true;
                     }
+                    validInput = true;
                 }
                 
                 // si maCommande est "accept", on affiche son texte
@@ -369,6 +382,7 @@ function findText(commandItem){
                         endScreen(0);
                         myGameTxt.isFinished = true;
                     }
+                    validInput = true;
                 }
                 
                 // si maCommande n'est pas reconnu
@@ -383,6 +397,9 @@ function findText(commandItem){
             textAlert = `Didn't know what to do with the ${ commandItem[1].toLowerCase() }`;
         }
     }
+
+    if(validInput) myGameTxt.previousInput.push(textInput);
+    console.log(myGameTxt.previousInput)
 
     // return textAlert pour que cela puisse être utilisé dans la fonction displayAlert()
     return textAlert;

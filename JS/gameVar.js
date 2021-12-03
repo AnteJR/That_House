@@ -634,9 +634,10 @@ var myGameTxt = {
 	],
     currentScene:6,
     currentAct:0,
-    username: "Joël",
+    username: "",
     isFinished: false,
-    isMenu: true
+    isMenu: true,
+    previousInput: ["first"]
 };
 
 /*
@@ -644,7 +645,7 @@ var myGameTxt = {
 */
 if(storageAvailable('localStorage')) {
     if (localStorage.act) {
-        myGameTxt.currentAct = localStorage.act;
+        myGameTxt.currentAct = parseInt(localStorage.act);
         myGameTxt.username = localStorage.username;
     }
     else { 
