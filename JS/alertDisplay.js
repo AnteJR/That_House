@@ -194,9 +194,34 @@ function findText(commandItem, textInput){
         }
     }
 
-    // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
+    // CONDITION PRINCIPALE : si maCommade est "false"
     else if (maCommande == "false") {
-        textAlert = "I got really confused as of what I was doing there."
+        textAlert = "I got really confused as of what I was doing there.";
+    }
+
+    // CONDITION PRINCIPALE : si maCommade est "hint act1"
+    else if (maCommande == "hint" && textInput == "hint act1") {
+        textAlert = "I didn't feel like staying. There was nothing for me there. I didn't know that house.";
+    }
+
+    // CONDITION PRINCIPALE : si maCommade est "hint act2"
+    else if (maCommande == "hint" && textInput == "hint act2") {
+        textAlert = "The upstairs didn't look that useful. I decided I should be going.";
+    }
+
+    // CONDITION PRINCIPALE : si maCommade est "hint act2"
+    else if (maCommande == "hint" && textInput == "hint act3-1") {
+        textAlert = "My birthday. Could it be used as a code of some sort?";
+    }
+
+    // CONDITION PRINCIPALE : si maCommade est "hint act2"
+    else if (maCommande == "hint" && textInput == "hint act3-2") {
+        textAlert = "The door behind the bookshelf probably would'nt open. I'd rather leave, at this point, I think.";
+    }
+
+    // CONDITION PRINCIPALE : si maCommade est "hint act2"
+    else if (maCommande == "hint" && textInput == "hint act4") {
+        textAlert = "The altar had a receptacle, looked like it could hold liquid... Considering the dark atmosphere... maybe blood? But how?";
     }
 
     // CONDITION PRINCIPALE : si maCommade est dif férente de "leave"
@@ -228,7 +253,14 @@ function findText(commandItem, textInput){
                 else if (maCommande == "use"){
 
                     // si l'attribut isOpened est false, on affiche le texte standard
-                    if (!e.isOpened) textAlert = e.useTxt;
+                    if (!e.isOpened) {
+                        textAlert = e.useTxt;
+                        if(maScene == 4 && e.name == "altar") {
+                            setTimeout(()=>{
+                                displayAlert("hint act4");
+                            },15000);
+                        }
+                    }
 
                     // si l'attribut isOpened est true, on affiche le texte spécial
                     else if (e.isOpened){
@@ -274,11 +306,21 @@ function findText(commandItem, textInput){
                         }
 
                         // set de condition speciales
-                        if (maScene == 1) myGameTxt.scenes[0].items[2].canLeave = true;
+                        if (maScene == 1 && myGameTxt.currentAct == 0) {
+                            myGameTxt.scenes[0].items[2].canLeave = true;
+                            setTimeout(()=>{
+                                displayAlert("hint act1");
+                            },60000);
+                        }
                         if (maScene == 2 && e.name == "bookshelf" && e.isOpened == true && e.isDoorOpen == true){
                             textAlert = e.goTxtDoorOpen
                             myGameTxt.currentScene = maScene+2;
                             actOne();
+                        }
+                        if (e.name == "staircase" && myGameTxt.currentAct == 1){
+                            setTimeout(()=>{
+                                displayAlert("hint act2");
+                            },30000);
                         }
                     }
                     validInput = true;
@@ -310,6 +352,16 @@ function findText(commandItem, textInput){
                     // si utiliser "inspect" débloque quelque chose, débloquer l'objet correspondant
                     if (e.inspectOpens >= 0){
                         monItem[e.inspectOpens].isOpened = true;
+                    }
+                    if(e.name == "postcard" && myGameTxt.currentAct == 2){
+                        setTimeout(()=>{
+                            displayAlert("hint act3-1");
+                        },5000);
+                    }
+                    if(e.name == "bookshelf" && e.isOpened && myGameTxt.currentAct == 2){
+                        setTimeout(()=>{
+                            displayAlert("hint act3-2");
+                        },15000);
                     }
                     validInput = true;
                 }

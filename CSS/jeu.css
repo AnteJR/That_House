@@ -33,7 +33,7 @@ body {
       linear-gradient(
         to bottom,
         white,
-        rgb(3, 15, 26)) 1;
+        rgba(3, 15, 26, 0)) 1;
     transition: border-width 1s linear;
 }
 .topScreen {
@@ -58,9 +58,9 @@ body {
     border-image: 
       linear-gradient(
           to left,
-        rgb(3, 15, 26),
+        rgba(3, 15, 26, 0),
         white,
-        rgb(3, 15, 26)) 5;
+        rgba(3, 15, 26, 0)) 5;
 }
 .enterTxt {
     width: 50%;
@@ -79,9 +79,9 @@ body {
     border-image: 
       linear-gradient(
           to left,
-        rgb(3, 15, 26),
+        rgba(3, 15, 26, 0),
         white,
-        rgb(3, 15, 26)) 5;
+        rgba(3, 15, 26, 0)) 5;
 }
 
 /*  COMMANDES ET LEURS AFFICHAGES  */
@@ -165,9 +165,9 @@ body {
     border-image: 
       linear-gradient(
           to left,
-        rgb(3, 15, 26),
+        rgba(3, 15, 26, 0),
         white,
-        rgb(3, 15, 26)) 5;
+        rgba(3, 15, 26, 0)) 5;
     position: absolute;
     background-color: rgb(3, 15, 26);
     z-index:1;
@@ -185,7 +185,7 @@ body {
     height:20%;
     border:none;
     margin-left:25%;
-    background-color: rgb(3, 15, 26);
+    background-color: rgba(3, 15, 26, 0);
     color:white;
     text-transform:uppercase;
     font-family: "retroGame";
@@ -195,14 +195,14 @@ body {
 }
 .buttonAlert:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, rgb(3, 15, 26) 0%, white 50%, rgb(3, 15, 26) 100%);
+    background: linear-gradient(90deg, rgba(3, 15, 26, 0) 0%, white 50%, rgba(3, 15, 26, 0) 100%);
     color: rgb(3, 15, 26);
     width:54%;
     margin-left: 23%;
 }
 .buttonAlert:active {
     background: none;
-    background-color: rgb(3, 15, 26);
+    background-color: rgba(3, 15, 26, 0);
     color:white;
 }
 
@@ -211,7 +211,7 @@ body {
     width:50%;
     height:20%;
     border:none;
-    background-color: rgb(3, 15, 26);
+    background-color: rgba(3, 15, 26, 0);
     color:white;
     text-transform:uppercase;
     font-family: "retroGame";
@@ -221,13 +221,13 @@ body {
 }
 .buttonGo:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, rgb(3, 15, 26) 0%, white 50%, rgb(3, 15, 26) 100%);
+    background: linear-gradient(90deg, rgba(3, 15, 26, 0) 0%, white 50%, rgba(3, 15, 26, 0) 100%);
     color: rgb(3, 15, 26);
     width:54%;
 }
 .buttonGo:active {
     background: none;
-    background-color: rgb(3, 15, 26);
+    background-color: rgba(3, 15, 26, 0);
     color:white;
 }
 .submitName {
@@ -249,7 +249,7 @@ body {
 }
 .buttonGoBack:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, white 0%, rgb(3, 15, 26) 50%, white 100%);
+    background: linear-gradient(90deg, white 0%, rgba(3, 15, 26, 0) 50%, white 100%);
     color: white;
 }
 .buttonGoBack:active {
