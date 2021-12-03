@@ -131,6 +131,7 @@ mesCommandes.forEach((element) => {
         if(canBeUsed == true && document.getElementById('commandInput').value == ""){
             document.getElementById('commandInput').value += maCommande+" ";
             if(maCommande.toLowerCase() == "leave") displayAlert("leave ")
+            document.getElementById('commandInput').value = "";
         }
     });
 });
