@@ -83,6 +83,23 @@ body {
         white,
         rgba(3, 15, 26, 0)) 5;
 }
+.mesScores {
+    width: 10%;
+    height: 1.25em;
+    position:absolute;
+    top:6%;
+    left:85%;
+    text-align:center;
+    border-width:0px 0px 5px 0px;
+    border-style:solid;
+    border-image: 
+      linear-gradient(
+          to left,
+        rgba(3, 15, 26, 0),
+        white,
+        rgba(3, 15, 26, 0)) 5;
+    display:none;
+}
 
 /*  COMMANDES ET LEURS AFFICHAGES  */
 .baseCommands {

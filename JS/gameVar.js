@@ -2,7 +2,6 @@
     CETTE VARIABLE CONTIENT L'ENSEMBLE DES TEXTES ET DES VARIABLES UTILES AU FONCTIONNEMENT DU JEU
     SA STRUCTURE GÉNÉRALE (SAUF EXCEPTIONS) EST LA SUIVANTE :
     myGameTxt = {
-        name : string,
         scenes : [
             {
                 name : string,
@@ -51,8 +50,6 @@
     LES EXCEPTIONS SONT DES CONDITIONS SPÉCIFIQUES À LA PROGRESSION
 */
 var myGameTxt = {
-    name: "Act 1",
-    actNumber: 1,
 	scenes: [
         {
             name: "Scene1",
@@ -68,18 +65,13 @@ var myGameTxt = {
             items: [
                 {
                     name: "road",
-                    lookOpens: -1,
-                    useOpens: -1,
-                    hitOpens: -1,
-                    inspectOpens: -1,
-                    waitOpens: -1,
-                    acceptOpens: -1,
-                    isOpened: true,
-                    lookTxtOpen: "The road was short. It was mainly made of dirt. It had not been maintained in a while.",
+                    isOpened: false,
+                    canBeOpened: false,
+                    lookTxt: "The road was short. It was mainly made of dirt. It had not been maintained in a while.",
                     useWin: true,
-                    useTxtOpen: "I might as well.",
+                    useTxt: "I might as well.",
                     goWin: true,
-                    goTxtOpen: "I might as well.",
+                    goTxt: "I might as well.",
                     hitTxt: "Why would I hit dirt?",
                     inspectTxt: "It was dirt, what do you want me to say?",
                     waitTxt: "I waited for a bit. A bird flew by. Time to move",
@@ -88,17 +80,12 @@ var myGameTxt = {
                 },
                 {
                     name: "door",
-                    lookOpens: -1,
-                    useOpens: -1,
-                    hitOpens: -1,
-                    inspectOpens: -1,
-                    waitOpens: -1,
-                    acceptOpens: -1,
-                    isOpened: true,
-                    lookTxtOpen: "The door looked closed from up here. I could try to open it. Needed to go to it though.",
-                    useTxtOpen: "I needed to get closer to it.",
+                    isOpened: false,
+                    canBeOpened: false,
+                    lookTxt: "The door looked closed from up here. I could try to open it. Needed to go to it though.",
+                    useTxt: "I needed to get closer to it.",
                     goWin: true,
-                    goTxtOpen: "I might as well.",
+                    goTxt: "I might as well.",
                     hitTxt: "I mean, I could. Needed to get closer though.",
                     inspectTxt: "I was too far away to see anything.",
                     waitTxt: "I waited for a bit. The door kept shut. Time to move.",
@@ -136,6 +123,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "The curtains were drawn. Hard to say if anyone was here.",
                     lookTxtOpen: "The window was now broken. Wouldn't try and touch it.",
                     useTxt: "It was closed shut. Couldn't open it from this side.",
@@ -152,11 +140,12 @@ var myGameTxt = {
                     name: "door",
                     lookOpens: -1,
                     useOpens: 1,
-                    hitOpens: -1,
+                    hitOpens: 1,
                     inspectOpens: -1,
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "A bit too frail if you ask me. I didn't know if it was unlocked or not.",
                     lookTxtOpen: "It was unlocked after all.",
                     useTxt: "Huh. It was unlocked. Who the Hell would leave it like that?",
@@ -180,6 +169,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: false,
+                    canBeOpened: false,
                     lookTxt: "It looked broken. I’d been surprised if it rang.",
                     useTxt: "Not a sound. Didn’t know what I was expecting.",
                     goTxt: "The doorbell is right there.",
@@ -223,6 +213,7 @@ var myGameTxt = {
                     waitOpens: 0,
                     acceptOpens: 0,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "It lead somewhere upstairs. There was a door at the top.",
                     lookTxtOpen: "It was open now. Might as well go through.",
                     useTxt: "The door upstairs was locked. Not my lucky day.",
@@ -247,6 +238,7 @@ var myGameTxt = {
                     gotKey: false,
                     canPressBtn: false,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "It was a big oak desk. Dusty though. Looked sturdy enough.",
                     lookTxtOpen: "It was a big oak desk. Dusty though. Looked sturdy enough.",
                     useTxt: "There was a drawer, that was closed shut.",
@@ -269,6 +261,7 @@ var myGameTxt = {
                     acceptOpens: -1,
                     useCanPressBtn: 1,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: `It was a postcard from some touristic island. Said "A piece of Paradise" on the front.`,
                     lookTxtOpen: `It read: "August 12, 1996". The day of my birth.`,
                     useTxt: "I flipped the card to see what was on the back.",
@@ -290,6 +283,7 @@ var myGameTxt = {
                     acceptOpens: -1,
                     isOpened: false,
                     isDoorOpen: false,
+                    canBeOpened: true,
                     lookTxt: "The bookshelf was mostly old and dusty. The books did not look interesting.",
                     lookTxtOpen: "The shelf had moved to its left. Now there was a door behind.",
                     useTxt: "I opened a book at random. It was some encyclopedia. Nothing of notice.",
@@ -339,6 +333,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: 2,
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: "It was... moldy. Must've been here for ages. Pretty gross.",
                     useTxtOpen: "I wouldn't dare touch that. It smelled.",
                     goTxtOpen: "I was at the bed already, not like there was much to see.",
@@ -356,6 +351,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "The lamp casted a dim yellow-ish light on the bed.",
                     lookTxtOpen: "Now it was turned off, and the room went dark. The wall, though, was now glowing.",
                     useTxt: "I pulled on the little chain dangling from the lamp. Now it was off.",
@@ -376,6 +372,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: `The bear was damp, which made it look gross and malformed.`,
                     lookTxtOpen: `There was a compartment at the back of its head.`,
                     useTxt: "It was heavier than expected. Not sure of its use, though.",
@@ -391,6 +388,7 @@ var myGameTxt = {
                     name: "glass",
                     useGlassOpens: [4, 1],
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: "The glass was a bit foggy.",
                     useTxtOpen: "I took a piece of glass and kept it in my coat.",
                     goTxtOpen: "The glass laid at my feet. How many years had this house been in such a state?",
@@ -408,6 +406,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "The walls is littered with newspaper clips from the 1990s.",
                     lookTxtOpen: `Some words were underlined with glowing ink. "We always loved you".`,
                     useTxt: "I tore a newspaper clip, to find the exact same one underneath.",
@@ -452,6 +451,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: "The candles were already burning. How is this possible?",
                     useTxtOpen: "I wouldn't dare touch that. I didn't to burn myself.",
                     goTxtOpen: "I was already neat the candles. The room was small enough.",
@@ -470,6 +470,7 @@ var myGameTxt = {
                     acceptOpens: -1,
                     bledOut: false,
                     isOpened: false,
+                    canBeOpened: true,
                     lookTxt: "The altar stood proudly in the middle of this tiny chamber. Looked like marble.",
                     lookTxtOpen: "The altar looked scary in the middle of this tiny chamber.",
                     useTxt: "There was a receptacle, probably for some fluid. I shivered.",
@@ -491,6 +492,7 @@ var myGameTxt = {
                     waitOpens: -1,
                     acceptOpens: -1,
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: `This was a family car, similar to the one I bought years ago, when I got my first job.`,
                     useTxtOpen: `I took it in my hands, trembling. Why was I trembling? I put it back.`,
                     goTxtOpen: "The altar was right there. And the car is on it.",
@@ -509,6 +511,7 @@ var myGameTxt = {
                     acceptOpens: -1,
                     tookTheBook: false,
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: `It was a copy of "The Haze", a poetry book my mom used to read me when I was little.`,
                     useTxtOpen: "I took the book, maybe to read it later.",
                     goTxtOpen: "I was already at the altar upon which the book sat.",
@@ -540,6 +543,7 @@ var myGameTxt = {
                     lookingAtLetter: false,
                     letterRead: false,
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: "The letter was folded. It was white, neat. It had a pleasant smell to it.",
                     useTxtOpen: `<div class="textDiv">Dear me,</div><br/><br/><div class="textDiv">I've been meaning to tell you so, so much. About how I love you. And how I have been happy being you all this time. You must have many questions. Let me get to some.</div><br/><br/><div class="textDiv">First and foremost, that house you've been seeing is indeed yours. Ours. The one we grew up in. It's been decayed this way because of we never thought about it in our adult life. We've been living our life, we didn't have the need to remember, we were busy with work, love, friends... It's unfortunate, but that's behind us now.</div><br/><br/><div class="textDiv">Now the important part. Yes. You died. I mean, we died. Together. At the same time. You had a bad car accident. You've been badly injured, and fought for your life, in a coma, for 4 months. You caved in, you had to, but you never stopped fighting.</div><br/><br/><div class="textDiv">But you do not have to worry anymore. The electrons of our body mingle and dance with the electrons of the ground below us and the air. We are no longer breathing. And we have to remember that there is no point where any of that ends and we begin. We now are energy. Not memory. Not self. Our choices, name, personality, all came after us. We were before them, and we will be after.</div><br/><br/><div class="textDiv">There is no time. There is no death. Life is a dream. It's a wish. Made again, and again, and again, and again, and on into eternity. We are all of it. We are everything. We are all. </div><br/><br/><div class="textDiv">So there is nothing to fear. You are loved. We are everywhere. We are dead, yet, in a sense, we are more alive. We joined the stars, and the rest of the universe.</div><br/><br/><div class="textDiv">With you always,</div><br/><div class="textDiv">`,
                     goTxtOpen: "It was at my feet already.",
@@ -551,6 +555,7 @@ var myGameTxt = {
                 {
                     name: "screen",
                     isOpened: true,
+                    canBeOpened: false,
                     lookTxtOpen: "The screen flashed pictures of places. Seemed familiar, somehow.",
                     useTxtOpen: "There wasn't any buttons to use. It was just a sceen.",
                     goTxtOpen: "The screen was in front of me.",
@@ -637,21 +642,101 @@ var myGameTxt = {
     username: "",
     isFinished: false,
     isMenu: true,
-    previousInput: ["first"]
+    previousInput: ["first"],
+    mesInputs: [],
+    nbrInputs: 0
 };
 
-/*
-    Ce code gère le localStorage pour les actes
-*/
-if(storageAvailable('localStorage')) {
-    if (localStorage.act) {
-        myGameTxt.currentAct = parseInt(localStorage.act);
-        myGameTxt.username = localStorage.username;
+let baseGameTxt = myGameTxt;
+myGameTxt.mesInputs = countOutcomes();
+myGameTxt.nbrInputs = myGameTxt.mesInputs.length;
+
+function countOutcomes() {
+    let mesCommandes = [];
+    let totalCommandsForThisAct = 0;
+    let i = 0;
+    let monAct = myGameTxt.currentAct;
+    if(monAct == 0) i = 2;
+    else if(monAct == 1 || monAct == 2) i = 3;
+    else if(monAct == 3) i = 4;
+    else if(monAct == 4) i = 5;
+    for(let k = i; k >= 0; k--){
+        let mesItems = myGameTxt.scenes[k].items;
+        let monActe = parseInt(monAct);
+        let nbrCommands = 3 + monActe;
+        if(mesItems) {
+            let lengthItem = parseInt(mesItems.length);
+            let actualItemLength = lengthItem-1;
+            if(monAct < 2 && k == 2){
+                actualItemLength--;
+            }
+            if(monAct == 2 && k == 3){
+                actualItemLength--;
+            }
+            mesItems.forEach((e)=>{
+                let canBeAdded = false;
+                let canBeAdded2 = false;
+                if(e.name != "leave") {
+                    if(e.canBeOpened){
+                        if(monAct == 0) {
+                            console.log("this is act 1")
+                            if(e.name == "door") {
+                                actualItemLength++;
+                                canBeAdded = true;
+                            }
+                        }
+                        else if(monAct == 1) {
+                            console.log("this is act 2")
+                            if(e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp"|| e.name == "staircase") {
+                                actualItemLength++;
+                                canBeAdded = true;
+                            }
+                        }
+                        else if(monAct == 2) {
+                            console.log("this is act 3")
+                            if(e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf") {
+                                actualItemLength++;
+                                canBeAdded = true;
+                            }
+                        }
+                        else if(monAct == 3) {
+                            if(e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf"  || e.name == "altar") {
+                                actualItemLength++;
+                                canBeAdded = true;
+                            }
+                        }
+                        else {
+                            actualItemLength++;
+                            canBeAdded = true;
+                        }
+                        if(canBeAdded){
+                            mesCommandes.push(`look ${ e.name } ${ k } opened`);
+                            mesCommandes.push(`use ${ e.name } ${ k } opened`);
+                            mesCommandes.push(`go ${ e.name } ${ k } opened`);
+                            if(monAct >= 1) mesCommandes.push(`hit ${ e.name } ${ k } opened`);
+                            if(monAct >= 2) mesCommandes.push(`inspect ${ e.name } ${ k } opened`);
+                            if(monAct >= 3) mesCommandes.push(`wait ${ e.name } ${ k } opened`);
+                            if(monAct >= 4) mesCommandes.push(`accept ${ e.name } ${ k } opened`);
+                        }
+                    }
+                    if(monAct == 0 && e.name != "postcard") canBeAdded2 = true;
+                    if(monAct == 1 && e.name != "postcard" && e.name != "teddybear") canBeAdded2 = true;
+                    if(monAct > 1 ) canBeAdded2 = true;
+                    
+                    if(canBeAdded2){
+                        mesCommandes.push(`look ${ e.name } ${ k }`);
+                        mesCommandes.push(`use ${ e.name } ${ k }`);
+                        mesCommandes.push(`go ${ e.name } ${ k }`);
+                        if(monAct >= 1) mesCommandes.push(`hit ${ e.name } ${ k }`);
+                        if(monAct >= 2) mesCommandes.push(`inspect ${ e.name } ${ k }`);
+                        if(monAct >= 3) mesCommandes.push(`wait ${ e.name } ${ k }`);
+                        if(monAct >= 4) mesCommandes.push(`accept ${ e.name } ${ k }`);
+                    }
+                }
+            });
+            totalCommandsForThisAct += (actualItemLength*nbrCommands)+1;
+        }
     }
-    else { 
-        myGameTxt.currentAct = 0;
-    }
-  }
-  else {
-      alert("No local storage detected")
-  }
+    console.log(mesCommandes);
+    return mesCommandes;
+}

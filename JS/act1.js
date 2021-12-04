@@ -5,7 +5,8 @@
     MAIS LA CRÉATION DE L'OBJET JSON MYGAMETXT A CHANGÉ LA
     FAÇON DONT JE GÈRE LA CHOSE
 */
-function actOne(){
+function actOne(isNewAct){
+    if(isNewAct) document.getElementById("totalScore").innerHTML = myGameTxt.nbrInputs;
     // on revient en haut de la page
     window.scrollTo(0, 0);
 
@@ -51,8 +52,10 @@ function actOne(){
         document.getElementById("buttonGo").addEventListener("click", function(){
             document.getElementById("screenBottom").style.display = "block";
             myGameTxt.currentScene = 0;
-            actOne();
+            actOne(true);
             clickButton();
+            document.getElementById("scoreZ").style.display = "block";
+            document.getElementById("scoreCurrent").innerHTML = (myGameTxt.mesInputs.length-myGameTxt.nbrInputs)*(-1);
         });
     
         document.getElementById("buttonGo").addEventListener("mouseover", () => {
@@ -77,7 +80,7 @@ function actOne(){
                 localStorage.act = 0;
                 document.getElementsByClassName("bottomScreen")[0].style.display = "block";
                 myGameTxt.currentScene = 6;
-                actOne();
+                actOne(true);
             }
         });
     

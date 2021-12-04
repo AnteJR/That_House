@@ -130,8 +130,10 @@ mesCommandes.forEach((element) => {
         // insérer le mot lié à la commande dans l'input
         if(canBeUsed == true && document.getElementById('commandInput').value == ""){
             document.getElementById('commandInput').value += maCommande+" ";
-            if(maCommande.toLowerCase() == "leave") displayAlert("leave ")
-            document.getElementById('commandInput').value = "";
+            if(maCommande.toLowerCase() == "leave") {
+                displayAlert("leave ")
+                document.getElementById('commandInput').value = "";
+            }
         }
     });
 });

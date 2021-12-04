@@ -43,7 +43,7 @@ function openLetter(){
         
         gsapLetterBack(document.body);
         myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter = false;
-        actOne();
+        actOne(false);
         playMusic("acceptance");
     });
     
