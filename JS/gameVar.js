@@ -642,7 +642,7 @@ var myGameTxt = {
     username: "",
     isFinished: false,
     isMenu: true,
-    previousInput: ["first"],
+    previousInput: [],
     mesInputs: [],
     nbrInputs: 0
 };

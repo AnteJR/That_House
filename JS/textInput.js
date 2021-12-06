@@ -7,6 +7,7 @@ let monInput = document.getElementById('commandInput');
 monInput.addEventListener("keydown", (e) => {
     // si on appuie sur "Enter"
     if(e.key == "Enter"){
+        counterCommands = 0;
         // s'il l'input a une valeur non-nulle, on envoie les données pour afficher les alerts
         if(document.getElementById("commandInput").value!=""){
             if(document.getElementById("boxAlert").style.display == "none"){
@@ -26,9 +27,22 @@ monInput.addEventListener("keydown", (e) => {
             clearInterval(monInterval2);
         }
     }
+    else if(e.key == "ArrowUp"){
+        if(myGameTxt.previousInput.length > 0 && counterCommands <= myGameTxt.previousInput.length) {
+            if(counterCommands + 1 <= myGameTxt.previousInput.length) counterCommands++;
+            monInput.value = myGameTxt.previousInput[(myGameTxt.previousInput.length)-counterCommands];
+        }
+    }
+    else if(e.key == "ArrowDown"){
+        if(myGameTxt.previousInput.length > 0 && counterCommands <= myGameTxt.previousInput.length) {
+            if(counterCommands - 1 > 0) counterCommands--;
+            monInput.value = myGameTxt.previousInput[(myGameTxt.previousInput.length)-counterCommands];
+        }
+    }
 });
 
 let nameInput;
+let counterCommands = 0;
 
 /*
     CET EVENTLISTENER REMPLI L'INPUT SANS QUE L'INPUT SOIT FOCUS
@@ -71,6 +85,7 @@ window.addEventListener('keydown', (e) => {
 
         // si on appuie sur "Enter"
         else if(e.key == "Enter"){
+            counterCommands = 0;
             // s'il l'input a une valeur non-nulle, on envoie les données pour afficher les alerts
             if(document.getElementById("commandInput").value!=""){
                 if(document.getElementById("boxAlert").style.display == "none"){
@@ -90,9 +105,17 @@ window.addEventListener('keydown', (e) => {
                 clearInterval(monInterval2);
             }
         }
-
         else if(e.key == "ArrowUp"){
-            if(myGameTxt.previousInput[myGameTxt.previousInput.length-1] != "first") monInput.value = myGameTxt.previousInput[myGameTxt.previousInput.length-1];
+            if(myGameTxt.previousInput.length > 0 && counterCommands <= myGameTxt.previousInput.length) {
+                if(counterCommands + 1 <= myGameTxt.previousInput.length) counterCommands++;
+                monInput.value = myGameTxt.previousInput[(myGameTxt.previousInput.length)-counterCommands];
+            }
+        }
+        else if(e.key == "ArrowDown"){
+            if(myGameTxt.previousInput.length > 0 && counterCommands <= myGameTxt.previousInput.length) {
+                if(counterCommands - 1 > 0) counterCommands--;
+                monInput.value = myGameTxt.previousInput[(myGameTxt.previousInput.length)-counterCommands];
+            }
         }
     }
 });
