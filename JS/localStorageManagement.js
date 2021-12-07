@@ -10,7 +10,7 @@ function storageAvailable(type) {
         storage.removeItem(x);
         return true;
     }
-    catch(e) {
+    catch (e) {
         return e instanceof DOMException && (
             e.code === 22 ||
             e.code === 1014 ||

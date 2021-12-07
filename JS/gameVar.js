@@ -50,7 +50,7 @@
     LES EXCEPTIONS SONT DES CONDITIONS SPÉCIFIQUES À LA PROGRESSION
 */
 var myGameTxt = {
-	scenes: [
+    scenes: [
         {
             name: "Scene1",
             sceneNumber: 1,
@@ -99,21 +99,21 @@ var myGameTxt = {
                 }
             ],
         },
-		{
+        {
             name: "Scene2",
             sceneNumber: 2,
-			texts: [
+            texts: [
                 ["There I was. The ", "regular", false],
-				["door", "regular", true],
-				[" was right there. ", "regular", false],
+                ["door", "regular", true],
+                [" was right there. ", "regular", false],
                 ["The air outside was cold and wet. I'd rather go inside again... ", "sad", false],
                 ["There also was a ", "regular", false],
-				["window", "regular", true],
+                ["window", "regular", true],
                 [", next to it, on the left. Everything looked frozen in time. I didn’t know what to think about it. There was a ", "regular", false],
-				["doorbell.", "regular", true],
-				[" I could just... ring it. ", "regular", false],
-			],
-			items: [
+                ["doorbell.", "regular", true],
+                [" I could just... ring it. ", "regular", false],
+            ],
+            items: [
                 {
                     name: "window",
                     lookOpens: -1,
@@ -135,7 +135,7 @@ var myGameTxt = {
                     waitTxt: "I stood in the reflection. Pale as a ghost. I looked tired.",
                     acceptWin: true,
                     acceptTxt: "I pushed the window, and it opened? Might as well go through it."
-				},
+                },
                 {
                     name: "door",
                     lookOpens: -1,
@@ -159,7 +159,7 @@ var myGameTxt = {
                     waitTxt: "As if the door would magically disappear. Time to move.",
                     acceptWin: true,
                     acceptTxt: "I had to accept going into that house again. One last time."
-				},
+                },
                 {
                     name: "doorbell",
                     lookOpens: -1,
@@ -177,17 +177,17 @@ var myGameTxt = {
                     inspectTxt: "The name on it was scratched off. The first letter was the same as mine.",
                     waitTxt: "Didn't konw what I was waiting for. It was broken.",
                     acceptTxt: "The name, though scratched, was my father's. He was gone, wasn't he?"
-				},
+                },
                 {
                     name: "leave",
                     leftTrue: "I backed off. The air around me was cold.",
                 }
-			],
-		},
-		{
+            ],
+        },
+        {
             name: "Scene3",
             sceneNumber: 3,
-			texts: [
+            texts: [
                 ["Here I was inside the house.", "regular", false],
                 [".. ", "regular", false],
                 ["Again. ", "angry", false],
@@ -202,8 +202,8 @@ var myGameTxt = {
                 [" There was an old ", "regular", false],
                 ["bookshelf", "regular", true],
                 [" at the back. Nothing else stood out in this room.", "regular", false],
-			],
-			items: [
+            ],
+            items: [
                 {
                     name: "staircase",
                     lookOpens: -1,
@@ -225,7 +225,7 @@ var myGameTxt = {
                     inspectTxt: "The keyhole to the door upstairs was ancient, and rusty.",
                     waitTxt: "After a while, suddenly, a clic. And the door creaked open.",
                     acceptTxt: "This door was the one to my childhood's bedroom. Suddenly the door came open."
-				},
+                },
                 {
                     name: "desk",
                     lookOpens: -1,
@@ -250,7 +250,7 @@ var myGameTxt = {
                     inspectTxt: "Under the desk was hidden a pad with numbers. What was the combination?",
                     waitTxt: "Nothing happened. Why am I wasting my time?",
                     acceptTxt: "This desk was mine. I had it at my parent's house. The drawer just needed to be hit."
-				},
+                },
                 {
                     name: "postcard",
                     lookOpens: -1,
@@ -272,7 +272,7 @@ var myGameTxt = {
                     inspectTxt: "There was a signature on the front. I couldn't remember whose it was.",
                     waitTxt: "Nothing happened.",
                     acceptTxt: "It was my dad's. The signature. Why was it his?"
-				},
+                },
                 {
                     name: "bookshelf",
                     lookOpens: -1,
@@ -295,17 +295,17 @@ var myGameTxt = {
                     inspectTxt: `A book caught my eyes. "The Haze". It felt familiar, but I couldn't tell why.`,
                     waitTxt: "The ticking sounds faded, then a loud crack. Sounded like the door behind opened.",
                     acceptTxt: "This bookshelf belonged to my parents. Long ago. The shelf sled and the door behind was open."
-				},
+                },
                 {
                     name: "leave",
                     leftTrue: "I left the house. The air outside bit me with cold.",
                 }
-			],
-		},
-		{
+            ],
+        },
+        {
             name: "Scene4",
             sceneNumber: 4,
-			texts: [
+            texts: [
                 ["The room was largely empty, except for a ", "regular", false],
                 ["bed.", "regular", true],
                 [" Beside it, a ", "regular", false],
@@ -322,8 +322,8 @@ var myGameTxt = {
                 [" There were papers on the ", "regular", false],
                 ["wall", "regular", true],
                 [" behind me.", "regular", false],
-			],
-			items: [
+            ],
+            items: [
                 {
                     name: "bed",
                     lookOpens: -1,
@@ -341,7 +341,7 @@ var myGameTxt = {
                     inspectTxt: "Carved in the bed's framed laid a small copper key. I took it, just in case.",
                     waitTxt: "The stench made me feel sick. And somewhat nostalgic.",
                     acceptTxt: "It was my bed as a child. I knew I hid a key in it. It opened a compartment in the teddybear."
-				},
+                },
                 {
                     name: "bedlamp",
                     lookOpens: -1,
@@ -362,7 +362,7 @@ var myGameTxt = {
                     inspectTxt: "The end of the chain had a little engraving, with my name on it.",
                     waitTxt: "Nothing happened.",
                     acceptTxt: "I remembered this lamp. It stood in my parent's room when I was little."
-				},
+                },
                 {
                     name: "teddybear",
                     lookOpens: -1,
@@ -383,7 +383,7 @@ var myGameTxt = {
                     inspectTxt: "The bear had a tag. On it were my initials.",
                     waitTxt: "I looked like it would crumble right in front of my eyes, but it didn't.",
                     acceptTxt: "It was given by my father long ago. Must've been 2 or 3. Loved that bear"
-				},
+                },
                 {
                     name: "glass",
                     useGlassOpens: [4, 1],
@@ -396,7 +396,7 @@ var myGameTxt = {
                     inspectTxt: `Nothing of notice here.`,
                     waitTxt: "Was the glass supposed to magically fix itself? Surprise, it didn't.",
                     acceptTxt: "What was the meaning? That everything would be destroyed in time?"
-				},
+                },
                 {
                     name: "wall",
                     lookOpens: -1,
@@ -417,17 +417,17 @@ var myGameTxt = {
                     inspectTxt: `One article stood out. It was from this year, about a car accident.`,
                     waitTxt: "I read the papers in silence. It was pretty ominous.",
                     acceptTxt: "The articles were from the time I was born, and grew up. And something about a fatal car accident..."
-				},
+                },
                 {
                     name: "leave",
                     leftTrue: "I came down to the room. I still had chills from before.",
                 }
-			],
-		},
+            ],
+        },
         {
             name: "Scene5",
             sceneNumber: 5,
-			texts: [
+            texts: [
                 ["Behind the bookshelf was a staircase which lead to a tiny square room lit only by a series of five ", "regular", false],
                 ["candles.", "regular", true],
                 [" In the middle stood an ", "regular", false],
@@ -440,8 +440,8 @@ var myGameTxt = {
                 ["There was a ", "sad", false],
                 ["book", "sad", true],
                 [" next to the figurine.", "sad", false],
-			],
-			items: [
+            ],
+            items: [
                 {
                     name: "candles",
                     lookOpens: -1,
@@ -459,7 +459,7 @@ var myGameTxt = {
                     inspectTxt: "The candles' wax was dripping and forming cascading shapes towards the ground.",
                     waitTxt: "I waited for about an hour. The candles didn't diminish in size. That was... weird.",
                     acceptTxt: "These candles were otherworldly. That was the only sound explaination."
-				},
+                },
                 {
                     name: "altar",
                     lookOpens: -1,
@@ -482,7 +482,7 @@ var myGameTxt = {
                     waitTxt: "Nothing to wait for.",
                     waitTxtBledOut: "I waited for it to have a result. Suddenly, a light, and I was transported elsewhere.",
                     acceptTxt: "Where was I? Why were all these items and texts about me? I was again transported elsewhere."
-				},
+                },
                 {
                     name: "figurine",
                     lookOpens: -1,
@@ -500,7 +500,7 @@ var myGameTxt = {
                     inspectTxt: "The car looked hand-painted. There were a few imperfections here and there.",
                     waitTxt: "I waited, but it didn't do much.",
                     acceptTxt: "I bought that exact same car years ago. Last I knew I was driving it. Why am I here then?"
-				},
+                },
                 {
                     name: "book",
                     lookOpens: -1,
@@ -519,25 +519,25 @@ var myGameTxt = {
                     inspectTxt: `I read an extract: "Let it flow, like clear water, and be. Be with the ones you love."`,
                     waitTxt: "Waiting didn't do much. At all.",
                     acceptTxt: "It was a book about life after death. Weird to have been read that as a kid."
-				},
+                },
                 {
                     name: "leave",
                     leftTrue: "I rush up the stairs, I did not wait to stay down there for too long.",
                 }
-			],
-		},
+            ],
+        },
         {
             name: "Final scene",
             sceneNumber: 6,
-			texts: [
+            texts: [
                 ["The light was blinding at first. The warmth was unsettling, considering the coldness of the house. Where was I? ", "regular", false],
                 ["Only two things laid before me in the garden. First, there was a ", "accept", false],
                 ["letter,", "accept", true],
                 [" folded in the grass, and a ", "accept", false],
                 ["screen,", "accept", true],
                 [" old-fashioned, but it seemed to be working. For the first time I felt... good. At peace.", "accept", false],
-			],
-			items: [
+            ],
+            items: [
                 {
                     name: "letter",
                     lookingAtLetter: false,
@@ -551,7 +551,7 @@ var myGameTxt = {
                     inspectTxt: "The letter was rather small in my hands. It felt... fragile.",
                     waitTxt: "I took in the moment. I felt so... so peaceful.",
                     acceptTxt: "The letter was signed by myself. It was touching. I felt a tear running down my cheek."
-				},
+                },
                 {
                     name: "screen",
                     isOpened: true,
@@ -581,17 +581,17 @@ var myGameTxt = {
                             "I plunged into the horizon"
                         ]
                     ]
-				},
+                },
                 {
                     name: "leave",
                     leftTrue: "Why would I leave? I wouldn't even know how to.",
                 }
-			],
-		},
+            ],
+        },
         {
             name: "Act Title",
             sceneNumber: 7,
-			texts: [
+            texts: [
                 {
                     id: 0,
                     text: [
@@ -627,18 +627,18 @@ var myGameTxt = {
                         ["Revelations", false]
                     ]
                 }
-			],
-		},
+            ],
+        },
         {
             name: "Enter your name",
             sceneNumber: 8,
-			title: "What's your name?",
+            title: "What's your name?",
             text1: "Please enter your username.",
             text2: "It works best with your actual first name."
-		},
-	],
-    currentScene:6,
-    currentAct:0,
+        },
+    ],
+    currentScene: 6,
+    currentAct: 0,
     username: "",
     isFinished: false,
     isMenu: true,
@@ -656,51 +656,51 @@ function countOutcomes() {
     let totalCommandsForThisAct = 0;
     let i = 0;
     let monAct = myGameTxt.currentAct;
-    if(monAct == 0) i = 2;
-    else if(monAct == 1 || monAct == 2) i = 3;
-    else if(monAct == 3) i = 4;
-    else if(monAct == 4) i = 5;
-    for(let k = i; k >= 0; k--){
+    if (monAct == 0) i = 2;
+    else if (monAct == 1 || monAct == 2) i = 3;
+    else if (monAct == 3) i = 4;
+    else if (monAct == 4) i = 5;
+    for (let k = i; k >= 0; k--) {
         let mesItems = myGameTxt.scenes[k].items;
         let monActe = parseInt(monAct);
         let nbrCommands = 3 + monActe;
-        if(mesItems) {
+        if (mesItems) {
             let lengthItem = parseInt(mesItems.length);
-            let actualItemLength = lengthItem-1;
-            if(monAct < 2 && k == 2){
+            let actualItemLength = lengthItem - 1;
+            if (monAct < 2 && k == 2) {
                 actualItemLength--;
             }
-            if(monAct == 2 && k == 3){
+            if (monAct == 2 && k == 3) {
                 actualItemLength--;
             }
-            mesItems.forEach((e)=>{
+            mesItems.forEach((e) => {
                 let canBeAdded = false;
                 let canBeAdded2 = false;
-                if(e.name != "leave") {
-                    if(e.canBeOpened){
-                        if(monAct == 0) {
+                if (e.name != "leave") {
+                    if (e.canBeOpened) {
+                        if (monAct == 0) {
                             console.log("this is act 1")
-                            if(e.name == "door") {
+                            if (e.name == "door") {
                                 actualItemLength++;
                                 canBeAdded = true;
                             }
                         }
-                        else if(monAct == 1) {
+                        else if (monAct == 1) {
                             console.log("this is act 2")
-                            if(e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp"|| e.name == "staircase") {
+                            if (e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase") {
                                 actualItemLength++;
                                 canBeAdded = true;
                             }
                         }
-                        else if(monAct == 2) {
+                        else if (monAct == 2) {
                             console.log("this is act 3")
-                            if(e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf") {
+                            if (e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf") {
                                 actualItemLength++;
                                 canBeAdded = true;
                             }
                         }
-                        else if(monAct == 3) {
-                            if(e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf"  || e.name == "altar") {
+                        else if (monAct == 3) {
+                            if (e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf" || e.name == "altar") {
                                 actualItemLength++;
                                 canBeAdded = true;
                             }
@@ -709,32 +709,32 @@ function countOutcomes() {
                             actualItemLength++;
                             canBeAdded = true;
                         }
-                        if(canBeAdded){
-                            mesCommandes.push(`look ${ e.name } ${ k } opened`);
-                            mesCommandes.push(`use ${ e.name } ${ k } opened`);
-                            mesCommandes.push(`go ${ e.name } ${ k } opened`);
-                            if(monAct >= 1) mesCommandes.push(`hit ${ e.name } ${ k } opened`);
-                            if(monAct >= 2) mesCommandes.push(`inspect ${ e.name } ${ k } opened`);
-                            if(monAct >= 3) mesCommandes.push(`wait ${ e.name } ${ k } opened`);
-                            if(monAct >= 4) mesCommandes.push(`accept ${ e.name } ${ k } opened`);
+                        if (canBeAdded) {
+                            mesCommandes.push(`look ${e.name} ${k} opened`);
+                            mesCommandes.push(`use ${e.name} ${k} opened`);
+                            mesCommandes.push(`go ${e.name} ${k} opened`);
+                            if (monAct >= 1) mesCommandes.push(`hit ${e.name} ${k} opened`);
+                            if (monAct >= 2) mesCommandes.push(`inspect ${e.name} ${k} opened`);
+                            if (monAct >= 3) mesCommandes.push(`wait ${e.name} ${k} opened`);
+                            if (monAct >= 4) mesCommandes.push(`accept ${e.name} ${k} opened`);
                         }
                     }
-                    if(monAct == 0 && e.name != "postcard") canBeAdded2 = true;
-                    if(monAct == 1 && e.name != "postcard" && e.name != "teddybear") canBeAdded2 = true;
-                    if(monAct > 1 ) canBeAdded2 = true;
-                    
-                    if(canBeAdded2){
-                        mesCommandes.push(`look ${ e.name } ${ k }`);
-                        mesCommandes.push(`use ${ e.name } ${ k }`);
-                        mesCommandes.push(`go ${ e.name } ${ k }`);
-                        if(monAct >= 1) mesCommandes.push(`hit ${ e.name } ${ k }`);
-                        if(monAct >= 2) mesCommandes.push(`inspect ${ e.name } ${ k }`);
-                        if(monAct >= 3) mesCommandes.push(`wait ${ e.name } ${ k }`);
-                        if(monAct >= 4) mesCommandes.push(`accept ${ e.name } ${ k }`);
+                    if (monAct == 0 && e.name != "postcard") canBeAdded2 = true;
+                    if (monAct == 1 && e.name != "postcard" && e.name != "teddybear") canBeAdded2 = true;
+                    if (monAct > 1) canBeAdded2 = true;
+
+                    if (canBeAdded2) {
+                        mesCommandes.push(`look ${e.name} ${k}`);
+                        mesCommandes.push(`use ${e.name} ${k}`);
+                        mesCommandes.push(`go ${e.name} ${k}`);
+                        if (monAct >= 1) mesCommandes.push(`hit ${e.name} ${k}`);
+                        if (monAct >= 2) mesCommandes.push(`inspect ${e.name} ${k}`);
+                        if (monAct >= 3) mesCommandes.push(`wait ${e.name} ${k}`);
+                        if (monAct >= 4) mesCommandes.push(`accept ${e.name} ${k}`);
                     }
                 }
             });
-            totalCommandsForThisAct += (actualItemLength*nbrCommands)+1;
+            totalCommandsForThisAct += (actualItemLength * nbrCommands) + 1;
         }
     }
     console.log(mesCommandes);

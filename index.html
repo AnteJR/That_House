@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="./CSS/jeu_animations.css">
     <title>That House</title>
 </head>
+
 <body>
     <!-- DIV .flicker POUR L'EFFET DE SCINTILLEMENT -->
     <div class="flicker" id="flickerDiv"></div>
@@ -22,7 +24,7 @@
         </div>
         <div class="bottomScreen" id="screenBottom">
             <div class="enterTxt">
-                <input type="text" placeholder="~ enter command here ~" class="inputCommand" id="commandInput"/>
+                <input type="text" placeholder="~ enter command here ~" class="inputCommand" id="commandInput" />
             </div>
             <div class="commandsList">
                 <div class="menuDiv whiteText" align="center">~~~ COMMAND LIST ~~~</div>
@@ -49,33 +51,36 @@
         <span class="scoreTotal whiteText" id="totalScore"></span>
     </div>
 
+    <!-- DIV POUR LES GRAPHISMES -->
+    <div class="whiteText mesStyles interactiveText" id="monStyle">Graphics</div>
+
     <!-- DIV POUR LES ALERTS -->
     <div class="alertBox" id="boxAlert" style="display:none">
-        <div class="txtAlert" id="alertTxt"></div>
-        <input type="button" value="next" class="buttonAlert" id="alertButton"/>
+        <div class="txtAlert whiteText" id="alertTxt"></div>
+        <input type="button" value="next" class="buttonAlert" id="alertButton" />
     </div>
 
     <!-- AUDIOS -->
-    <audio src="Audio/Keyboard1.wav" id = "key1" muted="muted"></audio>
-    <audio src="Audio/Keyboard2.wav" id = "key2" muted="muted"></audio>
-    <audio src="Audio/Keyboard3.wav" id = "key3" muted="muted"></audio>
-    <audio src="Audio/Keyboard4.wav" id = "key4" muted="muted"></audio>
-    <audio src="Audio/Keyboard5.wav" id = "key5" muted="muted"></audio>
-    <audio src="Audio/Keyboard6.wav" id = "key6" muted="muted"></audio>
-    <audio src="Audio/Keyboard7.wav" id = "key7" muted="muted"></audio>
-    <audio src="Audio/Keyboard8.wav" id = "key8" muted="muted"></audio>
+    <audio src="Audio/Keyboard1.wav" id="key1" muted="muted"></audio>
+    <audio src="Audio/Keyboard2.wav" id="key2" muted="muted"></audio>
+    <audio src="Audio/Keyboard3.wav" id="key3" muted="muted"></audio>
+    <audio src="Audio/Keyboard4.wav" id="key4" muted="muted"></audio>
+    <audio src="Audio/Keyboard5.wav" id="key5" muted="muted"></audio>
+    <audio src="Audio/Keyboard6.wav" id="key6" muted="muted"></audio>
+    <audio src="Audio/Keyboard7.wav" id="key7" muted="muted"></audio>
+    <audio src="Audio/Keyboard8.wav" id="key8" muted="muted"></audio>
 
-    <audio src="Audio/Menu.wav" id = "menu" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/Denial.wav" id = "denial" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/Anger.wav" id = "anger" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/Bargain.wav" id = "bargain" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/Depression.wav" id = "depression" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/Acceptance.wav" id = "acceptance" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/ReadingLetter.wav" id = "reading" muted="muted" class="monAudio" loop></audio>
-    <audio src="Audio/EndScreen.wav" id = "end" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/Menu.wav" id="menu" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/Denial.wav" id="denial" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/Anger.wav" id="anger" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/Bargain.wav" id="bargain" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/Depression.wav" id="depression" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/Acceptance.wav" id="acceptance" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/ReadingLetter.wav" id="reading" muted="muted" class="monAudio" loop></audio>
+    <audio src="Audio/EndScreen.wav" id="end" muted="muted" class="monAudio" loop></audio>
 
-    <audio src="Audio/buttonHover.wav" id = "btnHover" muted="muted"></audio>
-    <audio src="Audio/buttonPress.wav" id = "btnPress" muted="muted"></audio>
+    <audio src="Audio/buttonHover.wav" id="btnHover" muted="muted"></audio>
+    <audio src="Audio/buttonPress.wav" id="btnPress" muted="muted"></audio>
 
     <!-- CHARGEMENT DES SCRIPTS ICI POUR LES CHARGER APRÈS LE DOM -->
     <script type="text/javascript" src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
@@ -92,4 +97,5 @@
     <script type="text/javascript" src="JS/homePage.js"></script>
     <script type="text/javascript" src="JS/gsapTest.js"></script>
 </body>
+
 </html>

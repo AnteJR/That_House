@@ -3,7 +3,7 @@
     PERMETTRE DE LANCER LES MUSIQUES ET LES SONS SANS PASSER
     PAR UN HEADER HTTP.
 */
-function homePage(){
+function homePage() {
     // un peu de style
     gameDiv.style.textAlign = "center";
     document.getElementById("screenBottom").style.display = "none";
@@ -17,7 +17,7 @@ function homePage(){
         <input type="button" value="play game" class="buttonGo" id="buttonStartGame"/>`;
 
     // on crée un eventListener pour que le bouton mène au menu du jeu
-    document.getElementById("buttonStartGame").addEventListener("click", function(){
+    document.getElementById("buttonStartGame").addEventListener("click", function () {
         clickButton();
         document.getElementById("titleGame").style.fontSize = "1.25em";
         myGameTxt.isMenu = false;
