@@ -647,7 +647,7 @@ var myGameTxt = {
     nbrInputs: 0
 };
 
-let baseGameTxt = myGameTxt;
+let baseGameTxt = JSON.parse(JSON.stringify(myGameTxt));
 myGameTxt.mesInputs = countOutcomes();
 myGameTxt.nbrInputs = myGameTxt.mesInputs.length;
 
@@ -734,6 +734,5 @@ function countOutcomes() {
             totalCommandsForThisAct += (actualItemLength * nbrCommands) + 1;
         }
     }
-    console.log(mesCommandes);
     return mesCommandes;
 }

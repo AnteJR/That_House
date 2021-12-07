@@ -3,7 +3,6 @@
     ET SES TROIS OPTIONS : "NEW GAME", "CONTINUE" ET "ABOUT"
 */
 function startUpSetUp() {
-    console.log(localStorage.act + " | " + localStorage.username)
     // on revient en haut de la page
     window.scrollTo(0, 0);
     let optionsMenu = document.querySelectorAll(".bigTextDiv");

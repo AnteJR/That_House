@@ -176,12 +176,7 @@ function findText(commandItem, textInput) {
         */
         function nextActPlease(newAct) {
             document.getElementById("scoreZ").style.display = "none";
-            myGameTxt = baseGameTxt;
-            clearTimeout(hintFunc1);
-            clearTimeout(hintFunc2);
-            clearTimeout(hintFunc3);
-            clearTimeout(hintFunc4);
-            clearTimeout(hintFunc5);
+            myGameTxt = JSON.parse(JSON.stringify(baseGameTxt));
 
             // on incrémente le numéro de l'acte et set la scène à 6
             myGameTxt.currentAct = newAct;
@@ -330,7 +325,7 @@ function findText(commandItem, textInput) {
                             myGameTxt.scenes[0].items[2].canLeave = true;
                             setTimeout(() => {
                                 hintFunc1 = displayAlert("hint act1");
-                            }, 60000);
+                            }, 30000);
                         }
                         if (maScene == 2 && e.name == "bookshelf" && e.isOpened == true && e.isDoorOpen == true) {
                             textAlert = e.goTxtDoorOpen
@@ -391,11 +386,6 @@ function findText(commandItem, textInput) {
                     if (maScene == 2 && e.name == "bookshelf") e.isDoorOpen = true;
                     if (maScene == 4 && e.name == "altar" && e.bledOut == true) {
                         if (myGameTxt.currentAct == 3) {
-                            clearTimeout(hintFunc1);
-                            clearTimeout(hintFunc2);
-                            clearTimeout(hintFunc3);
-                            clearTimeout(hintFunc4);
-                            clearTimeout(hintFunc5);
                             document.getElementById("scoreZ").style.display = "none";
                             playMusic("acceptance");
                             myGameTxt = baseGameTxt;
@@ -525,7 +515,6 @@ function findText(commandItem, textInput) {
             actOne(false);
         }
         document.getElementById("scoreCurrent").innerHTML = (array.length - myGameTxt.nbrInputs) * (-1);
-        if (array.length == 0) displayAlert(`hint act${myGameTxt.currentAct}`);
     }
 
 

@@ -140,7 +140,6 @@ mesCommandes.forEach((element) => {
                 canBeUsed = true;
             }
             if (monAct >= 3 && this.className.split(" ")[1] == "waitC") {
-                console.log(canBeUsed);
                 canBeUsed = true;
             }
             if (monAct >= 4 && this.className.split(" ")[1] == "acceptC") {
