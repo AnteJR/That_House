@@ -124,7 +124,7 @@ window.addEventListener('keydown', (e) => {
     CE FOREACH AJOUTE DES EVENTLISTENER AUX COMMANDES EN BAS DE L'ÉCRAN
     AFIN DE PERMETTRE AU USER DE CLIQUER DESSUS POUR LES AJOUTER À L'INPUT
 */
-let mesCommandes = document.querySelectorAll(".command");
+const mesCommandes = document.querySelectorAll(".command");
 mesCommandes.forEach((element) => {
     element.addEventListener("click", function () {
         let maCommande = this.textContent;
@@ -132,27 +132,28 @@ mesCommandes.forEach((element) => {
         let monAct = myGameTxt.currentAct;
 
         // conditions pour rendre disponible les commandes aux bons actes
-        if (this.className.split(" ")[2].length == "bonusC") {
+        if (this.className.split(" ")[2] == "bonusC") {
             if (monAct >= 1 && this.className.split(" ")[1] == "hitC") {
-                canBeUsed = true
+                canBeUsed = true;
             }
             if (monAct >= 2 && this.className.split(" ")[1] == "inspectC") {
-                canBeUsed = true
+                canBeUsed = true;
             }
             if (monAct >= 3 && this.className.split(" ")[1] == "waitC") {
-                canBeUsed = true
+                console.log(canBeUsed);
+                canBeUsed = true;
             }
             if (monAct >= 4 && this.className.split(" ")[1] == "acceptC") {
-                canBeUsed = true
+                canBeUsed = true;
             }
         }
         else {
-            canBeUsed = true
+            canBeUsed = true;
         }
 
         // insérer le mot lié à la commande dans l'input
-        if (canBeUsed == true && document.getElementById('commandInput').value == "") {
-            document.getElementById('commandInput').value += maCommande + " ";
+        if (canBeUsed == true) {
+            document.getElementById('commandInput').value = maCommande + " ";
             if (maCommande.toLowerCase() == "leave") {
                 displayAlert("leave ")
                 document.getElementById('commandInput').value = "";

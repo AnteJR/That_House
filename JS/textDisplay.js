@@ -28,26 +28,28 @@ function displayGameText() {
     let mesObjets = document.querySelectorAll(".interactiveText");
     mesObjets.forEach((element) => {
         // on récupère leur textContent
-        element.addEventListener("click", function () {
-            let monObjet = this.textContent;
-            let obj = monObjet.split("");
-            // on édite le texte s'il comprend un . ou une ,
-            obj.forEach((e, i) => {
-                if (e == "." || e == ",") {
-                    obj[i] = ""
-                }
-                else {
-                    obj[i] = e;
+        if (element.textContent.toLowerCase() != "graphics") {
+            element.addEventListener("click", function () {
+                let monObjet = this.textContent;
+                let obj = monObjet.split("");
+                // on édite le texte s'il comprend un . ou une ,
+                obj.forEach((e, i) => {
+                    if (e == "." || e == ",") {
+                        obj[i] = ""
+                    }
+                    else {
+                        obj[i] = e;
+                    }
+                });
+                // on affiche le mot dans l'input quand il est cliqué (s'il suit un autre mot)
+                let monMot = obj.join("");
+                if (document.getElementById("commandInput").value != "") {
+                    document.getElementById("commandInput").value += monMot;
+                    displayAlert(document.getElementById("commandInput").value);
+                    document.getElementById("commandInput").value = "";
                 }
             });
-            // on affiche le mot dans l'input quand il est cliqué (s'il suit un autre mot)
-            let monMot = obj.join("");
-            if (document.getElementById("commandInput").value != "") {
-                document.getElementById("commandInput").value += monMot;
-                displayAlert(document.getElementById("commandInput").value);
-                document.getElementById("commandInput").value = "";
-            }
-        });
+        }
     });
 
     // un forEach pour chaque div qui contient du texte
@@ -265,8 +267,7 @@ document.getElementById("monStyle").addEventListener("click", () => {
 });
 
 function deleteStyles(fromButton) {
-    console.log("isTrue")
-    if(fromButton==true)isDefault = false;
+    if (fromButton == true) isDefault = false;
     let whiteText = document.querySelectorAll(".whiteText");
     let angerText = document.querySelectorAll(".iAmAnger");
     let bargainText = document.querySelectorAll(".iAmBargain");
@@ -290,8 +291,7 @@ function deleteStyles(fromButton) {
 }
 
 function putBackStyles(fromButton) {
-    console.log("isFalse")
-    if(fromButton==true)isDefault = true;
+    if (fromButton == true) isDefault = true;
     let whiteText = document.querySelectorAll(".whiteText");
     let angerText = document.querySelectorAll(".iAmAnger");
     let bargainText = document.querySelectorAll(".iAmBargain");

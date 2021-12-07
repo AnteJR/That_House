@@ -65,13 +65,13 @@ var myGameTxt = {
             items: [
                 {
                     name: "road",
-                    isOpened: false,
+                    isOpened: true,
                     canBeOpened: false,
-                    lookTxt: "The road was short. It was mainly made of dirt. It had not been maintained in a while.",
+                    lookTxtOpen: "The road was short. It was mainly made of dirt. It had not been maintained in a while.",
                     useWin: true,
-                    useTxt: "I might as well.",
+                    useTxtOpen: "I might as well.",
                     goWin: true,
-                    goTxt: "I might as well.",
+                    goTxtOpen: "I might as well.",
                     hitTxt: "Why would I hit dirt?",
                     inspectTxt: "It was dirt, what do you want me to say?",
                     waitTxt: "I waited for a bit. A bird flew by. Time to move",
@@ -80,12 +80,12 @@ var myGameTxt = {
                 },
                 {
                     name: "door",
-                    isOpened: false,
+                    isOpened: true,
                     canBeOpened: false,
-                    lookTxt: "The door looked closed from up here. I could try to open it. Needed to go to it though.",
-                    useTxt: "I needed to get closer to it.",
+                    lookTxtOpen: "The door looked closed from up here. I could try to open it. Needed to go to it though.",
+                    useTxtOpen: "I needed to get closer to it.",
                     goWin: true,
-                    goTxt: "I might as well.",
+                    goTxtOpen: "I might as well.",
                     hitTxt: "I mean, I could. Needed to get closer though.",
                     inspectTxt: "I was too far away to see anything.",
                     waitTxt: "I waited for a bit. The door kept shut. Time to move.",
@@ -677,23 +677,20 @@ function countOutcomes() {
                 let canBeAdded = false;
                 let canBeAdded2 = false;
                 if (e.name != "leave") {
-                    if (e.canBeOpened) {
+                    if (e.canBeOpened && e.isOpened == false) {
                         if (monAct == 0) {
-                            console.log("this is act 1")
                             if (e.name == "door") {
                                 actualItemLength++;
                                 canBeAdded = true;
                             }
                         }
                         else if (monAct == 1) {
-                            console.log("this is act 2")
                             if (e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase") {
                                 actualItemLength++;
                                 canBeAdded = true;
                             }
                         }
                         else if (monAct == 2) {
-                            console.log("this is act 3")
                             if (e.name == "door" || e.name == "desk" || e.name == "window" || e.name == "bedlamp" || e.name == "staircase" || e.name == "bed" || e.name == "postcard" || e.name == "bookshelf") {
                                 actualItemLength++;
                                 canBeAdded = true;

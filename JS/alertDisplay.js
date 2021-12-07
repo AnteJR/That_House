@@ -114,6 +114,7 @@ function displayAlert(text) {
     DU CONTENU DE L'INPUT.
 */
 function findText(commandItem, textInput) {
+    let selectedItem = [];
     let isWin = false;
     let canOpen = false;
     let itemOpened = false;
@@ -244,6 +245,7 @@ function findText(commandItem, textInput) {
     else {
         // on parcours la liste des items pour trouver le bon. Une fois trouver, on a un set de conditions principales et secondaires
         monItem.forEach((e) => {
+            selectedItem.push(e.name);
             if (e.name == commandItem[1].toLowerCase()) {
 
                 // si maCommande est "look"
@@ -309,7 +311,6 @@ function findText(commandItem, textInput) {
                     // si l'attribut isOpened est false, on affiche le texte standard
                     if (!e.isOpened) {
                         textAlert = e.goTxt;
-                        if (e.goWin) isWin = true;
                     }
 
                     // si l'attribut isOpened est true, on affiche le texte spécial
@@ -463,8 +464,6 @@ function findText(commandItem, textInput) {
                     textAlert = `What was I supposed to do with the ${commandItem[1].toLowerCase()} again?`;
                 }
             }
-            if (e.isOpened) itemOpened = true;
-            if (e.canBeOpened) canOpen = true;
         });
 
         // si l'objet entré dans l'input ne correspond à aucun myGamTxt.scenes[myGametxt.currentScene].items
@@ -474,28 +473,44 @@ function findText(commandItem, textInput) {
     }
 
     if (validInput) {
+        let doesItOpen = false;
+        let isCorrect = false;
+        let monObjet = "";
+        selectedItem.forEach((e) => {
+            if (e == commandItem[1].toLowerCase()) {
+                isCorrect = true;
+                monObjet = e;
+            }
+        });
+        monItem.forEach((e) => {
+            if (e.name == monObjet) {
+                if (e.isOpened) itemOpened = true;
+                if (e.canBeOpened) canOpen = true;
+            }
+        });
         textInput = textInput.toLowerCase();
         myGameTxt.previousInput.push(textInput);
         let array = myGameTxt.mesInputs;
-        if (canOpen) {
-            if (itemOpened) {
-                let index = array.indexOf(textInput + " " + myGameTxt.currentScene + " opened");
-                if (index > -1) {
-                    array.splice(index, 1);
+        if (isCorrect) {
+            if (canOpen) {
+                if (itemOpened) {
+                    let index = array.indexOf(textInput + " " + myGameTxt.currentScene + " opened");
+                    if (index > -1) {
+                        array.splice(index, 1);
+                    }
+                    for (let i = 0; i < 7; i++) {
+                        let mesCommandes = ["look", "use", "go", "hit", "inspect", "wait", "accept"];
+                        let monElement = array.indexOf(mesCommandes[i] + " " + monObjet + " " + myGameTxt.currentScene);
+                        if (monElement > -1) {
+                            array.splice(index, 1);
+                        }
+                    }
                 }
-            }
-            else {
-                let index = array.indexOf(textInput + " " + myGameTxt.currentScene);
-                if (index > -1) {
-                    array.splice(index, 1);
-                }
-            }
-        }
-        else {
-            if (itemOpened) {
-                let index = array.indexOf(textInput + " " + myGameTxt.currentScene + " opened");
-                if (index > -1) {
-                    array.splice(index, 1);
+                else {
+                    let index = array.indexOf(textInput + " " + myGameTxt.currentScene);
+                    if (index > -1) {
+                        array.splice(index, 1);
+                    }
                 }
             }
             else {
