@@ -469,12 +469,12 @@ function findText(commandItem, textInput){
                 
         // si l'objet entré dans l'input ne correspond à aucun myGamTxt.scenes[myGametxt.currentScene].items
         if (textAlert == ""){
-            textAlert = `Didn't know what to do with the ${ commandItem[1].toLowerCase() }`;
+            textAlert = `What did I mean by "${ commandItem[1].toLowerCase() }"?"`;
         }
     }
 
     if(validInput) {
-        textInput.toLowerCase()
+        textInput = textInput.toLowerCase();
         myGameTxt.previousInput.push(textInput);
         let array = myGameTxt.mesInputs;
         if(canOpen){
