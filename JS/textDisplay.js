@@ -155,9 +155,9 @@ function displayGameText() {
     function playTheFuckingSounds(fullTextLength, canPlay) {
         clearInterval(monInterval);
         let k = fullTextLength;
-        let mestrucs = Math.round(Math.random() * 10) + 53;
+        let mestrucs = Math.round(Math.random() * 5) + 50;
         monInterval = setInterval(() => {
-            mestrucs = Math.round(Math.random() * 10) + 53;
+            mestrucs = Math.round(Math.random() * 5) + 50;
             k--;
             if (canPlay) {
                 // condition pour lancer les bruitages, une lettre sur 2
@@ -171,7 +171,9 @@ function displayGameText() {
                             if (!myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter && !myGameTxt.isFinished) canPlaySound = true;
                         }
                     }
-                    if (canPlaySound) playKeyType();
+                    if (canPlaySound) {
+                        playKeyType();
+                    }
                 }
                 else if (k < 1) {
                     clearInterval(monInterval);

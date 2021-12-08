@@ -641,7 +641,7 @@ var myGameTxt = {
     currentAct: 0,
     username: "",
     isFinished: false,
-    isMenu: true,
+    isMenu: false,
     previousInput: [],
     mesInputs: [],
     nbrInputs: 0

@@ -175,6 +175,11 @@ function findText(commandItem, textInput) {
             LA FONCTION NEXTACTPLEASE() PARAMÈTRE LE PASSAGE À UN NOUVEL ACTE.
         */
         function nextActPlease(newAct) {
+            clearInterval(hintFunc1);
+            clearInterval(hintFunc2);
+            clearInterval(hintFunc3);
+            clearInterval(hintFunc4);
+            clearInterval(hintFunc5);
             document.getElementById("scoreZ").style.display = "none";
             myGameTxt = JSON.parse(JSON.stringify(baseGameTxt));
 
@@ -269,8 +274,9 @@ function findText(commandItem, textInput) {
                     if (!e.isOpened) {
                         textAlert = e.useTxt;
                         if (maScene == 4 && e.name == "altar") {
-                            setTimeout(() => {
-                                hintFunc5 = displayAlert("hint act4");
+                            hintFunc5 = setInterval(() => {
+                                displayAlert("hint act4");
+                                clearInterval(hintFunc5);
                             }, 15000);
                         }
                         if (e.useWin) isWin = true;
@@ -323,8 +329,9 @@ function findText(commandItem, textInput) {
                         // set de condition speciales
                         if (maScene == 1 && myGameTxt.currentAct == 0) {
                             myGameTxt.scenes[0].items[2].canLeave = true;
-                            setTimeout(() => {
-                                hintFunc1 = displayAlert("hint act1");
+                            hintFunc1 = setInterval(() => {
+                                displayAlert("hint act1");
+                                clearInterval(hintFunc1);
                             }, 30000);
                         }
                         if (maScene == 2 && e.name == "bookshelf" && e.isOpened == true && e.isDoorOpen == true) {
@@ -333,8 +340,9 @@ function findText(commandItem, textInput) {
                             actOne(false);
                         }
                         if (e.name == "staircase" && myGameTxt.currentAct == 1) {
-                            setTimeout(() => {
-                                hintFunc2 = displayAlert("hint act2");
+                            hintFunc2 = setInterval(() => {
+                                displayAlert("hint act2");
+                                clearInterval(hintFunc2);
                             }, 30000);
                         }
                     }
@@ -366,13 +374,15 @@ function findText(commandItem, textInput) {
                         monItem[e.inspectOpens].isOpened = true;
                     }
                     if (e.name == "postcard" && myGameTxt.currentAct == 2) {
-                        setTimeout(() => {
-                            hintFunc3 = displayAlert("hint act3-1");
+                        hintFunc3 = setInterval(() => {
+                            displayAlert("hint act3-1");
+                            clearInterval(hintFunc3)
                         }, 5000);
                     }
                     if (e.name == "bookshelf" && e.isOpened && myGameTxt.currentAct == 2) {
-                        setTimeout(() => {
-                            hintFunc4 = displayAlert("hint act3");
+                        hintFunc4 = setInterval(() => {
+                            displayAlert("hint act3");
+                            clearInterval(hintFunc4)
                         }, 15000);
                     }
                     validInput = true;
@@ -386,6 +396,7 @@ function findText(commandItem, textInput) {
                     if (maScene == 2 && e.name == "bookshelf") e.isDoorOpen = true;
                     if (maScene == 4 && e.name == "altar" && e.bledOut == true) {
                         if (myGameTxt.currentAct == 3) {
+                            clearInterval(hintFunc5);
                             document.getElementById("scoreZ").style.display = "none";
                             playMusic("acceptance");
                             myGameTxt = baseGameTxt;
@@ -488,8 +499,8 @@ function findText(commandItem, textInput) {
                     if (index > -1) {
                         array.splice(index, 1);
                     }
-                    for (let i = 0; i < 7; i++) {
-                        let mesCommandes = ["look", "use", "go", "hit", "inspect", "wait", "accept"];
+                    for (let i = 0; i < 3; i++) {
+                        let mesCommandes = ["look", "use", "go"];
                         let monElement = array.indexOf(mesCommandes[i] + " " + monObjet + " " + myGameTxt.currentScene);
                         if (monElement > -1) {
                             array.splice(index, 1);

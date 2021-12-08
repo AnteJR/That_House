@@ -4,6 +4,7 @@
     PAR UN HEADER HTTP.
 */
 function homePage() {
+    myGameTxt.isMenu = true;
     // un peu de style
     gameDiv.style.textAlign = "center";
     document.getElementById("screenBottom").style.display = "none";
@@ -25,4 +26,4 @@ function homePage() {
     });
 }
 
-homePage()
+homePage();
