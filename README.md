@@ -10,7 +10,7 @@ _That House_ is a text-based adventure game I programmed in the context of the c
 * A personal take on death and how one can deal with its inevitability
 * Text animations to help visualize what can and cannot be interacted with
 * Full liberty of control: write commands from the input, the DOM, or clic interactive texts
-* References to works such as _Midnight Mass_ and Thornhill's _The Dark Pool_
+* References to works such as [_Midnight Mass_](https://www.imdb.com/title/tt10574558/) and Thornhill's [_The Dark Pool_](https://thornhillmelb.bandcamp.com/album/the-dark-pool)
 ![Screenshot](Images/Gif4.gif)
 # How do I play _That House_?
 ## BEWARE, SPOILERS AHEAD
