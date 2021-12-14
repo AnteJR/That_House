@@ -1,4 +1,5 @@
 # That House
+![Screenshot](Images/Gif1.gif)
 ## Where can I play _That House_?
 _That House_ is available for free on [itch.io](https://jrante.itch.io/that-house).
 ## What's _That House_?
@@ -30,4 +31,3 @@ The game has a series of command, which are described as follows:
 6. **INSPECT** is a more thorough look at an element. It is used to get more details out of the decor, and sometimes find secrets...
 7. **WAIT** makes you wait in front of an object for some times. Patience is a virtue!
 8. **ACCEPT** either makes you realize the state you are in, or unlocks puzzle solutions. It is also the final command you'll need to enter to complete the game.
-![Screenshot](Images/Gif1.gif)
