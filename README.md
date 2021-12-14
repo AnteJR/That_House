@@ -1,6 +1,7 @@
 # That House
+![Gif](Images/Gif1.gif)
 ## Where can I play _That House_?
-_That House_ is available for free on [itch.io](https://jrante.itch.io/that-house).
+⚠️ **_That House_ is available for free on [itch.io](https://jrante.itch.io/that-house).** ⚠️
 ## What's _That House_?
 _That House_ is a text-based adventure game I programmed in the context of the course "Digital Publications", given by Isaac Pante at the University of Lausanne. It has for subject death and its acceptance. You play as a person who recently died in a car accident, who (re)visits a place once familiar, and learn to accept their own death. The story is recursive: you will play through the same selection of scenes multiple times, each time bringing something new, either in unlockable content, or backstory. The game features:
 * A story-rich scenario with liberty of exploration
@@ -30,4 +31,3 @@ The game has a series of command, which are described as follows:
 6. **INSPECT** is a more thorough look at an element. It is used to get more details out of the decor, and sometimes find secrets...
 7. **WAIT** makes you wait in front of an object for some times. Patience is a virtue!
 8. **ACCEPT** either makes you realize the state you are in, or unlocks puzzle solutions. It is also the final command you'll need to enter to complete the game.
-![Screenshot](Images/Gif1.gif)
