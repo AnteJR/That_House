@@ -1,6 +1,4 @@
-[![Gif](Images/Gif1.gif)](https://github.com/AnteJR/That_House)
-# Where can I play _That House_?
-⚠️ **_That House_ is available for free on [itch.io](https://jrante.itch.io/that-house).** ⚠️
+[![Gif](Images/Gif1.gif)](https://jrante.itch.io/that-house)
 [![Gif2](Images/Gif2.gif)](https://jrante.itch.io/that-house)
 **_That House_ is also available for free on [Github Pages](https://antejr.github.io/That_House/).**
 # What's _That House_?
