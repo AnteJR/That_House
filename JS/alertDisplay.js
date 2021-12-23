@@ -43,7 +43,7 @@ function displayAlert(text) {
         // on lance la fonction openLetter(), qui a un affichage spécial
         myGameTxt.scenes[myGameTxt.currentScene].items[0].lookingAtLetter = true;
         myGameTxt.scenes[myGameTxt.currentScene].items[0].letterRead = true;
-        openLetter();
+        openLetter(0);
     }
     // CONDITION SPÉCIALE : sinon on définit textToDisplay en appelant la fonction findText() avec comme argument la variable command
     else {

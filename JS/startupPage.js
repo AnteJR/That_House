@@ -34,8 +34,8 @@ function startUpSetUp() {
                     document.getElementById("alertButton2").addEventListener("click", () => {
                         clickButton();
                         localStorage.clear();
-                        myGameTxt.currentAct = 0;
-                        myGameTxt.currentScene = 7;
+                        myGameTxt.currentAct = 4;
+                        myGameTxt.currentScene = 5;
                         actOne(true);
                         playMusic("denial");
                         document.getElementById("totalScore").innerHTML = myGameTxt.nbrInputs;
@@ -56,8 +56,8 @@ function startUpSetUp() {
                     });
                 }
                 else {
-                    myGameTxt.currentAct = 0;
-                    myGameTxt.currentScene = 7;
+                    myGameTxt.currentAct = 4;
+                    myGameTxt.currentScene = 5;
                     actOne(true);
                     playMusic("denial");
                     document.getElementById("totalScore").innerHTML = myGameTxt.nbrInputs;

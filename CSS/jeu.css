@@ -34,7 +34,6 @@ body {
         to bottom,
         white,
         rgba(3, 15, 26, 0)) 1;
-    transition: border-width 1s linear;
 }
 .topScreen {
     width: 100%;
@@ -274,7 +273,7 @@ body {
 }
 .buttonGoBack:hover {
     cursor: pointer;
-    background: linear-gradient(90deg, white 0%, rgba(3, 15, 26, 0) 50%, white 100%);
+    background: linear-gradient(90deg, white 0%, rgba(3, 15, 26) 50%, white 100%);
     color: white;
 }
 .buttonGoBack:active {
